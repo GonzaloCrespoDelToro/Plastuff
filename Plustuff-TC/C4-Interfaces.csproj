@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C9E5D96A-6BD1-4CF4-8925-80081B514CC6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Plustuff_TC</RootNamespace>
+    <AssemblyName>Plustuff-TC</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Plustuff_TC.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.1\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Fam_Pat\Alta_Familia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fam_Pat\Alta_Familia.Designer.cs">
+      <DependentUpon>Alta_Familia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fam_Pat\Asignar_Fam_Usu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fam_Pat\Asignar_Fam_Usu.Designer.cs">
+      <DependentUpon>Asignar_Fam_Usu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fam_Pat\Asignar_Pat_Fam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fam_Pat\Asignar_Pat_Fam.Designer.cs">
+      <DependentUpon>Asignar_Pat_Fam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fam_Pat\Asignar_Pat_Usu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fam_Pat\Asignar_Pat_Usu.Designer.cs">
+      <DependentUpon>Asignar_Pat_Usu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fam_Pat\Modificar_Familia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fam_Pat\Modificar_Familia.Designer.cs">
+      <DependentUpon>Modificar_Familia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn\Error_Base.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn\Error_Base.Designer.cs">
+      <DependentUpon>Error_Base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn\Inicio_Sistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn\Inicio_Sistema.Designer.cs">
+      <DependentUpon>Inicio_Sistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogIn\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu test.Designer.cs">
+      <DependentUpon>Menu test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Negocio\Empleado\Alta_Empleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Negocio\Empleado\Alta_Empleado.Designer.cs">
+      <DependentUpon>Alta_Empleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Negocio\Empleado\Modificar_Empleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Negocio\Empleado\Modificar_Empleado.Designer.cs">
+      <DependentUpon>Modificar_Empleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Nueva_Cotizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Nueva_Cotizacion.Designer.cs">
+      <DependentUpon>Nueva_Cotizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Gestionar_Cotizaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Gestionar_Cotizaciones.Designer.cs">
+      <DependentUpon>Gestionar_Cotizaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Modificar_Cotizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Modificar_Cotizacion.Designer.cs">
+      <DependentUpon>Modificar_Cotizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Modificar_Filamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Modificar_Filamento.Designer.cs">
+      <DependentUpon>Modificar_Filamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Nuevo_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Nuevo_Cliente.Designer.cs">
+      <DependentUpon>Nuevo_Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Nuevo_Filamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Nuevo_Filamento.Designer.cs">
+      <DependentUpon>Nuevo_Filamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguridad\Backup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\Backup.Designer.cs">
+      <DependentUpon>Backup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\Pantallas\Usuario\Alta_Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\Pantallas\Usuario\Alta_Usuario.Designer.cs">
+      <DependentUpon>Alta_Usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\Pantallas\Usuario\Cambiar_Contraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\Pantallas\Usuario\Cambiar_Contraseña.Designer.cs">
+      <DependentUpon>Cambiar_Contraseña.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\Pantallas\Usuario\Desbloquear_Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\Pantallas\Usuario\Desbloquear_Usuario.Designer.cs">
+      <DependentUpon>Desbloquear_Usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\Pantallas\Usuario\Mod_Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\Pantallas\Usuario\Mod_Usuario.Designer.cs">
+      <DependentUpon>Mod_Usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\Restore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\Restore.Designer.cs">
+      <DependentUpon>Restore.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Fam_Pat\Alta_Familia.resx">
+      <DependentUpon>Alta_Familia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fam_Pat\Asignar_Fam_Usu.resx">
+      <DependentUpon>Asignar_Fam_Usu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fam_Pat\Asignar_Pat_Fam.resx">
+      <DependentUpon>Asignar_Pat_Fam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fam_Pat\Asignar_Pat_Usu.resx">
+      <DependentUpon>Asignar_Pat_Usu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fam_Pat\Modificar_Familia.resx">
+      <DependentUpon>Modificar_Familia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogIn\Error_Base.resx">
+      <DependentUpon>Error_Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogIn\Inicio_Sistema.resx">
+      <DependentUpon>Inicio_Sistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogIn\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu test.resx">
+      <DependentUpon>Menu test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Negocio\Empleado\Alta_Empleado.resx">
+      <DependentUpon>Alta_Empleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Negocio\Empleado\Modificar_Empleado.resx">
+      <DependentUpon>Modificar_Empleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Negocio\Pantallas\Nueva_Cotizacion.resx">
+      <DependentUpon>Nueva_Cotizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Negocio\Pantallas\Gestionar_Cotizaciones.resx">
+      <DependentUpon>Gestionar_Cotizaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Negocio\Pantallas\Modificar_Cotizacion.resx">
+      <DependentUpon>Modificar_Cotizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Negocio\Pantallas\Modificar_Filamento.resx">
+      <DependentUpon>Modificar_Filamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Negocio\Pantallas\Nuevo_Cliente.resx">
+      <DependentUpon>Nuevo_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Negocio\Pantallas\Nuevo_Filamento.resx">
+      <DependentUpon>Nuevo_Filamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Seguridad\Backup.resx">
+      <DependentUpon>Backup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\Pantallas\Usuario\Alta_Usuario.resx">
+      <DependentUpon>Alta_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\Pantallas\Usuario\Cambiar_Contraseña.resx">
+      <DependentUpon>Cambiar_Contraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\Pantallas\Usuario\Desbloquear_Usuario.resx">
+      <DependentUpon>Desbloquear_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\Pantallas\Usuario\Mod_Usuario.resx">
+      <DependentUpon>Mod_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\Restore.resx">
+      <DependentUpon>Restore.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Acceso_Datos\C1-Acceso_Datos.csproj">
+      <Project>{32991abc-5e03-47d8-a094-3358018b6c4c}</Project>
+      <Name>C1-Acceso_Datos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
