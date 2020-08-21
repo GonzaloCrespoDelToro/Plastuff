@@ -44,7 +44,7 @@ namespace Plustuff_TC.LogIn
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text == "1")
+            if(txtusu.Text == "1")
             {
                 MessageBox.Show(this, "Tu usuario ha sido bloqueado" + Environment.NewLine + "Por favor contactarse con el Administrador",
                                    "Usuario Bloqueado", MessageBoxButtons.OKCancel,

@@ -62,7 +62,7 @@
             // 
             this.Inicio_sistema.Location = new System.Drawing.Point(93, 12);
             this.Inicio_sistema.Name = "Inicio_sistema";
-            this.Inicio_sistema.Size = new System.Drawing.Size(139, 23);
+            this.Inicio_sistema.Size = new System.Drawing.Size(108, 23);
             this.Inicio_sistema.TabIndex = 1;
             this.Inicio_sistema.Text = "Inicio de sistema";
             this.Inicio_sistema.UseVisualStyleBackColor = true;
@@ -70,7 +70,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(238, 12);
+            this.button1.Location = new System.Drawing.Point(207, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -102,7 +102,7 @@
             // 
             this.button3.Location = new System.Drawing.Point(174, 41);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(103, 23);
+            this.button3.Size = new System.Drawing.Size(108, 23);
             this.button3.TabIndex = 5;
             this.button3.Text = "Nuevo Cliente";
             this.button3.UseVisualStyleBackColor = true;
@@ -232,7 +232,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 287);
+            this.ClientSize = new System.Drawing.Size(292, 249);
             this.Controls.Add(this.button15);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button13);
