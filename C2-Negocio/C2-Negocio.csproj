@@ -5,4 +5,8 @@
     <RootNamespace>C2_Negocio</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Servicios\C3-Servicios.csproj" />
+  </ItemGroup>
+
 </Project>

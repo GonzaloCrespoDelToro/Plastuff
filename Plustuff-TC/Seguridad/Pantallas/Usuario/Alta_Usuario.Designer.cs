@@ -36,8 +36,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtnombreU = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btncancelar = new System.Windows.Forms.Button();
+            this.btnconfirmar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,24 +113,24 @@
             this.label7.TabIndex = 2;
             this.label7.Text = "Nombre Usu.";
             // 
-            // button1
+            // btncancelar
             // 
-            this.button1.Location = new System.Drawing.Point(12, 140);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 29);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Confirmar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btncancelar.Location = new System.Drawing.Point(189, 140);
+            this.btncancelar.Name = "btncancelar";
+            this.btncancelar.Size = new System.Drawing.Size(135, 29);
+            this.btncancelar.TabIndex = 3;
+            this.btncancelar.Text = "Cancelar";
+            this.btncancelar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnconfirmar
             // 
-            this.button2.Location = new System.Drawing.Point(189, 140);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(135, 29);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnconfirmar.Location = new System.Drawing.Point(12, 140);
+            this.btnconfirmar.Name = "btnconfirmar";
+            this.btnconfirmar.Size = new System.Drawing.Size(135, 29);
+            this.btnconfirmar.TabIndex = 4;
+            this.btnconfirmar.Text = "Confirmar";
+            this.btnconfirmar.UseVisualStyleBackColor = true;
+            this.btnconfirmar.Click += new System.EventHandler(this.btnconfirmar_Click);
             // 
             // Alta_Usuario
             // 
@@ -138,8 +138,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(336, 175);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnconfirmar);
+            this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.groupBox2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -158,9 +158,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtnombreU;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btncancelar;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnconfirmar;
     }
 }

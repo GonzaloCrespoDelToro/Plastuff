@@ -285,9 +285,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Acceso_Datos\C1-Acceso_Datos.csproj">
-      <Project>{32991abc-5e03-47d8-a094-3358018b6c4c}</Project>
-      <Name>C1-Acceso_Datos</Name>
+    <ProjectReference Include="..\C2-Negocio\C2-Negocio.csproj">
+      <Project>{f8153560-6651-48c1-a49b-3367d407e198}</Project>
+      <Name>C2-Negocio</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

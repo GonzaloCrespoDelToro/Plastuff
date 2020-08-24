@@ -44,21 +44,12 @@ namespace Plustuff_TC.LogIn
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(txtusu.Text == "1")
-            {
                 MessageBox.Show(this, "Tu usuario ha sido bloqueado" + Environment.NewLine + "Por favor contactarse con el Administrador",
                                    "Usuario Bloqueado", MessageBoxButtons.OKCancel,
                                    MessageBoxIcon.Warning,
                                    MessageBoxDefaultButton.Button1, 0,
                                    "mspaint.chm",
                                    "mspaint.chm::/paint_brush.htm");
-            }
-            else
-            {
-                lblerror.Visible = true;
-                lblerror.Text = "El usuario o la contraseña no son validos";
-                //MessageBox.Show(this, "La contraseña ingresada es incorrecta." + Environment.NewLine + "Intente de nuevo", "Contraseña incorrecta", MessageBoxButtons.OK,MessageBoxIcon.Warning);
-            }
             
         }
 
