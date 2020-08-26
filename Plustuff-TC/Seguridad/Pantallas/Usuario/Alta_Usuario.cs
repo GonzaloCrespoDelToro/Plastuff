@@ -28,7 +28,7 @@ namespace Plustuff_TC.Seguridad.Pantallas.Usuario
         private void btnconfirmar_Click(object sender, EventArgs e)
         {
             var usu = new Usuarios();
-            usu.Verificar_Usuario(txtnombreU.Text);
+            var asd = usu.Verificar_Usuario(txtnombreU.Text);
         }
     }
 }
