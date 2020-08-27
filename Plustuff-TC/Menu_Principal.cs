@@ -7,27 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using C2_Negocio;
 
-namespace Plustuff_TC.Seguridad.Pantallas.Usuario
+namespace Plustuff_TC
 {
-    public partial class Alta_Usuario : Form
+    public partial class Menu_Principal : Form
     {
-        public Usuarios usuario;
-
-        public Alta_Usuario()
+        public Menu_Principal()
         {
             InitializeComponent();
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnconfirmar_Click(object sender, EventArgs e)
+        private void altaUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
     }
 }

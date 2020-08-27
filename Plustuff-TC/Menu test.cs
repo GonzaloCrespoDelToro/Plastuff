@@ -43,17 +43,8 @@ namespace Plustuff_TC
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //Fam_Pat.Asignar_Pat_Fam asignar_Pat_Fam = new Fam_Pat.Asignar_Pat_Fam();
-            //asignar_Pat_Fam.Show();
-
-            //Fam_Pat.Asignar_Fam_Usu asignar_Pat_Fam = new Fam_Pat.Asignar_Fam_Usu();
-            //asignar_Pat_Fam.Show();
-
-            //Fam_Pat.Asignar_Pat_Usu asignar_Fam_Usu = new Fam_Pat.Asignar_Pat_Usu();
-            //asignar_Fam_Usu.Show();
-
-            LogIn.Error_Base error_Base = new LogIn.Error_Base();
-            error_Base.Show();
+            Menu_Principal menu_Principal = new Menu_Principal();
+            menu_Principal.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
