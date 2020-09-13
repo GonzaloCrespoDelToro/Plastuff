@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C4-Interfaces", "Plustuff-T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C1-Acceso_Datos", "Acceso_Datos\C1-Acceso_Datos.csproj", "{32991ABC-5E03-47D8-A094-3358018B6C4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C3-Servicios", "Servicios\C3-Servicios.csproj", "{2681E3BA-4499-41EB-90CA-AE828CAFB6E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C3-Servicios", "Servicios\C3-Servicios.csproj", "{2681E3BA-4499-41EB-90CA-AE828CAFB6E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C2-Negocio", "C2-Negocio\C2-Negocio.csproj", "{F8153560-6651-48C1-A49B-3367D407E198}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C2-Negocio", "C2-Negocio\C2-Negocio.csproj", "{F8153560-6651-48C1-A49B-3367D407E198}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo", "Modelo\Modelo.csproj", "{F758926A-DD22-43B6-B977-4741C5CEFDC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F8153560-6651-48C1-A49B-3367D407E198}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8153560-6651-48C1-A49B-3367D407E198}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8153560-6651-48C1-A49B-3367D407E198}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F758926A-DD22-43B6-B977-4741C5CEFDC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F758926A-DD22-43B6-B977-4741C5CEFDC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F758926A-DD22-43B6-B977-4741C5CEFDC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F758926A-DD22-43B6-B977-4741C5CEFDC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

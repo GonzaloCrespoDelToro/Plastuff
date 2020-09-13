@@ -92,6 +92,7 @@ namespace Acceso_Datos
 
         public string Ejecutar_Query(string Tipo, string Consulta)
         {
+            Armar_Conexion(); //SOLO DE PRUEBA
             try
             {
                 SqlCommand CMD = new SqlCommand();
