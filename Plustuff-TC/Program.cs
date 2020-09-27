@@ -16,7 +16,7 @@ namespace Plustuff_TC
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Menu_test());
+            Application.Run(new LogIn.Inicio_Sistema());
         }
     }
 }

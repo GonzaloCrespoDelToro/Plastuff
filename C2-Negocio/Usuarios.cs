@@ -86,7 +86,7 @@ namespace C2_Negocio
             string usuE = _encriptacion.Encriptar(usuario.Nombre, 2);
             string passE = _encriptacion.Encriptar(usuario.Pass, 1);
 
-            _accesoSQL.Armar_Conexion();//Lo tengo que sacar, va en inicio de sistema
+            //_accesoSQL.Armar_Conexion();//Lo tengo que sacar, va en inicio de sistema
 
             string UsuBD = _accesoSQL.Ejecutar_Query("ExecuteScalar", "SELECT ID FROM Usuarios WHERE Nombre='" + usuE + "'");
             string PassDB = _accesoSQL.Ejecutar_Query("ExecuteScalar", "SELECT Pass FROM Usuarios WHERE Nombre='" + usuE + "'");

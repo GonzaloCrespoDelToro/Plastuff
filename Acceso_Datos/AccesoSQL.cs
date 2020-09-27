@@ -12,10 +12,9 @@ namespace Acceso_Datos
         string Conexion = "";
         SqlConnection SQLCON = new SqlConnection();
 
-        public bool Armar_Conexion(/*string[] Datos*/)
+        public bool Armar_Conexion(string[] Datos)
         {
-            //string CON = "Data Source=" + Datos[0] + ";" + "Initial Catalog=" + Datos[1] + ";" + "User ID=" + Datos[2] + ";" + "Password=" + Datos[3] + ";MultipleActiveResultSets=True";
-            string CON = "Data Source=DESKTOP-ALLEDA;Initial Catalog=Plastuff;Integrated Security =True";
+            string CON = Datos[0] + ";" +  Datos[1] + ";"  + Datos[2];
             SqlConnection SQL = new SqlConnection(CON);
             try
             {
@@ -92,7 +91,6 @@ namespace Acceso_Datos
 
         public string Ejecutar_Query(string Tipo, string Consulta)
         {
-            Armar_Conexion(); //SOLO DE PRUEBA
             try
             {
                 SqlCommand CMD = new SqlCommand();
