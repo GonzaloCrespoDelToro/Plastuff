@@ -8,7 +8,7 @@ namespace Acceso_Datos
     public class AccesoConfig
     {
         string Ruta = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\config.txt";
-        string Rutax = System.Environment.CurrentDirectory + @"\config.txt";
+        //string Rutax = System.Environment.CurrentDirectory + @"\config.txt";
 
         public bool Buscar_TXT()
         {
@@ -32,13 +32,10 @@ namespace Acceso_Datos
             {
                 FileStream Archivo = new FileStream(Ruta, FileMode.OpenOrCreate);
                 StreamWriter Escritor = new StreamWriter(Archivo);
-                //Escritor = File.AppendText(Ruta);
-                string Reg = datos[0];
-                Escritor.WriteLine(Reg);
-                Reg = datos[1];
-                Escritor.WriteLine(Reg);
-                Reg = datos[2];
-                Escritor.WriteLine(Reg);
+                //Mejorar codigo(Seguro con un For)
+                Escritor.WriteLine(datos[0]);
+                Escritor.WriteLine(datos[1]);
+                Escritor.WriteLine(datos[2]);
                 Escritor.Close();
                 Archivo.Close();
 

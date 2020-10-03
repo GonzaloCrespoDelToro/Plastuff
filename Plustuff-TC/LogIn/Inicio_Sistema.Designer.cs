@@ -40,9 +40,9 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(75, 19);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 13);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 57);
+            this.pictureBox1.Size = new System.Drawing.Size(325, 76);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -50,20 +50,21 @@
             // lblproc
             // 
             this.lblproc.AutoSize = true;
-            this.lblproc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblproc.Location = new System.Drawing.Point(54, 95);
+            this.lblproc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblproc.Location = new System.Drawing.Point(2, 97);
             this.lblproc.Name = "lblproc";
-            this.lblproc.Size = new System.Drawing.Size(172, 24);
+            this.lblproc.Size = new System.Drawing.Size(147, 20);
             this.lblproc.TabIndex = 6;
             this.lblproc.Text = "Iniciando Sistema...";
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.lblproc);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(267, 128);
+            this.groupBox1.Size = new System.Drawing.Size(337, 128);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
@@ -72,11 +73,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(291, 152);
+            this.ClientSize = new System.Drawing.Size(361, 146);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Inicio_Sistema";
+            this.ShowIcon = false;
             this.Text = "Iniciando Sistema...";
             this.Load += new System.EventHandler(this.Inicio_Sistema_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

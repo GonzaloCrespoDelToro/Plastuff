@@ -9,7 +9,7 @@ namespace Acceso_Datos
         SqlDataAdapter DataAdapter = new SqlDataAdapter();
         SqlCommandBuilder ComBuilder = new SqlCommandBuilder();
         DataSet DataSet = new DataSet();
-        string Conexion = "";
+        static string Conexion = "";
         SqlConnection SQLCON = new SqlConnection();
 
         public bool Armar_Conexion(string[] Datos)
@@ -116,7 +116,5 @@ namespace Acceso_Datos
                 return null;
             }
         }
-
-
     }
 }

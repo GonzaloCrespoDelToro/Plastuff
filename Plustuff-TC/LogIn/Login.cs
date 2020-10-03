@@ -91,5 +91,10 @@ namespace Plustuff_TC.LogIn
         {
 
         }
+
+        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

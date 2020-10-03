@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bitacora.cs" />
+    <Compile Include="Digito_Vertical.cs" />
     <Compile Include="Empleado.cs" />
     <Compile Include="Idioma.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

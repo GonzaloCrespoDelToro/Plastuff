@@ -97,6 +97,12 @@
     <Compile Include="Fam_Pat\Modificar_Familia.Designer.cs">
       <DependentUpon>Modificar_Familia.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogIn\Datos_Conexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn\Datos_Conexion.Designer.cs">
+      <DependentUpon>Datos_Conexion.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogIn\Error_Base.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fam_Pat\Modificar_Familia.resx">
       <DependentUpon>Modificar_Familia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogIn\Datos_Conexion.resx">
+      <DependentUpon>Datos_Conexion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn\Error_Base.resx">
       <DependentUpon>Error_Base.cs</DependentUpon>
