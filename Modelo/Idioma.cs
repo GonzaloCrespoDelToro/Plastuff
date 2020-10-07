@@ -8,7 +8,7 @@ namespace Modelo
 {
     public class Idioma
     {
-        int id { get; set; }
-        string idioma { get; set; }
+        public int id { get; set; }
+        public string idioma { get; set; }
     }
 }

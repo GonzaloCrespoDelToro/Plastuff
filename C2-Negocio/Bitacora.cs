@@ -16,11 +16,14 @@ namespace C2_Negocio
         {
             try
             {
+                Modelo.Digito_Vertical DigitoVertical = new Modelo.Digito_Vertical();
+                DigitoVertical.Tabla = "Bitacora";
                 bitacora.Descripcion = _encriptacion.Encriptar(bitacora.Descripcion, 2);
                 string[] datos = { bitacora.Accion, bitacora.Descripcion, bitacora.Criticidad.ToString(), bitacora.FechaHora.ToString(), bitacora.U_id.ToString() };
                 bitacora.DVH = _verificadores.CalcularDVH(datos);
                 _bitacoraAD.Alta(bitacora);
-                //falta el recalcular DVV
+
+                _verificadores.Recalcular_DVV(DigitoVertical);
             }
             catch (Exception ex)
             {

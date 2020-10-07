@@ -47,8 +47,6 @@ namespace Plustuff_TC.LogIn
                     }
                 }
             }
-
-
         }
 
         private void LimpiarTxt()

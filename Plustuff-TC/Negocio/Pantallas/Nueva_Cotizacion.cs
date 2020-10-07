@@ -34,7 +34,6 @@ namespace Plustuff_TC.Negocio
 
                 var asd = ((gramos * precioKilo) / 1000);
 
-
                 var Total = ((((gramos * precioKilo) / 1000) * 2) + ((tiempo * precioImpresion) / 60));
 
                 this.lblTotal.Text = Total.ToString();

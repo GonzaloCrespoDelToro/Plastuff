@@ -26,5 +26,11 @@ namespace Plustuff_TC
         {
 
         }
+
+        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Negocio.Nueva_Cotizacion nueva_Cotizacion = new Negocio.Nueva_Cotizacion();
+            nueva_Cotizacion.Show();
+        }
     }
 }

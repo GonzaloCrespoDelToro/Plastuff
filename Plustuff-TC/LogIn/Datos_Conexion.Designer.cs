@@ -53,13 +53,13 @@
             this.GroupBox1.Controls.Add(this.Label1);
             this.GroupBox1.Location = new System.Drawing.Point(12, -4);
             this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Size = new System.Drawing.Size(346, 187);
+            this.GroupBox1.Size = new System.Drawing.Size(346, 207);
             this.GroupBox1.TabIndex = 1;
             this.GroupBox1.TabStop = false;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(12, 145);
+            this.btnAceptar.Location = new System.Drawing.Point(12, 171);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(326, 30);
             this.btnAceptar.TabIndex = 11;
@@ -69,7 +69,7 @@
             // 
             // txtBDD
             // 
-            this.txtBDD.Location = new System.Drawing.Point(81, 113);
+            this.txtBDD.Location = new System.Drawing.Point(81, 139);
             this.txtBDD.Name = "txtBDD";
             this.txtBDD.Size = new System.Drawing.Size(257, 26);
             this.txtBDD.TabIndex = 6;
@@ -77,7 +77,7 @@
             // Label5
             // 
             this.Label5.AutoSize = true;
-            this.Label5.Location = new System.Drawing.Point(8, 116);
+            this.Label5.Location = new System.Drawing.Point(8, 142);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(48, 20);
             this.Label5.TabIndex = 5;
@@ -85,7 +85,7 @@
             // 
             // txtServidor
             // 
-            this.txtServidor.Location = new System.Drawing.Point(81, 81);
+            this.txtServidor.Location = new System.Drawing.Point(81, 107);
             this.txtServidor.Name = "txtServidor";
             this.txtServidor.Size = new System.Drawing.Size(257, 26);
             this.txtServidor.TabIndex = 4;
@@ -93,7 +93,7 @@
             // Label4
             // 
             this.Label4.AutoSize = true;
-            this.Label4.Location = new System.Drawing.Point(8, 84);
+            this.Label4.Location = new System.Drawing.Point(8, 110);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(71, 20);
             this.Label4.TabIndex = 3;
@@ -131,7 +131,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(370, 194);
+            this.ClientSize = new System.Drawing.Size(370, 215);
             this.Controls.Add(this.GroupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

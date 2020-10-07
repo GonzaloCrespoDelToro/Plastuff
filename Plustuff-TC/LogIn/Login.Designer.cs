@@ -51,7 +51,6 @@
             this.lblUser.Size = new System.Drawing.Size(64, 20);
             this.lblUser.TabIndex = 0;
             this.lblUser.Text = "Usuario";
-            this.lblUser.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtusu
             // 
@@ -79,7 +78,6 @@
             this.label1.Size = new System.Drawing.Size(92, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Contraseña";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // pictureBox1
             // 
@@ -121,7 +119,6 @@
             this.groupBox1.Size = new System.Drawing.Size(515, 126);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lblerror
             // 
@@ -133,7 +130,6 @@
             this.lblerror.TabIndex = 7;
             this.lblerror.Text = "label3";
             this.lblerror.Visible = false;
-            this.lblerror.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -144,7 +140,6 @@
             this.label2.Size = new System.Drawing.Size(56, 19);
             this.label2.TabIndex = 6;
             this.label2.Text = "Redim";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Login
             // 
@@ -154,6 +149,7 @@
             this.ClientSize = new System.Drawing.Size(539, 187);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -161,6 +157,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Plastuff-Redim";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);
+            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

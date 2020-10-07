@@ -12,7 +12,7 @@ namespace Acceso_Datos
     {
             try
             {
-                _AccesoSQL.Ejecutar_Query("ExecuteNonQuery", "INSERT INTO Bitacora VALUES('" + bitacora.Accion + "','" + bitacora.Descripcion + "'," + "," + bitacora.Criticidad.ToString() + ",'" + bitacora.FechaHora + "'," + bitacora.U_id + ",'" + bitacora.DVH + "')");
+                _AccesoSQL.Ejecutar_Query("ExecuteNonQuery", "INSERT INTO Bitacora VALUES('" + bitacora.Accion + "','" + bitacora.Descripcion + "'," + bitacora.Criticidad.ToString() + ",'" + bitacora.FechaHora + "'," + bitacora.U_id + ",'" + bitacora.DVH + "')");
             }
             catch(Exception ex)
             {

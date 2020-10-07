@@ -8,18 +8,18 @@ namespace Servicios
 {
     public class Verificadores
     {
-        AccesoConfig DatosConfig = new AccesoConfig();
-        AccesoSQL AccesoSQL = new AccesoSQL();
+        AccesoConfig _DatosConfig = new AccesoConfig();
+        AccesoSQL _AccesoSQL = new AccesoSQL();
         Encriptacion _Encriptacion = new Encriptacion();
         DigitosVerticalesAD _DigitosVerticalesAD = new DigitosVerticalesAD();
-        
+
 
         public void Verificar_TXT()
         {
             bool Fallo = false;
-            if (DatosConfig.Buscar_TXT() == true)
+            if (_DatosConfig.Buscar_TXT() == true)
             {
-                string RegCompleto = DatosConfig.ValidarTXT();
+                string RegCompleto = _DatosConfig.ValidarTXT();
                 try
                 {
                     string[] V1 = RegCompleto.Split(';');
@@ -56,14 +56,97 @@ namespace Servicios
             }
             if (Fallo == true)
             {
-                string[] Datos = { _Encriptacion.Encriptar(@"Data Source=DESKTOP-ALLEDA", 2),
+                string[] Datos = { _Encriptacion.Encriptar(@"Data Source=DESKTOP-ALLEDA\SQLEXPRESS", 2),
                     _Encriptacion.Encriptar("Initial Catalog=Plastuff", 2),
                     _Encriptacion.Encriptar("Integrated Security=True", 2)};
-                DatosConfig.Crear_TXTDefecto(Datos);
+                _DatosConfig.Crear_TXTDefecto(Datos);
             }
             else
             {
             }
+        }
+
+        public bool Recalcular_DVV(Modelo.Digito_Vertical DVV) //Para una sola Tabla
+        {
+            try
+            {
+                DataSet TablaDS = _DigitosVerticalesAD.TraerInfoTabla(DVV);
+                int columnas = TablaDS.Tables[0].Columns.Count;
+                int filacount = 0;
+                int TotalDVH = 0;
+                foreach (DataRow Fila in TablaDS.Tables[0].Rows)
+                {
+                    filacount += 1;
+                    string DVHTabla = Fila[columnas - 1].ToString();
+                    int posicion = 0;
+                    int ValorDVH = 0;
+
+                    foreach (char c in DVHTabla)
+                    {
+                        posicion += 1;
+                        ValorDVH += (Encoding.ASCII.GetBytes(c.ToString())[0] * posicion);
+                    }
+
+                    TotalDVH += ValorDVH;
+                }
+                string TDVH = _Encriptacion.Encriptar(TotalDVH.ToString(), 1);
+                DVV.DVV = TDVH;
+                _DigitosVerticalesAD.UpdateDVVTabla(DVV);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public string Verificar_DVV()
+        {
+            try
+            {
+                string Errores = "";
+                bool HayError = false;
+                var Tablas = _DigitosVerticalesAD.TraerTablas();
+                foreach (Modelo.Digito_Vertical tabla in Tablas)
+                {
+                    DataSet TablaDS = _DigitosVerticalesAD.TraerInfoTabla(tabla);
+                    int columnas = TablaDS.Tables[0].Columns.Count;
+                    int filacount = 0;
+                    int TotalDVH = 0;
+                    foreach (DataRow Fila in TablaDS.Tables[0].Rows)
+                    {
+                        filacount += 1;
+                        string DVHTabla = Fila[columnas - 1].ToString();
+                        int posicion = 0;
+                        int ValorDVH = 0;
+
+                        foreach (char c in DVHTabla)
+                        {
+                            posicion += 1;
+                            ValorDVH += (Encoding.ASCII.GetBytes(c.ToString())[0] * posicion);
+                        }
+
+                        TotalDVH += ValorDVH;
+                    }
+                    string TDVH = _Encriptacion.Encriptar(TotalDVH.ToString(), 1);
+                    if (TDVH != tabla.DVV)
+                    {
+                        Errores = Errores + "Tabla: " + tabla.Tabla;
+                        HayError = true;
+                    }
+                }
+                if (HayError)
+                {
+                    return Errores;
+                }
+                return "";
+            }
+            catch (Exception ex)
+            {
+                return "";
+            }
+
         }
 
         public string CalcularDVH(string[] Datos)
@@ -96,29 +179,32 @@ namespace Servicios
             {
                 string Errores = "";
                 bool HayError = false;
-                var Tablas = _DigitosVerticalesAD.TraerTablas();
-                foreach(Modelo.Digito_Vertical tabla in Tablas)
+                List<Modelo.Digito_Vertical> Tablas = _DigitosVerticalesAD.TraerTablas();
+                foreach (Modelo.Digito_Vertical tabla in Tablas)
                 {
                     DataSet TablaDS = _DigitosVerticalesAD.TraerInfoTabla(tabla);
                     int columnas = TablaDS.Tables[0].Columns.Count;
                     int filacount = 0;
-                    foreach(DataRow Fila in TablaDS.Tables[0].Rows)
+                    string DVHTabla = "";
+                    foreach (DataRow Fila in TablaDS.Tables[0].Rows)
                     {
                         filacount += 1;
-                        string DVHTabla = Fila[columnas - 1].ToString();
+                        DVHTabla = "";
+                        DVHTabla = Fila[columnas - 1].ToString();
                         string Concadena = "";
                         int ValorDVH = 0;
-                        for(int j = 1; j <= columnas - 2; j++)
+                        for (int j = 1; j <= columnas - 2; j++)
                         {
                             Concadena = Concadena + Fila[j].ToString();
                         }
                         int posicion = 0;
-                        foreach(char c in Concadena)
+                        foreach (char c in Concadena)
                         {
                             posicion += 1;
-                            ValorDVH += (Encoding.ASCII.GetBytes(c.ToString())[0]  * posicion);
+                            ValorDVH += (Encoding.ASCII.GetBytes(c.ToString())[0] * posicion);
                         }
-                        if (DVHTabla !=  _Encriptacion.Encriptar(ValorDVH.ToString(),1))
+                        string DVHE = _Encriptacion.Encriptar(ValorDVH.ToString(), 1);
+                        if (DVHTabla != DVHE)
                         {
                             Errores = Errores + "Tabla: " + tabla.Tabla + ", Fila: " + filacount.ToString();
                             HayError = true;
@@ -151,7 +237,7 @@ namespace Servicios
                                   _Encriptacion.Encriptar("Initial Catalog=" + datos[1], 2),
                                   _Encriptacion.Encriptar("Integrated Security=True", 2) };
 
-            if (DatosConfig.Crear_TXTDefecto(DatosEnc))
+            if (_DatosConfig.Crear_TXTDefecto(DatosEnc))
             {
                 return true;
             }
@@ -164,13 +250,13 @@ namespace Servicios
             try
             {
                 string[] Datos = { "", "", "" };
-                string[] Vector = DatosConfig.Obtener_Conexion();
+                string[] Vector = _DatosConfig.Obtener_Conexion();
 
                 Datos[0] = _Encriptacion.Desencriptar(Vector[0]).ToString();
                 Datos[1] = _Encriptacion.Desencriptar(Vector[1]).ToString();
                 Datos[2] = _Encriptacion.Desencriptar(Vector[2]).ToString();
 
-                if (AccesoSQL.Armar_Conexion(Datos) != true)
+                if (_AccesoSQL.Armar_Conexion(Datos) != true)
                 {
                     return false;
                 }

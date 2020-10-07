@@ -14,35 +14,12 @@ namespace Plustuff_TC.LogIn
     public partial class Login : Form
     {
         public Usuarios _Usuario = new Usuarios();
-
+        public string Error_DVV = null;
+        public string Error_DVH = null;
+        public bool Admin = false;
         public Login()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -61,6 +38,12 @@ namespace Plustuff_TC.LogIn
                 }
                 else
                 {
+                    if (!string.IsNullOrEmpty(Error_DVH) || !string.IsNullOrEmpty(Error_DVH))
+                    {
+                        //Verificar si es administrador
+                        return;
+                    }
+
                     if (!_Usuario.Check_Usu(usuario))
                     {
                         lblerror.Visible = true;
@@ -68,8 +51,17 @@ namespace Plustuff_TC.LogIn
                     }
                     else
                     {
-                        if (!_Usuario.Check_Bloq(usuario))
+                        int Verificar = _Usuario.Verificar_Usu_Pass(usuario);
+
+                        if (Verificar != 1)
                         {
+                            if(Verificar != 2)
+                            {
+                                lblerror.Visible = true;
+                                lblerror.Text = "La contraseña es incorrecta";
+                                return;
+                            }
+
                             MessageBox.Show(this, "Tu usuario ha sido bloqueado" + Environment.NewLine + "Por favor contactarse con el Administrador",
                                                  "Usuario Bloqueado", MessageBoxButtons.OKCancel,
                                                  MessageBoxIcon.Warning,
@@ -77,7 +69,7 @@ namespace Plustuff_TC.LogIn
                                                  "mspaint.chm",
                                                  "mspaint.chm::/paint_brush.htm");
                         }
-                    }
+                    }   
                 }
             }
             else
@@ -87,14 +79,19 @@ namespace Plustuff_TC.LogIn
             }
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Error_DVH) || !string.IsNullOrEmpty(Error_DVV))
+            {
+                lblerror.Text = "Hay error en los digitos, solo puede ingresar al sistema un administrador.";
+                lblerror.Visible = true;
+                Admin = true;
+            }
         }
     }
 }

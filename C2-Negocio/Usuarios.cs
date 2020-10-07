@@ -13,6 +13,8 @@ namespace C2_Negocio
         AccesoSQL _accesoSQL = new AccesoSQL();
         private Encriptacion _encriptacion = new Encriptacion();
         UsuarioAD _UsuarioAD = new UsuarioAD();
+        Verificadores _Verificador = new Verificadores();
+        Modelo.Digito_Vertical DVV = new Modelo.Digito_Vertical();
 
         public string Nombre;
         public string Contraseña;
@@ -31,7 +33,7 @@ namespace C2_Negocio
 
         void Modificar_Usuario()
         {
-            
+
         }
 
         public bool Consistencia_Nombre(Modelo.Usuario usuario)
@@ -83,28 +85,43 @@ namespace C2_Negocio
         // 3 = Error Usuario o Pass
         public int Verificar_Usu_Pass(Modelo.Usuario usuario)
         {
-            string usuE = _encriptacion.Encriptar(usuario.Nombre, 2);
             string passE = _encriptacion.Encriptar(usuario.Pass, 1);
+            DVV.Tabla = "Usuarios";
+            Modelo.Usuario UserDB = new Modelo.Usuario();
+            UserDB = _UsuarioAD.GetUserByName(usuario);
+            //string[] datos;
 
-            //_accesoSQL.Armar_Conexion();//Lo tengo que sacar, va en inicio de sistema
-
-            string UsuBD = _accesoSQL.Ejecutar_Query("ExecuteScalar", "SELECT ID FROM Usuarios WHERE Nombre='" + usuE + "'");
-            string PassDB = _accesoSQL.Ejecutar_Query("ExecuteScalar", "SELECT Pass FROM Usuarios WHERE Nombre='" + usuE + "'");
-            
-            if (UsuBD != null)
+            if (passE != UserDB.Pass)
             {
-                if (passE != PassDB)
+                if (!_UsuarioAD.Verificar_Bloq(UserDB))
                 {
-                    return 3;
-                }
-                string bloq = _accesoSQL.Ejecutar_Query("ExecuteScalar", "SELECT Bloqueado FROM Usuarios WHERE Nombre='" + usuE + "'");
-                if (!Convert.ToBoolean(bloq))
-                {
-                    return 1;
+                    if(UserDB.Intentos < 3)
+                    {
+                        UserDB.Intentos = UserDB.Intentos + 1;
+                        string[] datos = { UserDB.Nombre, UserDB.Pass, UserDB.Intentos.ToString(), UserDB.bloqueado.ToString(),UserDB.Empleado.id.ToString(), UserDB.Idioma.id.ToString()};
+                        UserDB.DVH = _Verificador.CalcularDVH(datos);
+                        _UsuarioAD.Aumentar_Contador(UserDB);
+                        _Verificador.Recalcular_DVV(DVV);
+                        return 3;
+                    }
+                    UserDB.bloqueado = true;
+                    UserDB.Intentos = 0;
+                    string[] datos2 = {UserDB.Nombre, UserDB.Pass, UserDB.Intentos.ToString(), UserDB.bloqueado.ToString(), UserDB.Empleado.id.ToString(), UserDB.Idioma.id.ToString()};
+                    UserDB.DVH = _Verificador.CalcularDVH(datos2);
+                    _UsuarioAD.Bloquear_Usu(UserDB);
+                    _Verificador.Recalcular_DVV(DVV);
+                    return 2;
                 }
                 return 2;
             }
-            return 3;
+
+            bool bloq = _UsuarioAD.Verificar_Bloq(usuario);
+            if (!Convert.ToBoolean(bloq))
+            {
+                return 1;
+            }
+
+            return 2;
         }
     }
 }

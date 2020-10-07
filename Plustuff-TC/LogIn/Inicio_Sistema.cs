@@ -18,16 +18,18 @@ namespace Plustuff_TC.LogIn
         Verificadores _Verificador = new Verificadores();
         LogIn.Login login = new Login();
         Modelo.Bitacora bitacora = new Modelo.Bitacora();
-
+        public string Error_DVH = null;
+        public string Error_DVV = null;
 
         public Inicio_Sistema()
         {
             InitializeComponent();
         }
 
-
         private void Inicio_Sistema_Load(object sender, EventArgs e)
         {
+            this.Show();
+            this.Refresh();
             lblproc.Text = "Verificando integridad del archivo config...";
             this.Refresh();
             System.Threading.Thread.Sleep(400);
@@ -35,10 +37,13 @@ namespace Plustuff_TC.LogIn
             lblproc.Text = "Intentando conectar a la base de datos..";
             this.Refresh();
             System.Threading.Thread.Sleep(300);
-            if(_Verificador.Armar_Conexion() != true) //Verifica si se puede conectar a la base
+            if (_Verificador.Armar_Conexion() != true) //Verifica si se puede conectar a la base
             {
                 LogIn.Datos_Conexion datos_Conexion = new Datos_Conexion();
                 datos_Conexion.Show();
+                this.WindowState = FormWindowState.Minimized;
+                this.ShowInTaskbar = false;
+                return;
             }
             lblproc.Text = "Verificando digitos horizontales de la base de datos..";
             this.Refresh();
@@ -46,18 +51,33 @@ namespace Plustuff_TC.LogIn
             string ErrorDVH = _Verificador.Verificar_DVH(); //Verificacion de DVH
             if (!string.IsNullOrEmpty(ErrorDVH))
             {
+                Error_DVH = ErrorDVH;
                 bitacora.Accion = "ErrorDVH";
                 bitacora.Descripcion = ErrorDVH;
                 bitacora.FechaHora = DateTime.Now;
-                bitacora.U_id = 0;
-                bitacora.Criticidad = 1; 
+                bitacora.U_id = 1;
+                bitacora.Criticidad = 1;
                 _Bitacora.Alta(bitacora);
             }
-
+            lblproc.Text = "Verificando digitos verticales de la base de datos..";
+            this.Refresh();
+            System.Threading.Thread.Sleep(500);
+            string ErrorDVV = _Verificador.Verificar_DVV(); //Verificacion de DVV
+            if (!string.IsNullOrEmpty(ErrorDVV))
+            {
+                Error_DVV = ErrorDVV;
+                bitacora.Accion = "ErrorDVV";
+                bitacora.Descripcion = ErrorDVV;
+                bitacora.FechaHora = DateTime.Now;
+                bitacora.U_id = 1;
+                bitacora.Criticidad = 1;
+                _Bitacora.Alta(bitacora);
+            }
             //Esconde el form de Inicio de sistema
             this.WindowState = FormWindowState.Minimized;
             this.ShowInTaskbar = false;
-
+            login.Error_DVH = Error_DVH;
+            login.Error_DVV = Error_DVV;
             login.Show();
         }
     }

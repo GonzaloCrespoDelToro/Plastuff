@@ -35,7 +35,7 @@ namespace Acceso_Datos
             try
             {
                 string Consulta = _accesoSQL.Ejecutar_Query("ExecuteScalar", "SELECT Bloqueado FROM Usuarios WHERE Nombre='" + usuario.Nombre + "'");
-                if (!Convert.ToBoolean(Consulta))
+                if (Convert.ToBoolean(Consulta))
                 {
                     return true;
                 }
@@ -47,7 +47,7 @@ namespace Acceso_Datos
             }
         }
 
-        private Modelo.Usuario GetUserByName(Modelo.Usuario usuario)
+        public Modelo.Usuario GetUserByName(Modelo.Usuario usuario)
         {
             Modelo.Usuario user = new Modelo.Usuario();
 
@@ -62,10 +62,12 @@ namespace Acceso_Datos
                 user.bloqueado = Convert.ToBoolean(UserDS.Tables[0].Rows[0]["Bloqueado"].ToString());
                 user.DVH = UserDS.Tables[0].Rows[0]["DVH"].ToString();
                 int EmpID = Convert.ToInt32(UserDS.Tables[0].Rows[0]["Emp_id"].ToString());
+                int IdiomaID = Convert.ToInt32(UserDS.Tables[0].Rows[0]["Idioma_id"].ToString());
 
                 DataSet EmpDS = _accesoSQL.Consultar_DS("SELECT E_nombre, E_apellido, E_DNI, E_fechanac, E_mail, E_direccion, E_Telefono FROM Empleados WHERE ID=" + EmpID + "", "Empleados");
                 Modelo.Empleado Emp = new Modelo.Empleado();
 
+                Emp.id = EmpID;
                 Emp.nombre = EmpDS.Tables[0].Rows[0]["E_nombre"].ToString();
                 Emp.apellido = EmpDS.Tables[0].Rows[0]["E_apellido"].ToString();
                 Emp.dni = EmpDS.Tables[0].Rows[0]["E_DNI"].ToString();
@@ -75,6 +77,14 @@ namespace Acceso_Datos
                 Emp.telefono = EmpDS.Tables[0].Rows[0]["E_Telefono"].ToString();
 
                 user.Empleado = Emp;
+
+                DataSet IdiomaDS = _accesoSQL.Consultar_DS("SELECT ID, Idioma FROM Idiomas WHERE ID = " + IdiomaID, "Idiomas");
+                Modelo.Idioma Idioma = new Modelo.Idioma();
+
+                Idioma.id = IdiomaID;
+                Idioma.idioma = IdiomaDS.Tables[0].Rows[0]["Idioma"].ToString();
+
+                user.Idioma = Idioma;
 
                 return user;
             }
@@ -100,5 +110,31 @@ namespace Acceso_Datos
                 return false;
             }
         }
+
+        public void Aumentar_Contador(Modelo.Usuario usuario)
+        {
+            try
+            {
+                var Consulta = _accesoSQL.Ejecutar_Query("ExecuteNonQuery", "UPDATE Usuarios SET Contador = " + usuario.Intentos.ToString() + ", DVH = '"+ usuario.DVH +"' WHERE Nombre = '" + usuario.Nombre + "'");
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+
+        public void Bloquear_Usu(Modelo.Usuario usuario)
+        {
+            try
+            {
+                _accesoSQL.Ejecutar_Query("ExecuteNonQuery", "UPDATE Usuarios SET Contador = 0, Bloqueado = 1, DVH = '"+ usuario.DVH +"' WHERE Nombre ='" + usuario.Nombre + "'");
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+       
     }
 }
