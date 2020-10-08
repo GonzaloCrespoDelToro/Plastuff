@@ -1,4 +1,5 @@
 ﻿using Acceso_Datos;
+using Modelo;
 using Servicios;
 using System;
 using System.Collections.Generic;
@@ -79,6 +80,11 @@ namespace C2_Negocio
             return true;
         }
 
+        public void CerrarSesion()
+        {
+            SessionManager.Logout();
+        }
+
 
         // 1 = Acceso Exitoso
         // 2 = Bloqueado
@@ -133,6 +139,11 @@ namespace C2_Negocio
             }
 
             return 2;
+        }
+
+        public Usuario GetUserByName(Modelo.Usuario User)
+        {
+           return _UsuarioAD.GetUserByName(User);
         }
     }
 }

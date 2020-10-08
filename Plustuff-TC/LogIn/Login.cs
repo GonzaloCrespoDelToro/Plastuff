@@ -17,6 +17,10 @@ namespace Plustuff_TC.LogIn
         public string Error_DVV = null;
         public string Error_DVH = null;
         public bool Admin = false;
+        Modelo.Bitacora bitacora = new Modelo.Bitacora();
+        Bitacora _Bitacora = new C2_Negocio.Bitacora();
+
+
         public Login()
         {
             InitializeComponent();
@@ -41,6 +45,8 @@ namespace Plustuff_TC.LogIn
                     if (!string.IsNullOrEmpty(Error_DVH) || !string.IsNullOrEmpty(Error_DVH))
                     {
                         //Verificar si es administrador
+                        lblerror.Visible = true;
+                        lblerror.Text = "Solo el Administrador puede ingresar";
                         return;
                     }
 
@@ -69,6 +75,16 @@ namespace Plustuff_TC.LogIn
                                                  "mspaint.chm",
                                                  "mspaint.chm::/paint_brush.htm");
                         }
+
+                       Modelo.Usuario User = _Usuario.GetUserByName(usuario);
+
+                        bitacora.Accion = "Login";
+                        bitacora.Descripcion = $"El usuario {User.Nombre} se logio";
+                        bitacora.FechaHora = DateTime.Now;
+                        bitacora.U_id = User.id;
+                        bitacora.Criticidad = 3;
+                        _Bitacora.Alta(bitacora);
+
                         this.Hide();
                         Menu_Principal menu_Principal = new Menu_Principal();
                         menu_Principal.Show();

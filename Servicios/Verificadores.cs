@@ -225,7 +225,7 @@ namespace Servicios
 
         public bool Datos_Conexion(string[] datos)
         {
-            for (int i = 0; i <= 2; i++)
+            for (int i = 0; i <= 1; i++)
             {
                 if (datos[i].ToString().Contains("'"))
                 {

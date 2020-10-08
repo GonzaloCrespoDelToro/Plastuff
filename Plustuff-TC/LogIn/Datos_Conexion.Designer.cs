@@ -69,7 +69,7 @@
             // 
             // txtBDD
             // 
-            this.txtBDD.Location = new System.Drawing.Point(81, 139);
+            this.txtBDD.Location = new System.Drawing.Point(81, 126);
             this.txtBDD.Name = "txtBDD";
             this.txtBDD.Size = new System.Drawing.Size(257, 26);
             this.txtBDD.TabIndex = 6;
@@ -77,7 +77,7 @@
             // Label5
             // 
             this.Label5.AutoSize = true;
-            this.Label5.Location = new System.Drawing.Point(8, 142);
+            this.Label5.Location = new System.Drawing.Point(8, 129);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(48, 20);
             this.Label5.TabIndex = 5;
@@ -85,7 +85,7 @@
             // 
             // txtServidor
             // 
-            this.txtServidor.Location = new System.Drawing.Point(81, 107);
+            this.txtServidor.Location = new System.Drawing.Point(81, 94);
             this.txtServidor.Name = "txtServidor";
             this.txtServidor.Size = new System.Drawing.Size(257, 26);
             this.txtServidor.TabIndex = 4;
@@ -93,7 +93,7 @@
             // Label4
             // 
             this.Label4.AutoSize = true;
-            this.Label4.Location = new System.Drawing.Point(8, 110);
+            this.Label4.Location = new System.Drawing.Point(8, 97);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(71, 20);
             this.Label4.TabIndex = 3;
@@ -138,6 +138,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "Datos_Conexion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Datos de Conexion";
             this.Load += new System.EventHandler(this.Datos_Conexion_Load);
             this.GroupBox1.ResumeLayout(false);
