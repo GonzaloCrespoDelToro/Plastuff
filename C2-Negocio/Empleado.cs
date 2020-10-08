@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace C2_Negocio
 {
@@ -25,6 +26,20 @@ namespace C2_Negocio
             catch (Exception ex)
             {
 
+            }
+        }
+
+        public List<Modelo.Empleado> Listar_Empleados()
+        {
+            try
+            {
+                List<Modelo.Empleado> empleados = _EmpleadoAD.Listar_Emp();
+
+                return empleados;
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
     }

@@ -61,5 +61,10 @@ namespace Plustuff_TC.Negocio.Empleado
                 this.Close();
             }
         }
+
+        private void Alta_Empleado_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

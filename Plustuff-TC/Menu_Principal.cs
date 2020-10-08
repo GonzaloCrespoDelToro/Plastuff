@@ -88,5 +88,11 @@ namespace Plustuff_TC
             Negocio.Empleado.Alta_Empleado alta_Empleado = new Negocio.Empleado.Alta_Empleado();
             alta_Empleado.Show();
         }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Negocio.Empleado.Mostrar_Empleados mostrar_Empleados = new Negocio.Empleado.Mostrar_Empleados();
+            mostrar_Empleados.Show();
+        }
     }
 }
