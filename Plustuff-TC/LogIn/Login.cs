@@ -69,6 +69,9 @@ namespace Plustuff_TC.LogIn
                                                  "mspaint.chm",
                                                  "mspaint.chm::/paint_brush.htm");
                         }
+                        this.Hide();
+                        Menu_Principal menu_Principal = new Menu_Principal();
+                        menu_Principal.Show();
                     }   
                 }
             }

@@ -89,25 +89,25 @@ namespace C2_Negocio
             DVV.Tabla = "Usuarios";
             Modelo.Usuario UserDB = new Modelo.Usuario();
             UserDB = _UsuarioAD.GetUserByName(usuario);
-            //string[] datos;
+            string[] datos;
 
             if (passE != UserDB.Pass)
             {
                 if (!_UsuarioAD.Verificar_Bloq(UserDB))
                 {
-                    if(UserDB.Intentos < 3)
+                    if (UserDB.Intentos < 3)
                     {
                         UserDB.Intentos = UserDB.Intentos + 1;
-                        string[] datos = { UserDB.Nombre, UserDB.Pass, UserDB.Intentos.ToString(), UserDB.bloqueado.ToString(),UserDB.Empleado.id.ToString(), UserDB.Idioma.id.ToString()};
+                        datos = new string[] { UserDB.Nombre, UserDB.Pass, UserDB.Intentos.ToString(), UserDB.bloqueado.ToString(), UserDB.Empleado.id.ToString(), UserDB.Idioma.id.ToString() };
                         UserDB.DVH = _Verificador.CalcularDVH(datos);
-                        _UsuarioAD.Aumentar_Contador(UserDB);
+                        _UsuarioAD.AumentarResetear_Contador(UserDB);
                         _Verificador.Recalcular_DVV(DVV);
                         return 3;
                     }
                     UserDB.bloqueado = true;
                     UserDB.Intentos = 0;
-                    string[] datos2 = {UserDB.Nombre, UserDB.Pass, UserDB.Intentos.ToString(), UserDB.bloqueado.ToString(), UserDB.Empleado.id.ToString(), UserDB.Idioma.id.ToString()};
-                    UserDB.DVH = _Verificador.CalcularDVH(datos2);
+                    datos = new string[] { UserDB.Nombre, UserDB.Pass, UserDB.Intentos.ToString(), UserDB.bloqueado.ToString(), UserDB.Empleado.id.ToString(), UserDB.Idioma.id.ToString() };
+                    UserDB.DVH = _Verificador.CalcularDVH(datos);
                     _UsuarioAD.Bloquear_Usu(UserDB);
                     _Verificador.Recalcular_DVV(DVV);
                     return 2;
@@ -118,6 +118,17 @@ namespace C2_Negocio
             bool bloq = _UsuarioAD.Verificar_Bloq(usuario);
             if (!Convert.ToBoolean(bloq))
             {
+                if (UserDB.Intentos > 0)
+                {
+                    UserDB.Intentos = 0;
+                    datos = new string[] { UserDB.Nombre, UserDB.Pass, UserDB.Intentos.ToString(), UserDB.bloqueado.ToString(), UserDB.Empleado.id.ToString(), UserDB.Idioma.id.ToString() };
+                    UserDB.DVH = _Verificador.CalcularDVH(datos);
+                    _UsuarioAD.AumentarResetear_Contador(UserDB);
+                    _Verificador.Recalcular_DVV(DVV);
+                }
+                
+                SessionManager.Login(UserDB);
+                //SessionManager session = SessionManager.Getinstance;
                 return 1;
             }
 

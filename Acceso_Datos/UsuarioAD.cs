@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using Modelo;
 
 namespace Acceso_Datos
 {
@@ -111,7 +112,8 @@ namespace Acceso_Datos
             }
         }
 
-        public void Aumentar_Contador(Modelo.Usuario usuario)
+
+        public void AumentarResetear_Contador(Modelo.Usuario usuario)
         {
             try
             {
