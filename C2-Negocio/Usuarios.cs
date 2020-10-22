@@ -104,7 +104,7 @@ namespace C2_Negocio
                     if (UserDB.Intentos < 3)
                     {
                         UserDB.Intentos = UserDB.Intentos + 1;
-                        datos = new string[] { UserDB.Nombre, UserDB.Pass, UserDB.Intentos.ToString(), UserDB.bloqueado.ToString(), UserDB.Empleado.id.ToString(), UserDB.Idioma.id.ToString() };
+                        datos = new string[] { UserDB.Nombre, UserDB.Pass, UserDB.Intentos.ToString(), UserDB.bloqueado.ToString(), UserDB.Empleado.ID.ToString(), UserDB.Idioma.id.ToString() };
                         UserDB.DVH = _Verificador.CalcularDVH(datos);
                         _UsuarioAD.AumentarResetear_Contador(UserDB);
                         _Verificador.Recalcular_DVV(DVV);
@@ -112,7 +112,7 @@ namespace C2_Negocio
                     }
                     UserDB.bloqueado = true;
                     UserDB.Intentos = 0;
-                    datos = new string[] { UserDB.Nombre, UserDB.Pass, UserDB.Intentos.ToString(), UserDB.bloqueado.ToString(), UserDB.Empleado.id.ToString(), UserDB.Idioma.id.ToString() };
+                    datos = new string[] { UserDB.Nombre, UserDB.Pass, UserDB.Intentos.ToString(), UserDB.bloqueado.ToString(), UserDB.Empleado.ID.ToString(), UserDB.Idioma.id.ToString() };
                     UserDB.DVH = _Verificador.CalcularDVH(datos);
                     _UsuarioAD.Bloquear_Usu(UserDB);
                     _Verificador.Recalcular_DVV(DVV);
@@ -127,7 +127,7 @@ namespace C2_Negocio
                 if (UserDB.Intentos > 0)
                 {
                     UserDB.Intentos = 0;
-                    datos = new string[] { UserDB.Nombre, UserDB.Pass, UserDB.Intentos.ToString(), UserDB.bloqueado.ToString(), UserDB.Empleado.id.ToString(), UserDB.Idioma.id.ToString() };
+                    datos = new string[] { UserDB.Nombre, UserDB.Pass, UserDB.Intentos.ToString(), UserDB.bloqueado.ToString(), UserDB.Empleado.ID.ToString(), UserDB.Idioma.id.ToString() };
                     UserDB.DVH = _Verificador.CalcularDVH(datos);
                     _UsuarioAD.AumentarResetear_Contador(UserDB);
                     _Verificador.Recalcular_DVV(DVV);

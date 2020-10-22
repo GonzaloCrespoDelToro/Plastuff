@@ -13,7 +13,9 @@ namespace Plustuff_TC.Seguridad.Pantallas.Usuario
 {
     public partial class Alta_Usuario : Form
     {
-        public Usuarios usuario;
+        Usuarios _usuario = new Usuarios();
+        Empleado _empleado = new Empleado();
+        
 
         public Alta_Usuario()
         {
@@ -28,6 +30,14 @@ namespace Plustuff_TC.Seguridad.Pantallas.Usuario
         private void btnconfirmar_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void Alta_Usuario_Load(object sender, EventArgs e)
+        {
+            var empleados = _empleado.Listar_Empleados_Usuarios();
+            cmbEmpleado.DataSource = empleados;
+            cmbEmpleado.DisplayMember = "Nombre" + "Apellido";
+            cmbEmpleado.ValueMember = "ID";
         }
     }
 }

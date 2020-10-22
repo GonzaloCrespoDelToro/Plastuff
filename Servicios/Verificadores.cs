@@ -66,6 +66,45 @@ namespace Servicios
             }
         }
 
+        public bool Recalcular_TodosDVV()
+        {
+            try
+            {
+                var Tablas = _DigitosVerticalesAD.TraerTablas();
+                foreach (Modelo.Digito_Vertical tabla in Tablas)
+                {
+                    DataSet TablaDS = _DigitosVerticalesAD.TraerInfoTabla(tabla);
+                    int columnas = TablaDS.Tables[0].Columns.Count;
+                    int filacount = 0;
+                    int TotalDVH = 0;
+                    foreach (DataRow Fila in TablaDS.Tables[0].Rows)
+                    {
+                        filacount += 1;
+                        string DVHTabla = Fila[columnas - 1].ToString();
+                        int posicion = 0;
+                        int ValorDVH = 0;
+
+                        foreach (char c in DVHTabla)
+                        {
+                            posicion += 1;
+                            ValorDVH += (Encoding.ASCII.GetBytes(c.ToString())[0] * posicion);
+                        }
+
+                        TotalDVH += ValorDVH;
+                    }
+                    string TDVH = _Encriptacion.Encriptar(TotalDVH.ToString(), 1);
+                    tabla.DVV = TDVH;
+                    _DigitosVerticalesAD.UpdateDVVTabla(tabla);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+        }
+
         public bool Recalcular_DVV(Modelo.Digito_Vertical DVV) //Para una sola Tabla
         {
             try

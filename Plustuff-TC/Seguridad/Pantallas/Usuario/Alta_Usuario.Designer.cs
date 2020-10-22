@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Alta_Usuario));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbEmpleado = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.cmbEmpleado);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.label8);
@@ -57,15 +57,15 @@
             this.groupBox2.Text = "Datos de usuario";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // comboBox2
+            // cmbEmpleado
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cmbEmpleado.FormattingEnabled = true;
+            this.cmbEmpleado.Items.AddRange(new object[] {
             "Gonzalo Crespo"});
-            this.comboBox2.Location = new System.Drawing.Point(105, 23);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 7;
+            this.cmbEmpleado.Location = new System.Drawing.Point(105, 23);
+            this.cmbEmpleado.Name = "cmbEmpleado";
+            this.cmbEmpleado.Size = new System.Drawing.Size(121, 24);
+            this.cmbEmpleado.TabIndex = 7;
             // 
             // label1
             // 
@@ -146,6 +146,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Alta_Usuario";
             this.Text = "Nuevo Usuario";
+            this.Load += new System.EventHandler(this.Alta_Usuario_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -159,7 +160,7 @@
         private System.Windows.Forms.TextBox txtnombreU;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btncancelar;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbEmpleado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnconfirmar;
     }

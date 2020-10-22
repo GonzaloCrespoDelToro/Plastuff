@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Alta_Empleado));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtdni = new System.Windows.Forms.TextBox();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
-            this.txtdni = new System.Windows.Forms.MaskedTextBox();
             this.txtcontacto = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtdirecc = new System.Windows.Forms.TextBox();
@@ -51,8 +51,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dtFecha);
             this.groupBox1.Controls.Add(this.txtdni);
+            this.groupBox1.Controls.Add(this.dtFecha);
             this.groupBox1.Controls.Add(this.txtcontacto);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtdirecc);
@@ -72,6 +72,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Empleado";
             // 
+            // txtdni
+            // 
+            this.txtdni.Location = new System.Drawing.Point(88, 136);
+            this.txtdni.MaxLength = 8;
+            this.txtdni.Name = "txtdni";
+            this.txtdni.Size = new System.Drawing.Size(105, 22);
+            this.txtdni.TabIndex = 17;
+            // 
             // dtFecha
             // 
             this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -79,14 +87,6 @@
             this.dtFecha.Name = "dtFecha";
             this.dtFecha.Size = new System.Drawing.Size(105, 22);
             this.dtFecha.TabIndex = 16;
-            // 
-            // txtdni
-            // 
-            this.txtdni.Location = new System.Drawing.Point(88, 136);
-            this.txtdni.Mask = "00-000-000";
-            this.txtdni.Name = "txtdni";
-            this.txtdni.Size = new System.Drawing.Size(80, 22);
-            this.txtdni.TabIndex = 15;
             // 
             // txtcontacto
             // 
@@ -189,22 +189,28 @@
             // 
             // Confirmar
             // 
+            this.Confirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Confirmar.ForeColor = System.Drawing.Color.White;
             this.Confirmar.Location = new System.Drawing.Point(12, 246);
             this.Confirmar.Name = "Confirmar";
             this.Confirmar.Size = new System.Drawing.Size(111, 26);
             this.Confirmar.TabIndex = 1;
             this.Confirmar.Text = "Confirmar";
-            this.Confirmar.UseVisualStyleBackColor = true;
+            this.Confirmar.UseVisualStyleBackColor = false;
             this.Confirmar.Click += new System.EventHandler(this.Confirmar_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(161, 246);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 26);
             this.button1.TabIndex = 2;
             this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Alta_Empleado
             // 
@@ -219,6 +225,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Alta_Empleado";
             this.Text = "Alta Empleado";
             this.Load += new System.EventHandler(this.Alta_Empleado_Load);
@@ -237,7 +244,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox txtdni;
         private System.Windows.Forms.TextBox txtcontacto;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtdirecc;
@@ -247,5 +253,6 @@
         private System.Windows.Forms.Button Confirmar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dtFecha;
+        private System.Windows.Forms.TextBox txtdni;
     }
 }

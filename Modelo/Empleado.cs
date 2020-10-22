@@ -8,13 +8,13 @@ namespace Modelo
 {
     public class Empleado
     {
-        public int id { get; set; }
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public string dni { get; set; }
-        public DateTime fechanac { get; set; }
-        public string mail { get; set; }
-        public string direccion { get; set; }
-        public string telefono { get; set; }
+        public int ID { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string DNI { get; set; }
+        public DateTime Fechanac { get; set; }
+        public string Mail { get; set; }
+        public string Direccion { get; set; }
+        public string Telefono { get; set; }
     }
 }

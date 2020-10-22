@@ -33,7 +33,7 @@ namespace Plustuff_TC.LogIn
             if (!string.IsNullOrEmpty(txtpass.Text) || !string.IsNullOrEmpty(txtusu.Text))
             {
                 Modelo.Usuario usuario = new Modelo.Usuario();
-                usuario.Nombre = txtusu.Text;
+                usuario.Nombre = txtusu.Text.ToLower();
                 usuario.Pass = txtpass.Text;
                 if (!_Usuario.Consistencia_Nombre(usuario)) //Consistencia de datos
                 {
@@ -45,9 +45,11 @@ namespace Plustuff_TC.LogIn
                     if (!string.IsNullOrEmpty(Error_DVH) || !string.IsNullOrEmpty(Error_DVH))
                     {
                         //Verificar si es administrador
-                        lblerror.Visible = true;
-                        lblerror.Text = "Solo el Administrador puede ingresar";
-                        return;
+                        Error_Base error_Base = new Error_Base();
+                        error_Base.Show();
+                        //lblerror.Visible = true;
+                        //lblerror.Text = "Solo el Administrador puede ingresar";
+                        //return;
                     }
 
                     if (!_Usuario.Check_Usu(usuario))
@@ -79,7 +81,7 @@ namespace Plustuff_TC.LogIn
                        Modelo.Usuario User = _Usuario.GetUserByName(usuario);
 
                         bitacora.Accion = "Login";
-                        bitacora.Descripcion = $"El usuario {User.Nombre} se logio";
+                        bitacora.Descripcion = $"Login exitoso";
                         bitacora.FechaHora = DateTime.Now;
                         bitacora.U_id = User.id;
                         bitacora.Criticidad = 3;

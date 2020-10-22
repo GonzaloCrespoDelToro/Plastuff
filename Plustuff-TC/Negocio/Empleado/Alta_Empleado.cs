@@ -31,13 +31,13 @@ namespace Plustuff_TC.Negocio.Empleado
 
         private void Confirmar_Click(object sender, EventArgs e)
         {
-            empleado.nombre = txtnombre.Text;
-            empleado.apellido = txtapellido.Text;
-            empleado.dni = txtdni.Text;
-            empleado.direccion = txtdirecc.Text;
-            empleado.fechanac =Convert.ToDateTime(dtFecha.Text);
-            empleado.mail = txtmail.Text;
-            empleado.telefono = txtcontacto.Text;
+            empleado.Nombre = txtnombre.Text;
+            empleado.Apellido = txtapellido.Text;
+            empleado.DNI = txtdni.Text;
+            empleado.Direccion = txtdirecc.Text;
+            empleado.Fechanac =Convert.ToDateTime(dtFecha.Text);
+            empleado.Mail = txtmail.Text;
+            empleado.Telefono = txtcontacto.Text;
 
             if (_empleado.Vacio(empleado))
             {
@@ -49,7 +49,7 @@ namespace Plustuff_TC.Negocio.Empleado
 
             //Da de alta en bitacora
             bitacora.Accion = "AltaEmpleado";
-            bitacora.Descripcion = $"El usuario {Sesion.Usuario.Nombre} dio de alta al empleado {empleado.nombre} {empleado.apellido}";
+            bitacora.Descripcion = $"Se dio de alta al empleado {empleado.Nombre} {empleado.Apellido}";
             bitacora.FechaHora = DateTime.Now;
             bitacora.U_id = Sesion.Usuario.id;
             bitacora.Criticidad = 3;

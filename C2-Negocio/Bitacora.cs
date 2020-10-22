@@ -30,5 +30,26 @@ namespace C2_Negocio
                 string error = ex.ToString();
             }
         }
+
+        public List<Modelo.Bitacora> Listar_Bitacora()
+        {
+            try
+            {
+                var ListBitacora = _bitacoraAD.Listar_Bitacora();
+                foreach (Modelo.Bitacora bitacora in ListBitacora)
+                {
+                    if (bitacora.Usuario != "Sistema")
+                    {
+                        bitacora.Usuario = _encriptacion.Desencriptar(bitacora.Usuario);
+                    }
+                    bitacora.Descripcion = _encriptacion.Desencriptar(bitacora.Descripcion);
+                }
+                return ListBitacora;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }

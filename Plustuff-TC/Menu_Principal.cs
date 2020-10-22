@@ -32,7 +32,9 @@ namespace Plustuff_TC
 
         private void altaUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Seguridad.Pantallas.Usuario.Alta_Usuario alta_Usuario = new Seguridad.Pantallas.Usuario.Alta_Usuario();
+            alta_Usuario.MdiParent = this;
+            alta_Usuario.Show();
         }
 
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -49,7 +51,7 @@ namespace Plustuff_TC
         public void CerrarSesion()
         {
             bitacora.Accion = "Logout";
-            bitacora.Descripcion = $"El usuario {Sesion.Usuario.Nombre} se deslogeo";
+            bitacora.Descripcion = $"Logout exitoso";
             bitacora.FechaHora = DateTime.Now;
             bitacora.U_id = Sesion.Usuario.id;
             bitacora.Criticidad = 3;
@@ -69,8 +71,6 @@ namespace Plustuff_TC
 
         private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            this.CerrarSesion();
-
             Application.Exit();
         }
 
@@ -86,13 +86,21 @@ namespace Plustuff_TC
         private void altaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Negocio.Empleado.Alta_Empleado alta_Empleado = new Negocio.Empleado.Alta_Empleado();
+            alta_Empleado.MdiParent = this;
             alta_Empleado.Show();
         }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Negocio.Empleado.Mostrar_Empleados mostrar_Empleados = new Negocio.Empleado.Mostrar_Empleados();
+            mostrar_Empleados.MdiParent = this;
             mostrar_Empleados.Show();
+        }
+
+        private void bitacoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LogIn.Error_Base error_Base = new LogIn.Error_Base();
+            error_Base.Show();
         }
     }
 }

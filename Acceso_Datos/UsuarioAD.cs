@@ -68,14 +68,14 @@ namespace Acceso_Datos
                 DataSet EmpDS = _accesoSQL.Consultar_DS("SELECT E_nombre, E_apellido, E_DNI, E_fechanac, E_mail, E_direccion, E_Telefono FROM Empleados WHERE ID=" + EmpID + "", "Empleados");
                 Modelo.Empleado Emp = new Modelo.Empleado();
 
-                Emp.id = EmpID;
-                Emp.nombre = EmpDS.Tables[0].Rows[0]["E_nombre"].ToString();
-                Emp.apellido = EmpDS.Tables[0].Rows[0]["E_apellido"].ToString();
-                Emp.dni = EmpDS.Tables[0].Rows[0]["E_DNI"].ToString();
-                Emp.fechanac = Convert.ToDateTime(EmpDS.Tables[0].Rows[0]["E_fechanac"].ToString());
-                Emp.mail = EmpDS.Tables[0].Rows[0]["E_mail"].ToString();
-                Emp.direccion = EmpDS.Tables[0].Rows[0]["E_direccion"].ToString();
-                Emp.telefono = EmpDS.Tables[0].Rows[0]["E_Telefono"].ToString();
+                Emp.ID = EmpID;
+                Emp.Nombre = EmpDS.Tables[0].Rows[0]["E_nombre"].ToString();
+                Emp.Apellido = EmpDS.Tables[0].Rows[0]["E_apellido"].ToString();
+                Emp.DNI = EmpDS.Tables[0].Rows[0]["E_DNI"].ToString();
+                Emp.Fechanac = Convert.ToDateTime(EmpDS.Tables[0].Rows[0]["E_fechanac"].ToString());
+                Emp.Mail = EmpDS.Tables[0].Rows[0]["E_mail"].ToString();
+                Emp.Direccion = EmpDS.Tables[0].Rows[0]["E_direccion"].ToString();
+                Emp.Telefono = EmpDS.Tables[0].Rows[0]["E_Telefono"].ToString();
 
                 user.Empleado = Emp;
 
