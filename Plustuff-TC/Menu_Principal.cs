@@ -40,6 +40,7 @@ namespace Plustuff_TC
         private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Negocio.Nueva_Cotizacion nueva_Cotizacion = new Negocio.Nueva_Cotizacion();
+            nueva_Cotizacion.MdiParent = this;
             nueva_Cotizacion.Show();
         }
 
@@ -66,8 +67,6 @@ namespace Plustuff_TC
 
             Application.Exit();
         }
-
-       
 
         private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -101,6 +100,13 @@ namespace Plustuff_TC
         {
             LogIn.Error_Base error_Base = new LogIn.Error_Base();
             error_Base.Show();
+        }
+
+        private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Seguridad.Pantallas.Usuario.Cambiar_Contraseña cambiar_Contraseña = new Seguridad.Pantallas.Usuario.Cambiar_Contraseña();
+            cambiar_Contraseña.MdiParent = this;
+            cambiar_Contraseña.Show();
         }
     }
 }

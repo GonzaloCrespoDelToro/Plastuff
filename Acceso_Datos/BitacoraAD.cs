@@ -6,21 +6,21 @@ using System.Text;
 namespace Acceso_Datos
 {
     public class BitacoraAD
-{
+    {
         AccesoSQL _AccesoSQL = new AccesoSQL();
 
 
-    public void Alta(Modelo.Bitacora bitacora)
-    {
+        public void Alta(Modelo.Bitacora bitacora)
+        {
             try
             {
                 _AccesoSQL.Ejecutar_Query("ExecuteNonQuery", "INSERT INTO Bitacora VALUES('" + bitacora.Accion + "','" + bitacora.Descripcion + "'," + bitacora.Criticidad.ToString() + ",'" + bitacora.FechaHora + "'," + bitacora.U_id + ",'" + bitacora.DVH + "')");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 string error = ex.ToString();
             }
-    }
+        }
 
         public List<Modelo.Bitacora> Listar_Bitacora()
         {
@@ -35,7 +35,7 @@ namespace Acceso_Datos
                     Bitacora.Accion = row["Accion"].ToString();
                     Bitacora.Descripcion = row["Descripcion"].ToString();
                     Bitacora.CriticidadNombre = row["Criticidad"].ToString();
-                    Bitacora.FechaHora =Convert.ToDateTime(row["FechaHora"].ToString());
+                    Bitacora.FechaHora = Convert.ToDateTime(row["FechaHora"].ToString());
                     Bitacora.Usuario = row["Usuario"].ToString();
 
                     ListBitacora.Add(Bitacora);
@@ -46,7 +46,29 @@ namespace Acceso_Datos
             {
                 return null;
             }
+        }
 
+        public List<Modelo.Criticidad> TraerCriticidades()
+        {
+            try
+            {
+                List<Modelo.Criticidad> ListCriticidad = new List<Modelo.Criticidad>();
+                DataSet CriticidadDS = _AccesoSQL.Consultar_DS("SELECT ID, Descripcion FROM Criticidad", "Criticidad");
+
+                foreach (DataRow row in CriticidadDS.Tables[0].Rows)
+                {
+                    Modelo.Criticidad criticidad = new Modelo.Criticidad();
+                    criticidad.ID =Convert.ToInt32(row["ID"].ToString());
+                    criticidad.Nombre = row["Descripcion"].ToString();
+                    ListCriticidad.Add(criticidad);
+                }
+
+                return ListCriticidad;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
     }

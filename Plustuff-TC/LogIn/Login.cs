@@ -109,7 +109,7 @@ namespace Plustuff_TC.LogIn
         {
             if (!string.IsNullOrEmpty(Error_DVH) || !string.IsNullOrEmpty(Error_DVV))
             {
-                lblerror.Text = "Hay error en los digitos, solo puede ingresar al sistema un administrador.";
+                lblerror.Text = "Hay error en digitos, solo puede ingresar un administrador.";
                 lblerror.Visible = true;
                 Admin = true;
             }

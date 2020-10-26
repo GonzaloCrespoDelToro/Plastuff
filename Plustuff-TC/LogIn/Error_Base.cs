@@ -17,6 +17,7 @@ namespace Plustuff_TC.LogIn
         Servicios.Verificadores _Verificadores = new Servicios.Verificadores();
         Modelo.Bitacora bitacora = new Modelo.Bitacora();
         Servicios.SessionManager Sesion = Servicios.SessionManager.Getinstance;
+        List<Modelo.Bitacora> Bitacora;
 
 
         public Error_Base()
@@ -26,9 +27,9 @@ namespace Plustuff_TC.LogIn
 
         private void Error_Base_Load(object sender, EventArgs e)
         {
-            var Bitacora = _Bitacora.Listar_Bitacora();
-            dgvBitacora.DataSource = (from b in Bitacora
-                                     select new
+            Bitacora = _Bitacora.Listar_Bitacora();
+            dgvBitacora.DataSource = (from b in Bitacora orderby b.FechaHora descending
+                                      select new
                                      {
                                          Accion = b.Accion,
                                          Descripcion = b.Descripcion,
@@ -36,28 +37,136 @@ namespace Plustuff_TC.LogIn
                                          FechayHora = b.FechaHora,
                                          Usuario = b.Usuario
                                      }).ToArray();
+            BloquearFiltros();
+
+            var criticidad = _Bitacora.TraerCriticidades();
+            cmbCriticidad.DataSource = criticidad;
+            cmbCriticidad.DisplayMember = "Nombre";
+            cmbCriticidad.ValueMember = "ID";
         }
 
         private void btnRecalcular_Click(object sender, EventArgs e)
         {
-            if (!_Verificadores.Recalcular_TodosDVV())
-            {
-                MessageBox.Show(this, "No se pudo recalcular los digitos", "Recalcular Digitos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            bitacora.Accion = "RecalculoDigitos";
-            bitacora.Descripcion = "Se recalcularon todos los digitos";
-            bitacora.FechaHora = DateTime.Now;
-            bitacora.U_id = Sesion.Usuario.id;
-            bitacora.Criticidad = 1;
-            _Bitacora.Alta(bitacora);
-
-            DialogResult dialogResult = MessageBox.Show(this, "Los digitos se recalcularon con exito", "Recalcular Digitos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            DialogResult dialogResult = MessageBox.Show(this, "¿Desea reclacular los digitos?", "Recalcular Digitos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (dialogResult == DialogResult.Yes)
             {
-                this.Refresh();
+                if (!_Verificadores.Recalcular_TodosDVV())
+                {
+                    MessageBox.Show(this, "No se pudo recalcular los digitos", "Recalcular Digitos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                bitacora.Accion = "RecalculoDigitos";
+                bitacora.Descripcion = "Se recalcularon todos los digitos";
+                bitacora.FechaHora = DateTime.Now;
+                bitacora.U_id = Sesion.Usuario.id;
+                bitacora.Criticidad = 1;
+                _Bitacora.Alta(bitacora);
             }
+            this.Refresh();
+        }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            if (rbFecha.Checked == true)
+            {
+                DateTime desde = Convert.ToDateTime(dtFechaDesde.Text);
+                DateTime hasta = Convert.ToDateTime(dtFechaHasta.Text);
+                dgvBitacora.DataSource = (from b in Bitacora
+                                          orderby b.FechaHora descending
+                                          where (b.FechaHora > desde && b.FechaHora < hasta)
+                                          select new
+                                          {
+                                              Accion = b.Accion,
+                                              Descripcion = b.Descripcion,
+                                              Criticidad = b.CriticidadNombre,
+                                              FechayHora = b.FechaHora,
+                                              Usuario = b.Usuario
+                                          }).ToArray();
+            }
+            else if (rbCriticidad.Checked == true)
+            {
+                var Criticidad = cmbCriticidad.Text;
+                dgvBitacora.DataSource = (from b in Bitacora
+                                          orderby b.FechaHora descending
+                                          where (b.CriticidadNombre == Criticidad)
+                                          select new
+                                          {
+                                              Accion = b.Accion,
+                                              Descripcion = b.Descripcion,
+                                              Criticidad = b.CriticidadNombre,
+                                              FechayHora = b.FechaHora,
+                                              Usuario = b.Usuario
+                                          }).ToArray();
+            }
+            else if (rbtexto.Checked == true)
+            {
+                string texto = txttexto.Text;
+                dgvBitacora.DataSource = (from b in Bitacora
+                                          orderby b.FechaHora descending
+                                          where (b.CriticidadNombre.ToLower().Contains(Text.ToLower())|| b.Descripcion.ToLower().Contains(texto.ToLower())
+                                          || b.Accion.ToLower().Contains(Text.ToLower()) || b.Usuario.ToLower().Contains(texto.ToLower()))
+                                          select new
+                                          {
+                                              Accion = b.Accion,
+                                              Descripcion = b.Descripcion,
+                                              Criticidad = b.CriticidadNombre,
+                                              FechayHora = b.FechaHora,
+                                              Usuario = b.Usuario
+                                          }).ToArray();
+            }
+            
+
+        }
+
+        private void btnclean_Click(object sender, EventArgs e)
+        {
+            dgvBitacora.DataSource = (from b in Bitacora
+                                      orderby b.FechaHora descending
+                                      select new
+                                      {
+                                          Accion = b.Accion,
+                                          Descripcion = b.Descripcion,
+                                          Criticidad = b.CriticidadNombre,
+                                          FechayHora = b.FechaHora,
+                                          Usuario = b.Usuario
+                                      }).ToArray();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        void BloquearFiltros()
+        {
+            lbldesde.Enabled = false;
+            lblhasta.Enabled = false;
+            dtFechaDesde.Enabled = false;
+            dtFechaHasta.Enabled = false;
+            cmbCriticidad.Enabled = false;
+            txttexto.Enabled = false;
+        }
+
+        private void rbCriticidad_CheckedChanged(object sender, EventArgs e)
+        {
+            BloquearFiltros();
+            cmbCriticidad.Enabled = true;
+        }
+
+        private void rbFecha_CheckedChanged(object sender, EventArgs e)
+        {
+            BloquearFiltros();
+            lbldesde.Enabled = true;
+            lblhasta.Enabled = true;
+            dtFechaDesde.Enabled = true;
+            dtFechaHasta.Enabled = true;
+        }
+
+        private void rbtexto_CheckedChanged(object sender, EventArgs e)
+        {
+            BloquearFiltros();
+            txttexto.Enabled = true;
         }
     }
 }

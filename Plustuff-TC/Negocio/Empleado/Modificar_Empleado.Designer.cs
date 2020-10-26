@@ -119,6 +119,7 @@
             this.txtdni.Name = "txtdni";
             this.txtdni.Size = new System.Drawing.Size(123, 22);
             this.txtdni.TabIndex = 4;
+            this.txtdni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdni_KeyPress);
             // 
             // txtcontacto
             // 
@@ -247,7 +248,6 @@
             this.txtnombreselect.ReadOnly = true;
             this.txtnombreselect.Size = new System.Drawing.Size(154, 22);
             this.txtnombreselect.TabIndex = 17;
-            this.txtnombreselect.Text = "Gonzalo";
             // 
             // label9
             // 

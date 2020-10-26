@@ -31,6 +31,20 @@ namespace Acceso_Datos
             }
         }
 
+        public string Alta(Usuario usuario)
+        {
+            try
+            {
+                string consulta = _accesoSQL.Ejecutar_Query("ExecuteNonQuery", $"INSERT INTO Usuarios VALUES ('{usuario.Nombre}', '{usuario.Pass}', {usuario.Intentos}," +
+                    $" '{usuario.bloqueado}', {usuario.Empleado.ID.ToString()}, {usuario.Idioma.id.ToString()}, '{usuario.DVH}') ");
+                return consulta;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public bool Verificar_Bloq(Modelo.Usuario usuario)
         {
             try
@@ -92,6 +106,44 @@ namespace Acceso_Datos
             catch(Exception ex)
             {
                 return user;
+            }
+        }
+
+        public bool Modificar_Pass(Usuario usuario)
+        {
+            try
+            {
+                string consulta = _accesoSQL.Ejecutar_Query("ExecuteNonQuery", $"UPDATE Usuarios SET Pass = '{usuario.Pass}', DVH = '{usuario.DVH}' WHERE ID = {usuario.id}");
+                if (string.IsNullOrEmpty(consulta))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public List<Modelo.Idioma> Listar_Idiomas()
+        {
+            try
+            {
+                List<Modelo.Idioma> idiomas = new List<Modelo.Idioma>();
+            DataSet IdiomaDS = _accesoSQL.Consultar_DS("SELECT ID, Idioma FROM Idiomas", "Idiomas");
+            foreach (DataRow row in IdiomaDS.Tables[0].Rows)
+            {
+                Modelo.Idioma idioma = new Modelo.Idioma();
+                idioma.id = Convert.ToInt32(row["ID"].ToString());
+                idioma.idioma = row["Idioma"].ToString();
+                idiomas.Add(idioma);
+            }
+            return idiomas;
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
 

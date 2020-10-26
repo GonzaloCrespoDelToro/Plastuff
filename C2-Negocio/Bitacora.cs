@@ -51,5 +51,18 @@ namespace C2_Negocio
                 return null;
             }
         }
+
+        public List<Modelo.Criticidad> TraerCriticidades()
+        {
+            try
+            {
+                var Criticidades = _bitacoraAD.TraerCriticidades();
+                return Criticidades;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }
