@@ -1,4 +1,6 @@
 ﻿using C2_Negocio;
+using Modelo;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +13,11 @@ using System.Windows.Forms;
 
 namespace Plustuff_TC
 {
-    public partial class Menu_Principal : Form
+    public partial class Menu_Principal : Form, IObserverIdioma
     {
 
         Usuarios _usuario = new Usuarios();
-        Bitacora _Bitacora = new C2_Negocio.Bitacora();
+        C2_Negocio.Bitacora _Bitacora = new C2_Negocio.Bitacora();
         Modelo.Bitacora bitacora = new Modelo.Bitacora();
         Servicios.SessionManager Sesion = Servicios.SessionManager.Getinstance;
 
@@ -23,6 +25,53 @@ namespace Plustuff_TC
         public Menu_Principal()
         {
             InitializeComponent();
+        }
+        private void Menu_Principal_Load(object sender, EventArgs e)
+        {
+            this.Traducir();
+            Servicios.ManagerIdioma.Suscribir(this);
+        }
+
+        public void ActualizarIdioma(Idioma idioma)
+        {
+            this.Traducir();
+        }
+
+        private void Traducir()
+        {
+            Traductor traductor = new Traductor();
+            Modelo.Formulario formulario = new Formulario();
+            formulario.Nombre = "Menu";
+            var traducciones = traductor.ObtenerTraducciones(Sesion.Usuario.Idioma, formulario);
+            if (traducciones.Any(t => t.Etiqueta == this.Name))
+            {
+                this.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.Name).Descripcion;
+            }
+            foreach (ToolStripMenuItem item in this.menuStrip.Items)
+            {
+                if (traducciones.Any(t => t.Etiqueta == item.Name))
+                {
+                    item.Text = traducciones.FirstOrDefault(t => t.Etiqueta == item.Name).Descripcion;
+                }
+
+                TraducirControlesInternos(item, traducciones);
+            }
+        }
+        private void TraducirControlesInternos(ToolStripMenuItem item, List<Traduccion> traducciones)
+        {
+
+            if (item is ToolStripMenuItem)
+            {
+                foreach (ToolStripMenuItem subItem in item.DropDownItems)
+                {
+                    if (traducciones.Any(t => t.Etiqueta == subItem.Name))
+                    {
+                        subItem.Text = traducciones.FirstOrDefault(t => t.Etiqueta == subItem.Name).Descripcion;
+                    }
+
+                    TraducirControlesInternos(subItem, traducciones);
+                }
+            }
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,11 +91,6 @@ namespace Plustuff_TC
             Negocio.Nueva_Cotizacion nueva_Cotizacion = new Negocio.Nueva_Cotizacion();
             nueva_Cotizacion.MdiParent = this;
             nueva_Cotizacion.Show();
-        }
-
-        private void Menu_Principal_Load(object sender, EventArgs e)
-        {
-
         }
 
         public void CerrarSesion()
@@ -107,6 +151,13 @@ namespace Plustuff_TC
             Seguridad.Pantallas.Usuario.Cambiar_Contraseña cambiar_Contraseña = new Seguridad.Pantallas.Usuario.Cambiar_Contraseña();
             cambiar_Contraseña.MdiParent = this;
             cambiar_Contraseña.Show();
+        }
+
+        private void MostrarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Seguridad.Pantallas.Usuario.Mostrar_Usuario mostrar_Usuario = new Seguridad.Pantallas.Usuario.Mostrar_Usuario();
+            mostrar_Usuario.MdiParent = this;
+            mostrar_Usuario.Show();
         }
     }
 }

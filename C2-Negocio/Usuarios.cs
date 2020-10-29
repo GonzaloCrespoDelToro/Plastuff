@@ -35,7 +35,7 @@ namespace C2_Negocio
                 Modelo.Digito_Vertical DigitoVertical = new Modelo.Digito_Vertical();
                 DigitoVertical.Tabla = "Usuarios";
 
-                string[] datos = { usuario.Nombre,usuario.Pass,usuario.Intentos.ToString(),usuario.bloqueado.ToString(),usuario.Empleado.ID.ToString(),usuario.Idioma.id.ToString()};
+                string[] datos = { usuario.Nombre, usuario.Pass, usuario.Intentos.ToString(), usuario.bloqueado.ToString(), usuario.Empleado.ID.ToString(), usuario.Idioma.id.ToString() };
                 usuario.DVH = _Verificador.CalcularDVH(datos);
 
                 var alta = _UsuarioAD.Alta(usuario);
@@ -60,7 +60,7 @@ namespace C2_Negocio
         {
             try
             {
-                usuario.Pass = _encriptacion.Encriptar(usuario.Pass,1);
+                usuario.Pass = _encriptacion.Encriptar(usuario.Pass, 1);
                 Modelo.Digito_Vertical DigitoVertical = new Modelo.Digito_Vertical();
                 DigitoVertical.Tabla = "Usuarios";
 
@@ -77,6 +77,22 @@ namespace C2_Negocio
                 _Verificador.Recalcular_DVV(DigitoVertical);
 
                 return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool TieneUsuario(Modelo.Empleado selectEmp)
+        {
+            try
+            {
+                if (_UsuarioAD.TieneUsuario(selectEmp))
+                {
+                    return true;
+                }
+                return false;
             }
             catch (Exception)
             {
@@ -101,9 +117,29 @@ namespace C2_Negocio
 
         }
 
-        void Modificar_Usuario()
+        public bool Modificar_Usuario(Modelo.Usuario usuario)
         {
+            try
+            {
+                Modelo.Digito_Vertical DigitoVertical = new Modelo.Digito_Vertical();
+                DigitoVertical.Tabla = "Usuarios";
 
+                string[] datos = { usuario.Nombre, usuario.Pass, usuario.Intentos.ToString(), usuario.bloqueado.ToString(), usuario.Empleado.ID.ToString(), usuario.Idioma.id.ToString() };
+                usuario.DVH = _Verificador.CalcularDVH(datos);
+
+                if (!_UsuarioAD.Modificar(usuario))
+                {
+                    return false;
+                }
+
+                _Verificador.Recalcular_DVV(DigitoVertical);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         public bool Consistencia_Nombre(Modelo.Usuario usuario)
@@ -129,8 +165,6 @@ namespace C2_Negocio
             }
             return true;
         }
-
-
 
         public bool Check_Usu(Modelo.Usuario usuario)
         {
@@ -220,6 +254,38 @@ namespace C2_Negocio
                 return idiomas;
             }
             catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public Modelo.Usuario TraerUsuByNombre(Modelo.Usuario usuario)
+        {
+            try
+            {
+                usuario.Nombre = _encriptacion.Encriptar(usuario.Nombre, 2);
+                var user = _UsuarioAD.GetUserByName(usuario);
+                user.Nombre = _encriptacion.Desencriptar(user.Nombre);
+                return user;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public List<Modelo.Usuario> Listar_Usuarios()
+        {
+            try
+            {
+                List<Modelo.Usuario> usuarios = _UsuarioAD.Listar_usuarios();
+                foreach (Modelo.Usuario user in usuarios)
+                {
+                    user.Nombre = _encriptacion.Desencriptar(user.Nombre);
+                }
+                return usuarios;
+            }
+            catch (Exception ex)
             {
                 return null;
             }

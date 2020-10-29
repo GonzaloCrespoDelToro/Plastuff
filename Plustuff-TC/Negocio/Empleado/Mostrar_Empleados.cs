@@ -15,6 +15,7 @@ namespace Plustuff_TC.Negocio.Empleado
         Modelo.Empleado empleado = new Modelo.Empleado();
         C2_Negocio.Empleado _empleado = new C2_Negocio.Empleado();
         Menu_Principal Menu_Principal = new Menu_Principal();
+        C2_Negocio.Usuarios _Usuarios = new C2_Negocio.Usuarios(); 
 
         public Mostrar_Empleados()
         {
@@ -23,8 +24,7 @@ namespace Plustuff_TC.Negocio.Empleado
 
         private void Mostrar_Empleados_Load(object sender, EventArgs e)
         {
-            var Empleados = _empleado.Listar_Empleados();
-            this.GridViewEmpleados.DataSource = Empleados.Where(x => x.ID != 1).ToArray();
+            this.ListarSinFiltro();
         }
 
         private void btnbuscar_Click(object sender, EventArgs e)
@@ -38,11 +38,16 @@ namespace Plustuff_TC.Negocio.Empleado
             }
         }
 
+        private void ListarSinFiltro()
+        {
+            var Empleados = _empleado.Listar_Empleados();
+            this.GridViewEmpleados.DataSource = Empleados.Where(x => x.ID != 1).ToArray();
+        }
+
         private void btnclean_Click(object sender, EventArgs e)
         {
             txtfilter.Clear();
-            var Empleados = _empleado.Listar_Empleados();
-            this.GridViewEmpleados.DataSource = Empleados.Where(x => x.ID != 1).ToArray();
+            this.ListarSinFiltro();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -51,7 +56,33 @@ namespace Plustuff_TC.Negocio.Empleado
             Negocio.Empleado.Modificar_Empleado modificar_Empleado = new Modificar_Empleado();
             modificar_Empleado.SelectEmpleado = SelectEmp;
             modificar_Empleado.Show();
-            this.Hide();
+            this.Close();
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Modelo.Empleado SelectEmp = (Modelo.Empleado)GridViewEmpleados.CurrentRow.DataBoundItem;
+
+                DialogResult dialogResult = MessageBox.Show("¿Estas seguro que desea eliminar este Empleado?", "Eliminar Empleado", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    bool Usu = _Usuarios.TieneUsuario(SelectEmp);
+                    if (Usu)
+                    {
+                        MessageBox.Show("El Empleado tiene un Usuario asignado, para continuar elimine el usuario", "Eliminar Empleado");
+                        return;
+                    }
+                    _empleado.Eliminar_Empleado(SelectEmp);
+                    MessageBox.Show("El Empleado se elimino correctamente", "Eliminar Empleado");
+                    this.ListarSinFiltro();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Se produjo un error inesperado", "Error");
+            }
         }
     }
 }

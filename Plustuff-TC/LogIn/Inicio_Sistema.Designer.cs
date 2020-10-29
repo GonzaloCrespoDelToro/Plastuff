@@ -51,7 +51,7 @@
             // 
             this.lblproc.AutoSize = true;
             this.lblproc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblproc.Location = new System.Drawing.Point(2, 97);
+            this.lblproc.Location = new System.Drawing.Point(2, 105);
             this.lblproc.Name = "lblproc";
             this.lblproc.Size = new System.Drawing.Size(147, 20);
             this.lblproc.TabIndex = 6;
@@ -73,7 +73,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(455, 156);
+            this.ClientSize = new System.Drawing.Size(455, 150);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;

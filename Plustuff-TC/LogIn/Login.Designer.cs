@@ -58,6 +58,7 @@
             this.txtusu.Name = "txtusu";
             this.txtusu.Size = new System.Drawing.Size(236, 26);
             this.txtusu.TabIndex = 1;
+            this.txtusu.Text = "gcrespo";
             // 
             // txtpass
             // 
@@ -67,6 +68,7 @@
             this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(236, 26);
             this.txtpass.TabIndex = 3;
+            this.txtpass.Text = "123456";
             // 
             // label1
             // 

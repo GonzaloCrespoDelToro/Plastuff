@@ -17,33 +17,33 @@ namespace Plustuff_TC.Negocio
             InitializeComponent();
         }
 
-        private void btn_archivo_Click(object sender, EventArgs e)
-        {
-            folderBrowserDialog1.ShowDialog();
-            this.txtruta.Text = folderBrowserDialog1.SelectedPath;
-        }
-
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtgramos.Text) || !string.IsNullOrEmpty(txttiempo.Text))
+            try
             {
-                var tiempo = Convert.ToInt32(this.txttiempo.Text);
-                var gramos = Convert.ToInt32(this.txtgramos.Text);
-                int precioKilo = 1200;
-                int precioImpresion = 100;
+                if (!string.IsNullOrEmpty(txtgramos.Text) || !string.IsNullOrEmpty(txttiempo.Text))
+                {
+                    var tiempo = Convert.ToInt32(this.txttiempo.Text);
+                    var gramos = Convert.ToInt32(this.txtgramos.Text);
+                    int precioKilo = 1200;
+                    int precioImpresion = 200;
 
-                var asd = ((gramos * precioKilo) / 1000);
+                    var asd = ((gramos * precioKilo) / 1000);
 
-                var Total = ((((gramos * precioKilo) / 1000) * 2) + ((tiempo * precioImpresion) / 60));
+                    var Total = ((((gramos * precioKilo) / 1000) * 2) + ((tiempo * precioImpresion) / 60));
 
-                this.lblTotal.Text = Total.ToString();
+                    this.lblTotal.Text = Total.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Debe completar todos los campos");
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Debe completar todos los campos");
-            }
-           
 
+                throw;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -53,7 +53,13 @@ namespace Plustuff_TC.Negocio
 
         private void label7_Click(object sender, EventArgs e)
         {
+            txttiempo.Focus();
+        }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.openFileDialog1.ShowDialog();
+            this.txtruta.Text = openFileDialog1.FileName;
         }
     }
 }

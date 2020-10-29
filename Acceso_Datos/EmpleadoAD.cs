@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using Modelo;
 
 namespace Acceso_Datos
 {
@@ -61,6 +62,23 @@ namespace Acceso_Datos
                 return null;
             }
             
+        }
+
+        public bool Eliminar_Emp(Empleado empleado)
+        {
+            try
+            {
+                var consulta = _accesoSQL.Ejecutar_Query("ExecuteNonQuery", $"DELETE FROM Empleados Where ID = {empleado.ID}");
+                if (string.IsNullOrEmpty(consulta))
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public List<Modelo.Empleado> Listar_Emp_usu()

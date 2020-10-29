@@ -35,17 +35,17 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txttexto = new System.Windows.Forms.TextBox();
+            this.rbtexto = new System.Windows.Forms.RadioButton();
             this.btnclean = new System.Windows.Forms.Button();
             this.btnbuscar = new System.Windows.Forms.Button();
-            this.dtFechaDesde = new System.Windows.Forms.DateTimePicker();
-            this.dtFechaHasta = new System.Windows.Forms.DateTimePicker();
-            this.lbldesde = new System.Windows.Forms.Label();
-            this.lblhasta = new System.Windows.Forms.Label();
-            this.rbFecha = new System.Windows.Forms.RadioButton();
-            this.rbCriticidad = new System.Windows.Forms.RadioButton();
             this.cmbCriticidad = new System.Windows.Forms.ComboBox();
-            this.rbtexto = new System.Windows.Forms.RadioButton();
-            this.txttexto = new System.Windows.Forms.TextBox();
+            this.rbCriticidad = new System.Windows.Forms.RadioButton();
+            this.rbFecha = new System.Windows.Forms.RadioButton();
+            this.lblhasta = new System.Windows.Forms.Label();
+            this.lbldesde = new System.Windows.Forms.Label();
+            this.dtFechaHasta = new System.Windows.Forms.DateTimePicker();
+            this.dtFechaDesde = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBitacora)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -111,6 +111,7 @@
             this.button3.TabIndex = 4;
             this.button3.Text = "Cancelar";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox2
             // 
@@ -131,6 +132,25 @@
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filtro";
+            // 
+            // txttexto
+            // 
+            this.txttexto.Location = new System.Drawing.Point(139, 77);
+            this.txttexto.Name = "txttexto";
+            this.txttexto.Size = new System.Drawing.Size(159, 20);
+            this.txttexto.TabIndex = 24;
+            // 
+            // rbtexto
+            // 
+            this.rbtexto.AutoSize = true;
+            this.rbtexto.Location = new System.Drawing.Point(6, 78);
+            this.rbtexto.Name = "rbtexto";
+            this.rbtexto.Size = new System.Drawing.Size(52, 17);
+            this.rbtexto.TabIndex = 23;
+            this.rbtexto.TabStop = true;
+            this.rbtexto.Text = "Texto";
+            this.rbtexto.UseVisualStyleBackColor = true;
+            this.rbtexto.CheckedChanged += new System.EventHandler(this.rbtexto_CheckedChanged);
             // 
             // btnclean
             // 
@@ -158,52 +178,13 @@
             this.btnbuscar.UseVisualStyleBackColor = false;
             this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
-            // dtFechaDesde
+            // cmbCriticidad
             // 
-            this.dtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaDesde.Location = new System.Drawing.Point(139, 24);
-            this.dtFechaDesde.Name = "dtFechaDesde";
-            this.dtFechaDesde.Size = new System.Drawing.Size(95, 20);
-            this.dtFechaDesde.TabIndex = 17;
-            // 
-            // dtFechaHasta
-            // 
-            this.dtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaHasta.Location = new System.Drawing.Point(281, 25);
-            this.dtFechaHasta.Name = "dtFechaHasta";
-            this.dtFechaHasta.Size = new System.Drawing.Size(97, 20);
-            this.dtFechaHasta.TabIndex = 18;
-            // 
-            // lbldesde
-            // 
-            this.lbldesde.AutoSize = true;
-            this.lbldesde.Location = new System.Drawing.Point(95, 27);
-            this.lbldesde.Name = "lbldesde";
-            this.lbldesde.Size = new System.Drawing.Size(38, 13);
-            this.lbldesde.TabIndex = 1;
-            this.lbldesde.Text = "Desde";
-            this.lbldesde.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // lblhasta
-            // 
-            this.lblhasta.AutoSize = true;
-            this.lblhasta.Location = new System.Drawing.Point(240, 28);
-            this.lblhasta.Name = "lblhasta";
-            this.lblhasta.Size = new System.Drawing.Size(35, 13);
-            this.lblhasta.TabIndex = 2;
-            this.lblhasta.Text = "Hasta";
-            // 
-            // rbFecha
-            // 
-            this.rbFecha.AutoSize = true;
-            this.rbFecha.Location = new System.Drawing.Point(6, 26);
-            this.rbFecha.Name = "rbFecha";
-            this.rbFecha.Size = new System.Drawing.Size(55, 17);
-            this.rbFecha.TabIndex = 20;
-            this.rbFecha.TabStop = true;
-            this.rbFecha.Text = "Fecha";
-            this.rbFecha.UseVisualStyleBackColor = true;
-            this.rbFecha.CheckedChanged += new System.EventHandler(this.rbFecha_CheckedChanged);
+            this.cmbCriticidad.FormattingEnabled = true;
+            this.cmbCriticidad.Location = new System.Drawing.Point(139, 50);
+            this.cmbCriticidad.Name = "cmbCriticidad";
+            this.cmbCriticidad.Size = new System.Drawing.Size(105, 21);
+            this.cmbCriticidad.TabIndex = 22;
             // 
             // rbCriticidad
             // 
@@ -217,32 +198,52 @@
             this.rbCriticidad.UseVisualStyleBackColor = true;
             this.rbCriticidad.CheckedChanged += new System.EventHandler(this.rbCriticidad_CheckedChanged);
             // 
-            // cmbCriticidad
+            // rbFecha
             // 
-            this.cmbCriticidad.FormattingEnabled = true;
-            this.cmbCriticidad.Location = new System.Drawing.Point(139, 50);
-            this.cmbCriticidad.Name = "cmbCriticidad";
-            this.cmbCriticidad.Size = new System.Drawing.Size(105, 21);
-            this.cmbCriticidad.TabIndex = 22;
+            this.rbFecha.AutoSize = true;
+            this.rbFecha.Location = new System.Drawing.Point(6, 26);
+            this.rbFecha.Name = "rbFecha";
+            this.rbFecha.Size = new System.Drawing.Size(55, 17);
+            this.rbFecha.TabIndex = 20;
+            this.rbFecha.TabStop = true;
+            this.rbFecha.Text = "Fecha";
+            this.rbFecha.UseVisualStyleBackColor = true;
+            this.rbFecha.CheckedChanged += new System.EventHandler(this.rbFecha_CheckedChanged);
             // 
-            // rbtexto
+            // lblhasta
             // 
-            this.rbtexto.AutoSize = true;
-            this.rbtexto.Location = new System.Drawing.Point(6, 78);
-            this.rbtexto.Name = "rbtexto";
-            this.rbtexto.Size = new System.Drawing.Size(52, 17);
-            this.rbtexto.TabIndex = 23;
-            this.rbtexto.TabStop = true;
-            this.rbtexto.Text = "Texto";
-            this.rbtexto.UseVisualStyleBackColor = true;
-            this.rbtexto.CheckedChanged += new System.EventHandler(this.rbtexto_CheckedChanged);
+            this.lblhasta.AutoSize = true;
+            this.lblhasta.Location = new System.Drawing.Point(240, 28);
+            this.lblhasta.Name = "lblhasta";
+            this.lblhasta.Size = new System.Drawing.Size(35, 13);
+            this.lblhasta.TabIndex = 2;
+            this.lblhasta.Text = "Hasta";
             // 
-            // txttexto
+            // lbldesde
             // 
-            this.txttexto.Location = new System.Drawing.Point(139, 77);
-            this.txttexto.Name = "txttexto";
-            this.txttexto.Size = new System.Drawing.Size(159, 20);
-            this.txttexto.TabIndex = 24;
+            this.lbldesde.AutoSize = true;
+            this.lbldesde.Location = new System.Drawing.Point(95, 27);
+            this.lbldesde.Name = "lbldesde";
+            this.lbldesde.Size = new System.Drawing.Size(38, 13);
+            this.lbldesde.TabIndex = 1;
+            this.lbldesde.Text = "Desde";
+            this.lbldesde.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // dtFechaHasta
+            // 
+            this.dtFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaHasta.Location = new System.Drawing.Point(281, 25);
+            this.dtFechaHasta.Name = "dtFechaHasta";
+            this.dtFechaHasta.Size = new System.Drawing.Size(97, 20);
+            this.dtFechaHasta.TabIndex = 18;
+            // 
+            // dtFechaDesde
+            // 
+            this.dtFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaDesde.Location = new System.Drawing.Point(139, 24);
+            this.dtFechaDesde.Name = "dtFechaDesde";
+            this.dtFechaDesde.Size = new System.Drawing.Size(95, 20);
+            this.dtFechaDesde.TabIndex = 17;
             // 
             // Error_Base
             // 

@@ -213,6 +213,12 @@
     <Compile Include="Seguridad\Pantallas\Usuario\Mod_Usuario.Designer.cs">
       <DependentUpon>Mod_Usuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Seguridad\Pantallas\Usuario\Mostrar_Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\Pantallas\Usuario\Mostrar_Usuario.Designer.cs">
+      <DependentUpon>Mostrar_Usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Seguridad\Restore.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\Pantallas\Usuario\Mod_Usuario.resx">
       <DependentUpon>Mod_Usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\Pantallas\Usuario\Mostrar_Usuario.resx">
+      <DependentUpon>Mostrar_Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\Restore.resx">
       <DependentUpon>Restore.cs</DependentUpon>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Modelo;
 
 namespace C2_Negocio
 {
@@ -69,6 +70,23 @@ namespace C2_Negocio
             }
         }
 
+        public bool Eliminar_Empleado(Modelo.Empleado selectEmp)
+        {
+            try
+            {
+                bool Elemin =_EmpleadoAD.Eliminar_Emp(selectEmp);
+                if (Elemin)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
+        
     }
 }

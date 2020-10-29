@@ -25,18 +25,25 @@ namespace Plustuff_TC.LogIn
             InitializeComponent();
         }
 
-        private void Error_Base_Load(object sender, EventArgs e)
+        private void Listar()
         {
             Bitacora = _Bitacora.Listar_Bitacora();
-            dgvBitacora.DataSource = (from b in Bitacora orderby b.FechaHora descending
+            dgvBitacora.DataSource = (from b in Bitacora
+                                      orderby b.FechaHora descending
                                       select new
-                                     {
-                                         Accion = b.Accion,
-                                         Descripcion = b.Descripcion,
-                                         Criticidad = b.CriticidadNombre,
-                                         FechayHora = b.FechaHora,
-                                         Usuario = b.Usuario
-                                     }).ToArray();
+                                      {
+                                          Accion = b.Accion,
+                                          Descripcion = b.Descripcion,
+                                          Criticidad = b.CriticidadNombre,
+                                          FechayHora = b.FechaHora,
+                                          Usuario = b.Usuario
+                                      }).ToArray();
+        }
+
+        private void Error_Base_Load(object sender, EventArgs e)
+        {
+            this.Listar();
+            
             BloquearFiltros();
 
             var criticidad = _Bitacora.TraerCriticidades();
@@ -63,7 +70,7 @@ namespace Plustuff_TC.LogIn
                 bitacora.Criticidad = 1;
                 _Bitacora.Alta(bitacora);
             }
-            this.Refresh();
+            this.Listar();
         }
 
         private void btnbuscar_Click(object sender, EventArgs e)
@@ -121,16 +128,7 @@ namespace Plustuff_TC.LogIn
 
         private void btnclean_Click(object sender, EventArgs e)
         {
-            dgvBitacora.DataSource = (from b in Bitacora
-                                      orderby b.FechaHora descending
-                                      select new
-                                      {
-                                          Accion = b.Accion,
-                                          Descripcion = b.Descripcion,
-                                          Criticidad = b.CriticidadNombre,
-                                          FechayHora = b.FechaHora,
-                                          Usuario = b.Usuario
-                                      }).ToArray();
+            this.Listar();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -167,6 +165,11 @@ namespace Plustuff_TC.LogIn
         {
             BloquearFiltros();
             txttexto.Enabled = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

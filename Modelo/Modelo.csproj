@@ -45,8 +45,10 @@
     <Compile Include="Criticidad.cs" />
     <Compile Include="Digito_Vertical.cs" />
     <Compile Include="Empleado.cs" />
+    <Compile Include="Formulario.cs" />
     <Compile Include="Idioma.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Traduccion.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
