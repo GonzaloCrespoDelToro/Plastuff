@@ -20,6 +20,7 @@ namespace Plustuff_TC
         C2_Negocio.Bitacora _Bitacora = new C2_Negocio.Bitacora();
         Modelo.Bitacora bitacora = new Modelo.Bitacora();
         Servicios.SessionManager Sesion = Servicios.SessionManager.Getinstance;
+        Modelo.Idioma _idioma = new Idioma();
 
 
         public Menu_Principal()
@@ -137,6 +138,7 @@ namespace Plustuff_TC
         {
             Negocio.Empleado.Mostrar_Empleados mostrar_Empleados = new Negocio.Empleado.Mostrar_Empleados();
             mostrar_Empleados.MdiParent = this;
+            mostrar_Empleados.Menu_Principal = this;
             mostrar_Empleados.Show();
         }
 
@@ -157,7 +159,22 @@ namespace Plustuff_TC
         {
             Seguridad.Pantallas.Usuario.Mostrar_Usuario mostrar_Usuario = new Seguridad.Pantallas.Usuario.Mostrar_Usuario();
             mostrar_Usuario.MdiParent = this;
+            mostrar_Usuario.Menu_Principal = this;
             mostrar_Usuario.Show();
+        }
+
+        private void backUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Seguridad.Backup backup = new Seguridad.Backup();
+            backup.MdiParent = this;
+            backup.Show();
+        }
+
+        private void altaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Negocio.Pantallas.Nuevo_Cliente nuevo_Cliente = new Negocio.Pantallas.Nuevo_Cliente();
+            nuevo_Cliente.MdiParent = this;
+            nuevo_Cliente.Show();
         }
     }
 }

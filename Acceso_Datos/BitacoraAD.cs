@@ -28,7 +28,7 @@ namespace Acceso_Datos
             {
                 List<Modelo.Bitacora> ListBitacora = new List<Modelo.Bitacora>();
 
-                DataSet BitacoraDS = _AccesoSQL.Consultar_DS("SELECT TOP 100 b.Accion, b.Descripcion, c.Descripcion AS Criticidad, b.FechaHora, u.Nombre AS Usuario from Bitacora b inner join Criticidad c on b.ID_Criticidad = c.ID inner join Usuarios u on b.U_id = u.ID ", "Bitacora");
+                DataSet BitacoraDS = _AccesoSQL.Consultar_DS("SELECT TOP 100 b.Accion, b.Descripcion, c.Descripcion AS Criticidad, b.FechaHora, u.Nombre AS Usuario from Bitacora b inner join Criticidad c on b.ID_Criticidad = c.ID inner join Usuarios u on b.U_id = u.ID ORDER BY b.ID DESC ", "Bitacora");
                 foreach (DataRow row in BitacoraDS.Tables[0].Rows)
                 {
                     Modelo.Bitacora Bitacora = new Modelo.Bitacora();

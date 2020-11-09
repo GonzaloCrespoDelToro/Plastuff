@@ -16,5 +16,12 @@ namespace Plustuff_TC.Seguridad
         {
             InitializeComponent();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.openFileDialog1.Filter = "Bak files (*.bak) | *.bak";
+            this.openFileDialog1.ShowDialog();
+            this.txtruta.Text = openFileDialog1.FileName;
+        }
     }
 }

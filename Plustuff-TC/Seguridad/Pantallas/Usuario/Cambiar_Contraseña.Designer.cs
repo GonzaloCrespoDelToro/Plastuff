@@ -72,6 +72,7 @@
             // 
             // pbinfo
             // 
+            this.pbinfo.Cursor = System.Windows.Forms.Cursors.Help;
             this.pbinfo.Image = ((System.Drawing.Image)(resources.GetObject("pbinfo.Image")));
             this.pbinfo.Location = new System.Drawing.Point(317, 30);
             this.pbinfo.Name = "pbinfo";

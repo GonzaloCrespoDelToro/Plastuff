@@ -29,7 +29,6 @@ namespace Plustuff_TC.LogIn
         {
             Bitacora = _Bitacora.Listar_Bitacora();
             dgvBitacora.DataSource = (from b in Bitacora
-                                      orderby b.FechaHora descending
                                       select new
                                       {
                                           Accion = b.Accion,
@@ -170,6 +169,12 @@ namespace Plustuff_TC.LogIn
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Seguridad.Restore restore = new Seguridad.Restore();
+            restore.Show();
         }
     }
 }

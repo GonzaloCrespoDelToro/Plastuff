@@ -14,8 +14,8 @@ namespace Plustuff_TC.Negocio.Empleado
     {
         Modelo.Empleado empleado = new Modelo.Empleado();
         C2_Negocio.Empleado _empleado = new C2_Negocio.Empleado();
-        Menu_Principal Menu_Principal = new Menu_Principal();
-        C2_Negocio.Usuarios _Usuarios = new C2_Negocio.Usuarios(); 
+        public Menu_Principal Menu_Principal;
+        C2_Negocio.Usuarios _Usuarios = new C2_Negocio.Usuarios();
 
         public Mostrar_Empleados()
         {
@@ -55,6 +55,7 @@ namespace Plustuff_TC.Negocio.Empleado
             Modelo.Empleado SelectEmp = (Modelo.Empleado)GridViewEmpleados.CurrentRow.DataBoundItem;
             Negocio.Empleado.Modificar_Empleado modificar_Empleado = new Modificar_Empleado();
             modificar_Empleado.SelectEmpleado = SelectEmp;
+            modificar_Empleado.MdiParent = Menu_Principal;
             modificar_Empleado.Show();
             this.Close();
         }

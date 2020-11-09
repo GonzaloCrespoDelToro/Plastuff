@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Backup.cs" />
     <Compile Include="Bitacora.cs" />
+    <Compile Include="Cliente.cs" />
     <Compile Include="Criticidad.cs" />
     <Compile Include="Digito_Vertical.cs" />
     <Compile Include="Empleado.cs" />

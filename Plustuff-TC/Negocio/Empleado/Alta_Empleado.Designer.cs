@@ -44,8 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Confirmar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnconfirmar = new System.Windows.Forms.Button();
+            this.btncancelar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -187,30 +187,31 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // Confirmar
+            // btnconfirmar
             // 
-            this.Confirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Confirmar.ForeColor = System.Drawing.Color.White;
-            this.Confirmar.Location = new System.Drawing.Point(12, 246);
-            this.Confirmar.Name = "Confirmar";
-            this.Confirmar.Size = new System.Drawing.Size(111, 26);
-            this.Confirmar.TabIndex = 1;
-            this.Confirmar.Text = "Confirmar";
-            this.Confirmar.UseVisualStyleBackColor = false;
-            this.Confirmar.Click += new System.EventHandler(this.Confirmar_Click);
+            this.btnconfirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnconfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnconfirmar.ForeColor = System.Drawing.Color.White;
+            this.btnconfirmar.Location = new System.Drawing.Point(12, 246);
+            this.btnconfirmar.Name = "btnconfirmar";
+            this.btnconfirmar.Size = new System.Drawing.Size(111, 26);
+            this.btnconfirmar.TabIndex = 1;
+            this.btnconfirmar.Text = "Confirmar";
+            this.btnconfirmar.UseVisualStyleBackColor = false;
+            this.btnconfirmar.Click += new System.EventHandler(this.Confirmar_Click);
             // 
-            // button1
+            // btncancelar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(161, 246);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 26);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btncancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancelar.ForeColor = System.Drawing.Color.White;
+            this.btncancelar.Location = new System.Drawing.Point(161, 246);
+            this.btncancelar.Name = "btncancelar";
+            this.btncancelar.Size = new System.Drawing.Size(111, 26);
+            this.btncancelar.TabIndex = 2;
+            this.btncancelar.Text = "Cancelar";
+            this.btncancelar.UseVisualStyleBackColor = false;
+            this.btncancelar.Click += new System.EventHandler(this.button1_Click);
             // 
             // Alta_Empleado
             // 
@@ -218,8 +219,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(280, 282);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.Confirmar);
+            this.Controls.Add(this.btncancelar);
+            this.Controls.Add(this.btnconfirmar);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -250,8 +251,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtmail;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button Confirmar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnconfirmar;
+        private System.Windows.Forms.Button btncancelar;
         private System.Windows.Forms.DateTimePicker dtFecha;
         private System.Windows.Forms.TextBox txtdni;
     }

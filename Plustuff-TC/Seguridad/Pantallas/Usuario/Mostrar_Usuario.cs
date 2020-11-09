@@ -16,6 +16,7 @@ namespace Plustuff_TC.Seguridad.Pantallas.Usuario
     {
         C2_Negocio.Usuarios _Usuarios = new C2_Negocio.Usuarios();
         Servicios.SessionManager Sesion = Servicios.SessionManager.Getinstance;
+        public Menu_Principal Menu_Principal;
 
         public Mostrar_Usuario()
         {
@@ -66,6 +67,7 @@ namespace Plustuff_TC.Seguridad.Pantallas.Usuario
 
                 Seguridad.Pantallas.Usuario.Mod_Usuario mod_Usuario = new Mod_Usuario();
                 mod_Usuario.Usuario = User;
+                mod_Usuario.MdiParent = Menu_Principal;
                 mod_Usuario.Show();
                 this.Close();
             }
