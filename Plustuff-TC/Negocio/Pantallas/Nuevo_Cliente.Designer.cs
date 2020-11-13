@@ -42,10 +42,10 @@
             this.lblcontacto = new System.Windows.Forms.Label();
             this.lblfecha = new System.Windows.Forms.Label();
             this.gbnuevocliente = new System.Windows.Forms.GroupBox();
+            this.txtdni = new System.Windows.Forms.TextBox();
+            this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.btnconfirmar = new System.Windows.Forms.Button();
             this.btncancelar = new System.Windows.Forms.Button();
-            this.dtFecha = new System.Windows.Forms.DateTimePicker();
-            this.txtdni = new System.Windows.Forms.TextBox();
             this.gbnuevocliente.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,14 +63,14 @@
             this.txtnombre.Location = new System.Drawing.Point(86, 21);
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(189, 22);
-            this.txtnombre.TabIndex = 2;
+            this.txtnombre.TabIndex = 1;
             // 
             // txtapellido
             // 
             this.txtapellido.Location = new System.Drawing.Point(86, 49);
             this.txtapellido.Name = "txtapellido";
             this.txtapellido.Size = new System.Drawing.Size(189, 22);
-            this.txtapellido.TabIndex = 4;
+            this.txtapellido.TabIndex = 2;
             // 
             // lblapellido
             // 
@@ -86,7 +86,7 @@
             this.txtdireccion.Location = new System.Drawing.Point(86, 105);
             this.txtdireccion.Name = "txtdireccion";
             this.txtdireccion.Size = new System.Drawing.Size(189, 22);
-            this.txtdireccion.TabIndex = 6;
+            this.txtdireccion.TabIndex = 4;
             // 
             // lbldireccion
             // 
@@ -111,7 +111,7 @@
             this.txtemail.Location = new System.Drawing.Point(86, 133);
             this.txtemail.Name = "txtemail";
             this.txtemail.Size = new System.Drawing.Size(189, 22);
-            this.txtemail.TabIndex = 10;
+            this.txtemail.TabIndex = 5;
             // 
             // lblmail
             // 
@@ -127,7 +127,8 @@
             this.txtcontacto.Location = new System.Drawing.Point(86, 161);
             this.txtcontacto.Name = "txtcontacto";
             this.txtcontacto.Size = new System.Drawing.Size(146, 22);
-            this.txtcontacto.TabIndex = 12;
+            this.txtcontacto.TabIndex = 6;
+            this.txtcontacto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcontacto_KeyPress);
             // 
             // lblcontacto
             // 
@@ -170,6 +171,23 @@
             this.gbnuevocliente.TabStop = false;
             this.gbnuevocliente.Text = "Nuevo Cliente";
             // 
+            // txtdni
+            // 
+            this.txtdni.Location = new System.Drawing.Point(86, 77);
+            this.txtdni.MaxLength = 8;
+            this.txtdni.Name = "txtdni";
+            this.txtdni.Size = new System.Drawing.Size(105, 22);
+            this.txtdni.TabIndex = 3;
+            this.txtdni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdni_KeyPress);
+            // 
+            // dtFecha
+            // 
+            this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFecha.Location = new System.Drawing.Point(86, 189);
+            this.dtFecha.Name = "dtFecha";
+            this.dtFecha.Size = new System.Drawing.Size(105, 22);
+            this.dtFecha.TabIndex = 17;
+            // 
             // btnconfirmar
             // 
             this.btnconfirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
@@ -196,22 +214,6 @@
             this.btncancelar.UseVisualStyleBackColor = false;
             this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
             // 
-            // dtFecha
-            // 
-            this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFecha.Location = new System.Drawing.Point(86, 189);
-            this.dtFecha.Name = "dtFecha";
-            this.dtFecha.Size = new System.Drawing.Size(105, 22);
-            this.dtFecha.TabIndex = 17;
-            // 
-            // txtdni
-            // 
-            this.txtdni.Location = new System.Drawing.Point(86, 77);
-            this.txtdni.MaxLength = 8;
-            this.txtdni.Name = "txtdni";
-            this.txtdni.Size = new System.Drawing.Size(105, 22);
-            this.txtdni.TabIndex = 18;
-            // 
             // Nuevo_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -222,8 +224,10 @@
             this.Controls.Add(this.btnconfirmar);
             this.Controls.Add(this.gbnuevocliente);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Nuevo_Cliente";
             this.Text = "Nuevo_Cliente";
             this.gbnuevocliente.ResumeLayout(false);

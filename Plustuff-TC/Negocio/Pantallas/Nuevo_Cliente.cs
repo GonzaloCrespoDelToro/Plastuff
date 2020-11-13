@@ -7,6 +7,9 @@ namespace Plustuff_TC.Negocio.Pantallas
     {
         Modelo.Cliente cliente = new Modelo.Cliente();
         C2_Negocio.Clientes _Clientes = new C2_Negocio.Clientes();
+        Modelo.Bitacora bitacora = new Modelo.Bitacora();
+        C2_Negocio.Bitacora _Bitacora = new C2_Negocio.Bitacora();
+        Servicios.SessionManager Sesion = Servicios.SessionManager.Getinstance;
 
         public Nuevo_Cliente()
         {
@@ -38,6 +41,49 @@ namespace Plustuff_TC.Negocio.Pantallas
             {
                 MessageBox.Show("Ya existe un Cliente con este DNI", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+
+            _Clientes.Alta_Cliente(cliente);
+
+            //Da de alta en bitacora
+            bitacora.Accion = "AltaCliente";
+            bitacora.Descripcion = $"Se dio de alta al cliente {txtnombre.Text.ToLower()}";
+            bitacora.FechaHora = DateTime.Now;
+            bitacora.U_id = Sesion.Usuario.id;
+            bitacora.Criticidad = 3;
+            _Bitacora.Alta(bitacora);
+
+            MessageBox.Show("Alta de cliente exitosa", "Alta de cliente");
+            this.Close();
+        }
+
+        private void txtdni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtcontacto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
             }
         }
     }

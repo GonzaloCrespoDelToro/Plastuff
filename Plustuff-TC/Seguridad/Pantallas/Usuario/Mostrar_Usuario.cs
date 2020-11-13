@@ -144,5 +144,10 @@ namespace Plustuff_TC.Seguridad.Pantallas.Usuario
         {
             this.listar();
         }
+
+        private void GridViewUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

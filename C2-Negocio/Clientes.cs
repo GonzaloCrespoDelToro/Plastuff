@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace C2_Negocio
@@ -7,25 +8,53 @@ namespace C2_Negocio
     {
         Acceso_Datos.ClienteAD _clienteAD = new Acceso_Datos.ClienteAD();
         Servicios.Encriptacion _Encriptacion = new Servicios.Encriptacion();
-
+        Servicios.Verificadores _verificadores = new Servicios.Verificadores();
 
         public void Alta_Cliente(Modelo.Cliente cliente)
         {
             this.Encriptar(cliente);
+            Modelo.Digito_Vertical DigitoVertical = new Modelo.Digito_Vertical();
+            DigitoVertical.Tabla = "Clientes";
+            string[] datos = { cliente.Nombre, cliente.Apellido, cliente.Direccion, cliente.Fechanac.ToString(), cliente.Mail, cliente.Telefono, cliente.DNI };
+            cliente.DVH = _verificadores.CalcularDVH(datos);
             _clienteAD.Alta(cliente);
+            _verificadores.Recalcular_DVV(DigitoVertical);
         }
 
         public bool Validacion(Modelo.Cliente cliente)
         {
             foreach (PropertyInfo pi in cliente.GetType().GetProperties())
             {
-                string value = (string)pi.GetValue(cliente).ToString();
-                if (String.IsNullOrEmpty(value))
+                if (pi.Name != "DVH")
                 {
-                    return false;
+                    string value = (string)pi.GetValue(cliente).ToString();
+                    if (String.IsNullOrEmpty(value))
+                    {
+                        return false;
+                    }
                 }
             }
             return true;
+        }
+
+        public List<Modelo.Cliente> ListarClientes()
+        {
+            try
+            {
+                List<Modelo.Cliente> ClientesList = _clienteAD.ListarClientes();
+                foreach (Modelo.Cliente cliente in ClientesList)
+                {
+                    cliente.Nombre = _Encriptacion.Desencriptar(cliente.Nombre);
+                    cliente.Apellido = _Encriptacion.Desencriptar(cliente.Apellido);
+                    cliente.Mail = _Encriptacion.Desencriptar(cliente.Mail);
+                }
+
+                return ClientesList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         private Modelo.Cliente Encriptar(Modelo.Cliente cliente)
@@ -43,6 +72,15 @@ namespace C2_Negocio
                 return false;
             }
             return true;
+        }
+
+        public Modelo.Cliente TraerClientePorDNI(Modelo.Cliente cliente)
+        {
+            cliente = _clienteAD.TraerClientePorDNI(cliente);
+            cliente.Nombre = _Encriptacion.Desencriptar(cliente.Nombre);
+            cliente.Apellido = _Encriptacion.Desencriptar(cliente.Apellido);
+            cliente.Mail = _Encriptacion.Desencriptar(cliente.Mail);
+            return cliente;
         }
 
     }

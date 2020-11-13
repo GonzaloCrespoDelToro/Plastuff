@@ -1,6 +1,6 @@
-﻿namespace Plustuff_TC.Seguridad.Pantallas.Usuario
+﻿namespace Plustuff_TC.Negocio.Pantallas
 {
-    partial class Mostrar_Usuario
+    partial class Mostrar_Clientes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mostrar_Usuario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mostrar_Clientes));
             this.gbfiltro = new System.Windows.Forms.GroupBox();
             this.btnclean = new System.Windows.Forms.Button();
             this.lblfiltro = new System.Windows.Forms.Label();
@@ -37,11 +37,11 @@
             this.btncerrar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.gbusuarios = new System.Windows.Forms.GroupBox();
-            this.GridViewUsuarios = new System.Windows.Forms.DataGridView();
+            this.gbclientes = new System.Windows.Forms.GroupBox();
+            this.GridViewClientes = new System.Windows.Forms.DataGridView();
             this.gbfiltro.SuspendLayout();
-            this.gbusuarios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GridViewUsuarios)).BeginInit();
+            this.gbclientes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridViewClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // gbfiltro
@@ -53,7 +53,7 @@
             this.gbfiltro.Location = new System.Drawing.Point(12, 12);
             this.gbfiltro.Name = "gbfiltro";
             this.gbfiltro.Size = new System.Drawing.Size(377, 63);
-            this.gbfiltro.TabIndex = 13;
+            this.gbfiltro.TabIndex = 18;
             this.gbfiltro.TabStop = false;
             this.gbfiltro.Text = "Filtro";
             // 
@@ -90,7 +90,6 @@
             this.btnbuscar.TabIndex = 9;
             this.btnbuscar.Text = "Buscar";
             this.btnbuscar.UseVisualStyleBackColor = false;
-            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
             // txtfilter
             // 
@@ -107,7 +106,7 @@
             this.btncerrar.Location = new System.Drawing.Point(278, 451);
             this.btncerrar.Name = "btncerrar";
             this.btncerrar.Size = new System.Drawing.Size(111, 26);
-            this.btncerrar.TabIndex = 12;
+            this.btncerrar.TabIndex = 17;
             this.btncerrar.Text = "Cerrar";
             this.btncerrar.UseVisualStyleBackColor = false;
             this.btncerrar.Click += new System.EventHandler(this.btncerrar_Click);
@@ -120,7 +119,7 @@
             this.btnBorrar.Location = new System.Drawing.Point(146, 451);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(111, 26);
-            this.btnBorrar.TabIndex = 11;
+            this.btnBorrar.TabIndex = 16;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = false;
             // 
@@ -132,41 +131,40 @@
             this.btnModificar.Location = new System.Drawing.Point(12, 451);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(111, 26);
-            this.btnModificar.TabIndex = 10;
+            this.btnModificar.TabIndex = 15;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // gbusuarios
+            // gbclientes
             // 
-            this.gbusuarios.Controls.Add(this.GridViewUsuarios);
-            this.gbusuarios.Location = new System.Drawing.Point(12, 82);
-            this.gbusuarios.Margin = new System.Windows.Forms.Padding(4);
-            this.gbusuarios.Name = "gbusuarios";
-            this.gbusuarios.Padding = new System.Windows.Forms.Padding(4);
-            this.gbusuarios.Size = new System.Drawing.Size(376, 362);
-            this.gbusuarios.TabIndex = 9;
-            this.gbusuarios.TabStop = false;
-            this.gbusuarios.Text = "Usuarios";
+            this.gbclientes.Controls.Add(this.GridViewClientes);
+            this.gbclientes.Location = new System.Drawing.Point(12, 82);
+            this.gbclientes.Margin = new System.Windows.Forms.Padding(4);
+            this.gbclientes.Name = "gbclientes";
+            this.gbclientes.Padding = new System.Windows.Forms.Padding(4);
+            this.gbclientes.Size = new System.Drawing.Size(376, 362);
+            this.gbclientes.TabIndex = 14;
+            this.gbclientes.TabStop = false;
+            this.gbclientes.Text = "Clientes";
             // 
-            // GridViewUsuarios
+            // GridViewClientes
             // 
-            this.GridViewUsuarios.AllowUserToAddRows = false;
-            this.GridViewUsuarios.AllowUserToDeleteRows = false;
-            this.GridViewUsuarios.AllowUserToOrderColumns = true;
-            this.GridViewUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.GridViewUsuarios.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.GridViewUsuarios.BackgroundColor = System.Drawing.Color.White;
-            this.GridViewUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridViewUsuarios.Location = new System.Drawing.Point(8, 21);
-            this.GridViewUsuarios.Margin = new System.Windows.Forms.Padding(4);
-            this.GridViewUsuarios.Name = "GridViewUsuarios";
-            this.GridViewUsuarios.ReadOnly = true;
-            this.GridViewUsuarios.Size = new System.Drawing.Size(360, 333);
-            this.GridViewUsuarios.TabIndex = 0;
-            this.GridViewUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridViewUsuarios_CellContentClick);
+            this.GridViewClientes.AllowUserToAddRows = false;
+            this.GridViewClientes.AllowUserToDeleteRows = false;
+            this.GridViewClientes.AllowUserToOrderColumns = true;
+            this.GridViewClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.GridViewClientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.GridViewClientes.BackgroundColor = System.Drawing.Color.White;
+            this.GridViewClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridViewClientes.Location = new System.Drawing.Point(8, 21);
+            this.GridViewClientes.Margin = new System.Windows.Forms.Padding(4);
+            this.GridViewClientes.Name = "GridViewClientes";
+            this.GridViewClientes.ReadOnly = true;
+            this.GridViewClientes.Size = new System.Drawing.Size(360, 333);
+            this.GridViewClientes.TabIndex = 0;
             // 
-            // Mostrar_Usuario
+            // Mostrar_Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -176,17 +174,17 @@
             this.Controls.Add(this.btncerrar);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.gbusuarios);
+            this.Controls.Add(this.gbclientes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Mostrar_Usuario";
-            this.Text = "Mostrar Usuarios";
-            this.Load += new System.EventHandler(this.Mostrar_Usuario_Load);
+            this.Name = "Mostrar_Clientes";
+            this.Text = "Mostrar Clientes";
+            this.Load += new System.EventHandler(this.Mostrar_Clientes_Load);
             this.gbfiltro.ResumeLayout(false);
             this.gbfiltro.PerformLayout();
-            this.gbusuarios.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GridViewUsuarios)).EndInit();
+            this.gbclientes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GridViewClientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -201,7 +199,7 @@
         private System.Windows.Forms.Button btncerrar;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.GroupBox gbusuarios;
-        private System.Windows.Forms.DataGridView GridViewUsuarios;
+        private System.Windows.Forms.GroupBox gbclientes;
+        private System.Windows.Forms.DataGridView GridViewClientes;
     }
 }

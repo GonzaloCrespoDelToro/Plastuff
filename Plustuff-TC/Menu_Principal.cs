@@ -145,6 +145,7 @@ namespace Plustuff_TC
         private void bitacoraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LogIn.Error_Base error_Base = new LogIn.Error_Base();
+            error_Base.MdiParent = this;
             error_Base.Show();
         }
 
@@ -175,6 +176,13 @@ namespace Plustuff_TC
             Negocio.Pantallas.Nuevo_Cliente nuevo_Cliente = new Negocio.Pantallas.Nuevo_Cliente();
             nuevo_Cliente.MdiParent = this;
             nuevo_Cliente.Show();
+        }
+
+        private void listarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Negocio.Pantallas.Mostrar_Clientes mostrar_Clientes = new Negocio.Pantallas.Mostrar_Clientes();
+            mostrar_Clientes.MdiParent = this;
+            mostrar_Clientes.Show();
         }
     }
 }

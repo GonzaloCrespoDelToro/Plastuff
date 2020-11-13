@@ -79,6 +79,7 @@
             this.txtdni.Name = "txtdni";
             this.txtdni.Size = new System.Drawing.Size(105, 22);
             this.txtdni.TabIndex = 17;
+            this.txtdni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtdni_KeyPress);
             // 
             // dtFecha
             // 
@@ -94,6 +95,7 @@
             this.txtcontacto.Name = "txtcontacto";
             this.txtcontacto.Size = new System.Drawing.Size(123, 22);
             this.txtcontacto.TabIndex = 13;
+            this.txtcontacto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcontacto_KeyPress);
             // 
             // label7
             // 
