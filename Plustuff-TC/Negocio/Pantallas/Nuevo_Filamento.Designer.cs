@@ -28,96 +28,111 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Nuevo_Filamento));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtprecio = new System.Windows.Forms.TextBox();
+            this.lblprecio = new System.Windows.Forms.Label();
+            this.txtmaterial = new System.Windows.Forms.TextBox();
+            this.lblmaterial = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnagregar = new System.Windows.Forms.Button();
+            this.btncancelar = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtprecio);
+            this.groupBox1.Controls.Add(this.lblprecio);
+            this.groupBox1.Controls.Add(this.txtmaterial);
+            this.groupBox1.Controls.Add(this.lblmaterial);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(243, 109);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(207, 109);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Filamento";
             // 
-            // label1
+            // txtprecio
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Material";
+            this.txtprecio.Location = new System.Drawing.Point(86, 63);
+            this.txtprecio.Name = "txtprecio";
+            this.txtprecio.Size = new System.Drawing.Size(69, 22);
+            this.txtprecio.TabIndex = 3;
+            this.txtprecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtprecio_KeyPress);
             // 
-            // textBox1
+            // lblprecio
             // 
-            this.textBox1.Location = new System.Drawing.Point(86, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 22);
-            this.textBox1.TabIndex = 1;
+            this.lblprecio.AutoSize = true;
+            this.lblprecio.Location = new System.Drawing.Point(7, 66);
+            this.lblprecio.Name = "lblprecio";
+            this.lblprecio.Size = new System.Drawing.Size(73, 16);
+            this.lblprecio.TabIndex = 2;
+            this.lblprecio.Text = "Precio/Kilo";
+            this.toolTip1.SetToolTip(this.lblprecio, "Precio por kilogramo");
             // 
-            // textBox2
+            // txtmaterial
             // 
-            this.textBox2.Location = new System.Drawing.Point(86, 63);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(122, 22);
-            this.textBox2.TabIndex = 3;
+            this.txtmaterial.Location = new System.Drawing.Point(86, 32);
+            this.txtmaterial.Name = "txtmaterial";
+            this.txtmaterial.Size = new System.Drawing.Size(93, 22);
+            this.txtmaterial.TabIndex = 1;
             // 
-            // label2
+            // lblmaterial
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Precio/Kilo";
+            this.lblmaterial.AutoSize = true;
+            this.lblmaterial.Location = new System.Drawing.Point(7, 35);
+            this.lblmaterial.Name = "lblmaterial";
+            this.lblmaterial.Size = new System.Drawing.Size(56, 16);
+            this.lblmaterial.TabIndex = 0;
+            this.lblmaterial.Text = "Material";
             // 
-            // button1
+            // btnagregar
             // 
-            this.button1.Location = new System.Drawing.Point(13, 129);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnagregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnagregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnagregar.ForeColor = System.Drawing.Color.White;
+            this.btnagregar.Location = new System.Drawing.Point(13, 129);
+            this.btnagregar.Name = "btnagregar";
+            this.btnagregar.Size = new System.Drawing.Size(100, 28);
+            this.btnagregar.TabIndex = 1;
+            this.btnagregar.Text = "Agregar";
+            this.btnagregar.UseVisualStyleBackColor = false;
+            this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
             // 
-            // button2
+            // btncancelar
             // 
-            this.button2.Location = new System.Drawing.Point(156, 129);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 28);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btncancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancelar.ForeColor = System.Drawing.Color.White;
+            this.btncancelar.Location = new System.Drawing.Point(120, 129);
+            this.btncancelar.Name = "btncancelar";
+            this.btncancelar.Size = new System.Drawing.Size(100, 28);
+            this.btncancelar.TabIndex = 2;
+            this.btncancelar.Text = "Cancelar";
+            this.btncancelar.UseVisualStyleBackColor = false;
+            this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
             // 
             // Nuevo_Filamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(269, 166);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(232, 166);
+            this.Controls.Add(this.btncancelar);
+            this.Controls.Add(this.btnagregar);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Nuevo_Filamento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nuevo Filamento";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -128,12 +143,13 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtprecio;
+        private System.Windows.Forms.Label lblprecio;
+        private System.Windows.Forms.TextBox txtmaterial;
+        private System.Windows.Forms.Label lblmaterial;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnagregar;
+        private System.Windows.Forms.Button btncancelar;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

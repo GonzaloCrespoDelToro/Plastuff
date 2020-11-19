@@ -16,6 +16,9 @@ namespace Modelo
         public string Mail { get; set; }
         public string Direccion { get; set; }
         public string Telefono { get; set; }
+        public bool Baja { get; set; }
         public string DVH { get; set; }
+        public string NombreCompleto { get; set; }
+
     }
 }

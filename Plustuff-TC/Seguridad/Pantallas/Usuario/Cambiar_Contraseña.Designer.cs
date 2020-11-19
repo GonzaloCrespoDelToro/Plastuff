@@ -30,34 +30,34 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cambiar_Contraseña));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbpass = new System.Windows.Forms.GroupBox();
             this.lblerror = new System.Windows.Forms.Label();
             this.pbinfo = new System.Windows.Forms.PictureBox();
             this.txtrepetpass = new System.Windows.Forms.TextBox();
             this.txtpass = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblrepass = new System.Windows.Forms.Label();
+            this.lblpass = new System.Windows.Forms.Label();
             this.btnconfirm = new System.Windows.Forms.Button();
             this.btncancelar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox1.SuspendLayout();
+            this.gbpass.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbinfo)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbpass
             // 
-            this.groupBox1.Controls.Add(this.lblerror);
-            this.groupBox1.Controls.Add(this.pbinfo);
-            this.groupBox1.Controls.Add(this.txtrepetpass);
-            this.groupBox1.Controls.Add(this.txtpass);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(349, 114);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Nueva Contraseña";
+            this.gbpass.Controls.Add(this.lblerror);
+            this.gbpass.Controls.Add(this.pbinfo);
+            this.gbpass.Controls.Add(this.txtrepetpass);
+            this.gbpass.Controls.Add(this.txtpass);
+            this.gbpass.Controls.Add(this.lblrepass);
+            this.gbpass.Controls.Add(this.lblpass);
+            this.gbpass.Location = new System.Drawing.Point(12, 12);
+            this.gbpass.Name = "gbpass";
+            this.gbpass.Size = new System.Drawing.Size(349, 114);
+            this.gbpass.TabIndex = 0;
+            this.gbpass.TabStop = false;
+            this.gbpass.Text = "Nueva Contraseña";
             // 
             // lblerror
             // 
@@ -99,23 +99,23 @@
             this.txtpass.Size = new System.Drawing.Size(178, 22);
             this.txtpass.TabIndex = 1;
             // 
-            // label2
+            // lblrepass
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Rep.Contraseña";
+            this.lblrepass.AutoSize = true;
+            this.lblrepass.Location = new System.Drawing.Point(6, 67);
+            this.lblrepass.Name = "lblrepass";
+            this.lblrepass.Size = new System.Drawing.Size(106, 16);
+            this.lblrepass.TabIndex = 1;
+            this.lblrepass.Text = "Rep.Contraseña";
             // 
-            // label1
+            // lblpass
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Contraseña";
+            this.lblpass.AutoSize = true;
+            this.lblpass.Location = new System.Drawing.Point(6, 33);
+            this.lblpass.Name = "lblpass";
+            this.lblpass.Size = new System.Drawing.Size(77, 16);
+            this.lblpass.TabIndex = 0;
+            this.lblpass.Text = "Contraseña";
             // 
             // btnconfirm
             // 
@@ -141,6 +141,7 @@
             this.btncancelar.TabIndex = 2;
             this.btncancelar.Text = "Cancelar";
             this.btncancelar.UseVisualStyleBackColor = false;
+            this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
             // 
             // Cambiar_Contraseña
             // 
@@ -150,7 +151,7 @@
             this.ClientSize = new System.Drawing.Size(373, 166);
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.btnconfirm);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbpass);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -160,9 +161,10 @@
             this.Name = "Cambiar_Contraseña";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cambiar Contraseña";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Cambiar_Contraseña_FormClosing);
             this.Load += new System.EventHandler(this.Cambiar_Contraseña_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbpass.ResumeLayout(false);
+            this.gbpass.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbinfo)).EndInit();
             this.ResumeLayout(false);
 
@@ -170,11 +172,11 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbpass;
         private System.Windows.Forms.TextBox txtrepetpass;
         private System.Windows.Forms.TextBox txtpass;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblrepass;
+        private System.Windows.Forms.Label lblpass;
         private System.Windows.Forms.Button btnconfirm;
         private System.Windows.Forms.Button btncancelar;
         private System.Windows.Forms.PictureBox pbinfo;

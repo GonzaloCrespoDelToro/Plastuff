@@ -30,6 +30,7 @@ namespace Plustuff_TC.Negocio.Pantallas
             cliente.Fechanac = Convert.ToDateTime(dtFecha.Text);
             cliente.Mail = txtemail.Text;
             cliente.Telefono = txtcontacto.Text;
+            cliente.Baja = false;
 
             if (!_Clientes.Validacion(cliente))
             {
@@ -47,7 +48,7 @@ namespace Plustuff_TC.Negocio.Pantallas
 
             //Da de alta en bitacora
             bitacora.Accion = "AltaCliente";
-            bitacora.Descripcion = $"Se dio de alta al cliente {txtnombre.Text.ToLower()}";
+            bitacora.Descripcion = $"Se dio de alta al cliente {txtnombre.Text} {txtapellido.Text}";
             bitacora.FechaHora = DateTime.Now;
             bitacora.U_id = Sesion.Usuario.id;
             bitacora.Criticidad = 3;

@@ -31,5 +31,10 @@ namespace Plustuff_TC.Negocio.Pantallas
         {
 
         }
+
+        private void Modificar_Filamento_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

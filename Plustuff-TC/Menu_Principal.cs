@@ -40,6 +40,7 @@ namespace Plustuff_TC
 
         private void Traducir()
         {
+            var idioma = Servicios.ManagerIdioma.GetInstance();
             Traductor traductor = new Traductor();
             Modelo.Formulario formulario = new Formulario();
             formulario.Nombre = "Menu";
@@ -182,7 +183,57 @@ namespace Plustuff_TC
         {
             Negocio.Pantallas.Mostrar_Clientes mostrar_Clientes = new Negocio.Pantallas.Mostrar_Clientes();
             mostrar_Clientes.MdiParent = this;
+            mostrar_Clientes.Menu_Principal = this;
             mostrar_Clientes.Show();
+        }
+
+        private void altaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Negocio.Pantallas.Nuevo_Filamento nuevo_Filamento = new Negocio.Pantallas.Nuevo_Filamento();
+            nuevo_Filamento.MdiParent = this;
+            nuevo_Filamento.Show();
+        }
+
+        private void listarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Negocio.Pantallas.Mostrar_Filamentos mostrar_Filamentos = new Negocio.Pantallas.Mostrar_Filamentos();
+            mostrar_Filamentos.MdiParent = this;
+            mostrar_Filamentos.Show();
+        }
+
+        private void gestionarCotizaionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Negocio.Pantallas.Gestionar_Cotizaciones gestionar_Cotizaciones = new Negocio.Pantallas.Gestionar_Cotizaciones();
+            gestionar_Cotizaciones.MdiParent = this;
+            gestionar_Cotizaciones.Show();
+        }
+
+        private void españolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Modelo.Idioma idioma = new Idioma();
+            idioma.id = 1;
+            idioma.idioma = "Español";
+            Sesion.Usuario.Idioma = idioma;
+
+            Servicios.ManagerIdioma.CambiarIdioma(idioma);
+        }
+
+        private void inglesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Modelo.Idioma idioma = new Idioma();
+            idioma.id = 2;
+            idioma.idioma = "Ingles";
+            Sesion.Usuario.Idioma = idioma;
+
+            Servicios.ManagerIdioma.CambiarIdioma(idioma);
+        }
+
+        private void gestionarPedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Negocio.Pantallas.Gestionar_Pedidos gestionar_Pedidos = new Negocio.Pantallas.Gestionar_Pedidos();
+            gestionar_Pedidos.MdiParent = this;
+            gestionar_Pedidos.Menu_Principal = this;
+            gestionar_Pedidos.Show();
         }
     }
 }

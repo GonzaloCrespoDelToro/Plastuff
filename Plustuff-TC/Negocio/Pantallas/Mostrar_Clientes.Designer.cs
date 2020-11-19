@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mostrar_Clientes));
             this.gbfiltro = new System.Windows.Forms.GroupBox();
             this.btnclean = new System.Windows.Forms.Button();
@@ -35,10 +36,11 @@
             this.btnbuscar = new System.Windows.Forms.Button();
             this.txtfilter = new System.Windows.Forms.TextBox();
             this.btncerrar = new System.Windows.Forms.Button();
-            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnBaja = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.gbclientes = new System.Windows.Forms.GroupBox();
             this.GridViewClientes = new System.Windows.Forms.DataGridView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.gbfiltro.SuspendLayout();
             this.gbclientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewClientes)).BeginInit();
@@ -50,9 +52,11 @@
             this.gbfiltro.Controls.Add(this.lblfiltro);
             this.gbfiltro.Controls.Add(this.btnbuscar);
             this.gbfiltro.Controls.Add(this.txtfilter);
-            this.gbfiltro.Location = new System.Drawing.Point(12, 12);
+            this.gbfiltro.Location = new System.Drawing.Point(16, 15);
+            this.gbfiltro.Margin = new System.Windows.Forms.Padding(4);
             this.gbfiltro.Name = "gbfiltro";
-            this.gbfiltro.Size = new System.Drawing.Size(377, 63);
+            this.gbfiltro.Padding = new System.Windows.Forms.Padding(4);
+            this.gbfiltro.Size = new System.Drawing.Size(503, 78);
             this.gbfiltro.TabIndex = 18;
             this.gbfiltro.TabStop = false;
             this.gbfiltro.Text = "Filtro";
@@ -62,9 +66,10 @@
             this.btnclean.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
             this.btnclean.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnclean.ForeColor = System.Drawing.Color.White;
-            this.btnclean.Location = new System.Drawing.Point(290, 21);
+            this.btnclean.Location = new System.Drawing.Point(387, 26);
+            this.btnclean.Margin = new System.Windows.Forms.Padding(4);
             this.btnclean.Name = "btnclean";
-            this.btnclean.Size = new System.Drawing.Size(78, 26);
+            this.btnclean.Size = new System.Drawing.Size(104, 32);
             this.btnclean.TabIndex = 10;
             this.btnclean.Text = "Limpiar";
             this.btnclean.UseVisualStyleBackColor = false;
@@ -73,9 +78,10 @@
             // lblfiltro
             // 
             this.lblfiltro.AutoSize = true;
-            this.lblfiltro.Location = new System.Drawing.Point(6, 28);
+            this.lblfiltro.Location = new System.Drawing.Point(8, 34);
+            this.lblfiltro.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblfiltro.Name = "lblfiltro";
-            this.lblfiltro.Size = new System.Drawing.Size(32, 13);
+            this.lblfiltro.Size = new System.Drawing.Size(41, 16);
             this.lblfiltro.TabIndex = 1;
             this.lblfiltro.Text = "Filtrar";
             // 
@@ -84,18 +90,20 @@
             this.btnbuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
             this.btnbuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnbuscar.ForeColor = System.Drawing.Color.White;
-            this.btnbuscar.Location = new System.Drawing.Point(206, 21);
+            this.btnbuscar.Location = new System.Drawing.Point(275, 26);
+            this.btnbuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnbuscar.Name = "btnbuscar";
-            this.btnbuscar.Size = new System.Drawing.Size(78, 26);
+            this.btnbuscar.Size = new System.Drawing.Size(104, 32);
             this.btnbuscar.TabIndex = 9;
             this.btnbuscar.Text = "Buscar";
             this.btnbuscar.UseVisualStyleBackColor = false;
             // 
             // txtfilter
             // 
-            this.txtfilter.Location = new System.Drawing.Point(53, 25);
+            this.txtfilter.Location = new System.Drawing.Point(71, 31);
+            this.txtfilter.Margin = new System.Windows.Forms.Padding(4);
             this.txtfilter.Name = "txtfilter";
-            this.txtfilter.Size = new System.Drawing.Size(147, 20);
+            this.txtfilter.Size = new System.Drawing.Size(195, 22);
             this.txtfilter.TabIndex = 9;
             // 
             // btncerrar
@@ -103,34 +111,39 @@
             this.btncerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
             this.btncerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncerrar.ForeColor = System.Drawing.Color.White;
-            this.btncerrar.Location = new System.Drawing.Point(278, 451);
+            this.btncerrar.Location = new System.Drawing.Point(369, 555);
+            this.btncerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btncerrar.Name = "btncerrar";
-            this.btncerrar.Size = new System.Drawing.Size(111, 26);
+            this.btncerrar.Size = new System.Drawing.Size(148, 32);
             this.btncerrar.TabIndex = 17;
             this.btncerrar.Text = "Cerrar";
             this.btncerrar.UseVisualStyleBackColor = false;
             this.btncerrar.Click += new System.EventHandler(this.btncerrar_Click);
             // 
-            // btnBorrar
+            // btnBaja
             // 
-            this.btnBorrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBorrar.ForeColor = System.Drawing.Color.White;
-            this.btnBorrar.Location = new System.Drawing.Point(146, 451);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(111, 26);
-            this.btnBorrar.TabIndex = 16;
-            this.btnBorrar.Text = "Borrar";
-            this.btnBorrar.UseVisualStyleBackColor = false;
+            this.btnBaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnBaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBaja.ForeColor = System.Drawing.Color.White;
+            this.btnBaja.Location = new System.Drawing.Point(195, 555);
+            this.btnBaja.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBaja.Name = "btnBaja";
+            this.btnBaja.Size = new System.Drawing.Size(148, 32);
+            this.btnBaja.TabIndex = 16;
+            this.btnBaja.Text = "Baja";
+            this.toolTip1.SetToolTip(this.btnBaja, "Da de baja al cliente selecionado");
+            this.btnBaja.UseVisualStyleBackColor = false;
+            this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
             // 
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(12, 451);
+            this.btnModificar.Location = new System.Drawing.Point(16, 555);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(111, 26);
+            this.btnModificar.Size = new System.Drawing.Size(148, 32);
             this.btnModificar.TabIndex = 15;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -139,11 +152,11 @@
             // gbclientes
             // 
             this.gbclientes.Controls.Add(this.GridViewClientes);
-            this.gbclientes.Location = new System.Drawing.Point(12, 82);
-            this.gbclientes.Margin = new System.Windows.Forms.Padding(4);
+            this.gbclientes.Location = new System.Drawing.Point(16, 101);
+            this.gbclientes.Margin = new System.Windows.Forms.Padding(5);
             this.gbclientes.Name = "gbclientes";
-            this.gbclientes.Padding = new System.Windows.Forms.Padding(4);
-            this.gbclientes.Size = new System.Drawing.Size(376, 362);
+            this.gbclientes.Padding = new System.Windows.Forms.Padding(5);
+            this.gbclientes.Size = new System.Drawing.Size(501, 446);
             this.gbclientes.TabIndex = 14;
             this.gbclientes.TabStop = false;
             this.gbclientes.Text = "Clientes";
@@ -157,28 +170,31 @@
             this.GridViewClientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.GridViewClientes.BackgroundColor = System.Drawing.Color.White;
             this.GridViewClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridViewClientes.Location = new System.Drawing.Point(8, 21);
-            this.GridViewClientes.Margin = new System.Windows.Forms.Padding(4);
+            this.GridViewClientes.Location = new System.Drawing.Point(11, 26);
+            this.GridViewClientes.Margin = new System.Windows.Forms.Padding(5);
             this.GridViewClientes.Name = "GridViewClientes";
             this.GridViewClientes.ReadOnly = true;
-            this.GridViewClientes.Size = new System.Drawing.Size(360, 333);
+            this.GridViewClientes.Size = new System.Drawing.Size(480, 410);
             this.GridViewClientes.TabIndex = 0;
             // 
             // Mostrar_Clientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(401, 482);
+            this.ClientSize = new System.Drawing.Size(535, 593);
             this.Controls.Add(this.gbfiltro);
             this.Controls.Add(this.btncerrar);
-            this.Controls.Add(this.btnBorrar);
+            this.Controls.Add(this.btnBaja);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.gbclientes);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Mostrar_Clientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Mostrar Clientes";
             this.Load += new System.EventHandler(this.Mostrar_Clientes_Load);
             this.gbfiltro.ResumeLayout(false);
@@ -197,9 +213,10 @@
         private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.TextBox txtfilter;
         private System.Windows.Forms.Button btncerrar;
-        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.Button btnBaja;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.GroupBox gbclientes;
         private System.Windows.Forms.DataGridView GridViewClientes;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

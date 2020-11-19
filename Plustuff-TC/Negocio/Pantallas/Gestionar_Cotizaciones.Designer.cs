@@ -30,27 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gestionar_Cotizaciones));
             this.Cotizaciones = new System.Windows.Forms.GroupBox();
+            this.GridViewCotizaciones = new System.Windows.Forms.DataGridView();
             this.Filtro = new System.Windows.Forms.GroupBox();
-            this.DNI = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.Cancelar = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnlimpiar = new System.Windows.Forms.Button();
+            this.btnfiltrar = new System.Windows.Forms.Button();
+            this.txtCotizacion = new System.Windows.Forms.TextBox();
+            this.txtDNI = new System.Windows.Forms.TextBox();
+            this.rbCotiID = new System.Windows.Forms.RadioButton();
+            this.rbDNI = new System.Windows.Forms.RadioButton();
+            this.btnmodificar = new System.Windows.Forms.Button();
+            this.btncancelar = new System.Windows.Forms.Button();
             this.Cotizaciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridViewCotizaciones)).BeginInit();
             this.Filtro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // Cotizaciones
             // 
-            this.Cotizaciones.Controls.Add(this.dataGridView1);
+            this.Cotizaciones.Controls.Add(this.GridViewCotizaciones);
             this.Cotizaciones.Controls.Add(this.Filtro);
             this.Cotizaciones.Location = new System.Drawing.Point(12, 12);
             this.Cotizaciones.Name = "Cotizaciones";
@@ -60,13 +57,30 @@
             this.Cotizaciones.Text = "Cotizaciones";
             this.Cotizaciones.Enter += new System.EventHandler(this.Cotizaciones_Enter);
             // 
+            // GridViewCotizaciones
+            // 
+            this.GridViewCotizaciones.AllowUserToAddRows = false;
+            this.GridViewCotizaciones.AllowUserToDeleteRows = false;
+            this.GridViewCotizaciones.AllowUserToOrderColumns = true;
+            this.GridViewCotizaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.GridViewCotizaciones.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.GridViewCotizaciones.BackgroundColor = System.Drawing.Color.White;
+            this.GridViewCotizaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridViewCotizaciones.Location = new System.Drawing.Point(6, 106);
+            this.GridViewCotizaciones.Margin = new System.Windows.Forms.Padding(5);
+            this.GridViewCotizaciones.Name = "GridViewCotizaciones";
+            this.GridViewCotizaciones.ReadOnly = true;
+            this.GridViewCotizaciones.Size = new System.Drawing.Size(436, 322);
+            this.GridViewCotizaciones.TabIndex = 1;
+            // 
             // Filtro
             // 
-            this.Filtro.Controls.Add(this.button1);
-            this.Filtro.Controls.Add(this.textBox2);
-            this.Filtro.Controls.Add(this.textBox1);
-            this.Filtro.Controls.Add(this.radioButton1);
-            this.Filtro.Controls.Add(this.DNI);
+            this.Filtro.Controls.Add(this.btnlimpiar);
+            this.Filtro.Controls.Add(this.btnfiltrar);
+            this.Filtro.Controls.Add(this.txtCotizacion);
+            this.Filtro.Controls.Add(this.txtDNI);
+            this.Filtro.Controls.Add(this.rbCotiID);
+            this.Filtro.Controls.Add(this.rbDNI);
             this.Filtro.Location = new System.Drawing.Point(6, 21);
             this.Filtro.Name = "Filtro";
             this.Filtro.Size = new System.Drawing.Size(436, 80);
@@ -74,111 +88,98 @@
             this.Filtro.TabStop = false;
             this.Filtro.Text = "Filtro";
             // 
-            // DNI
+            // btnlimpiar
             // 
-            this.DNI.AutoSize = true;
-            this.DNI.Location = new System.Drawing.Point(6, 21);
-            this.DNI.Name = "DNI";
-            this.DNI.Size = new System.Drawing.Size(49, 20);
-            this.DNI.TabIndex = 0;
-            this.DNI.TabStop = true;
-            this.DNI.Text = "DNI";
-            this.DNI.UseVisualStyleBackColor = true;
-            this.DNI.CheckedChanged += new System.EventHandler(this.DNI_CheckedChanged);
+            this.btnlimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnlimpiar.ForeColor = System.Drawing.Color.White;
+            this.btnlimpiar.Location = new System.Drawing.Point(345, 27);
+            this.btnlimpiar.Name = "btnlimpiar";
+            this.btnlimpiar.Size = new System.Drawing.Size(83, 36);
+            this.btnlimpiar.TabIndex = 4;
+            this.btnlimpiar.Text = "Limpiar";
+            this.btnlimpiar.UseVisualStyleBackColor = false;
+            this.btnlimpiar.Click += new System.EventHandler(this.btnlimpiar_Click);
             // 
-            // radioButton1
+            // btnfiltrar
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 47);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(104, 20);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Cotizacion ID";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.btnfiltrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnfiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnfiltrar.ForeColor = System.Drawing.Color.White;
+            this.btnfiltrar.Location = new System.Drawing.Point(256, 27);
+            this.btnfiltrar.Name = "btnfiltrar";
+            this.btnfiltrar.Size = new System.Drawing.Size(83, 36);
+            this.btnfiltrar.TabIndex = 1;
+            this.btnfiltrar.Text = "Filtrar";
+            this.btnfiltrar.UseVisualStyleBackColor = false;
+            this.btnfiltrar.Click += new System.EventHandler(this.btnfiltrar_Click);
             // 
-            // textBox1
+            // txtCotizacion
             // 
-            this.textBox1.Location = new System.Drawing.Point(115, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 22);
-            this.textBox1.TabIndex = 2;
+            this.txtCotizacion.Location = new System.Drawing.Point(115, 46);
+            this.txtCotizacion.Name = "txtCotizacion";
+            this.txtCotizacion.Size = new System.Drawing.Size(137, 22);
+            this.txtCotizacion.TabIndex = 3;
+            this.txtCotizacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCotizacion_KeyPress);
             // 
-            // textBox2
+            // txtDNI
             // 
-            this.textBox2.Location = new System.Drawing.Point(115, 46);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(170, 22);
-            this.textBox2.TabIndex = 3;
+            this.txtDNI.Location = new System.Drawing.Point(115, 20);
+            this.txtDNI.MaxLength = 8;
+            this.txtDNI.Name = "txtDNI";
+            this.txtDNI.Size = new System.Drawing.Size(137, 22);
+            this.txtDNI.TabIndex = 2;
+            this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNI_KeyPress);
             // 
-            // button1
+            // rbCotiID
             // 
-            this.button1.Location = new System.Drawing.Point(319, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.rbCotiID.AutoSize = true;
+            this.rbCotiID.Location = new System.Drawing.Point(6, 47);
+            this.rbCotiID.Name = "rbCotiID";
+            this.rbCotiID.Size = new System.Drawing.Size(104, 20);
+            this.rbCotiID.TabIndex = 1;
+            this.rbCotiID.TabStop = true;
+            this.rbCotiID.Text = "Cotizacion ID";
+            this.rbCotiID.UseVisualStyleBackColor = true;
+            this.rbCotiID.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // dataGridView1
+            // rbDNI
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 107);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(436, 323);
-            this.dataGridView1.TabIndex = 1;
+            this.rbDNI.AutoSize = true;
+            this.rbDNI.Location = new System.Drawing.Point(6, 21);
+            this.rbDNI.Name = "rbDNI";
+            this.rbDNI.Size = new System.Drawing.Size(49, 20);
+            this.rbDNI.TabIndex = 0;
+            this.rbDNI.TabStop = true;
+            this.rbDNI.Text = "DNI";
+            this.rbDNI.UseVisualStyleBackColor = true;
+            this.rbDNI.CheckedChanged += new System.EventHandler(this.DNI_CheckedChanged);
             // 
-            // button2
+            // btnmodificar
             // 
-            this.button2.Location = new System.Drawing.Point(12, 454);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(160, 31);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Aceptar Cotizacion";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnmodificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnmodificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnmodificar.ForeColor = System.Drawing.Color.White;
+            this.btnmodificar.Location = new System.Drawing.Point(12, 454);
+            this.btnmodificar.Name = "btnmodificar";
+            this.btnmodificar.Size = new System.Drawing.Size(160, 31);
+            this.btnmodificar.TabIndex = 1;
+            this.btnmodificar.Text = "Modificar Cotizacion";
+            this.btnmodificar.UseVisualStyleBackColor = false;
+            this.btnmodificar.Click += new System.EventHandler(this.btnaceptar_Click);
             // 
-            // Cancelar
+            // btncancelar
             // 
-            this.Cancelar.Location = new System.Drawing.Point(300, 454);
-            this.Cancelar.Name = "Cancelar";
-            this.Cancelar.Size = new System.Drawing.Size(160, 31);
-            this.Cancelar.TabIndex = 2;
-            this.Cancelar.Text = "Cancelar";
-            this.Cancelar.UseVisualStyleBackColor = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Cliente";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Archivo";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Fecha";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
+            this.btncancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancelar.ForeColor = System.Drawing.Color.White;
+            this.btncancelar.Location = new System.Drawing.Point(300, 454);
+            this.btncancelar.Name = "btncancelar";
+            this.btncancelar.Size = new System.Drawing.Size(160, 31);
+            this.btncancelar.TabIndex = 2;
+            this.btncancelar.Text = "Cancelar";
+            this.btncancelar.UseVisualStyleBackColor = false;
+            this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
             // 
             // Gestionar_Cotizaciones
             // 
@@ -186,19 +187,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(471, 495);
-            this.Controls.Add(this.Cancelar);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btncancelar);
+            this.Controls.Add(this.btnmodificar);
             this.Controls.Add(this.Cotizaciones);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Gestionar_Cotizaciones";
             this.Text = "Gestionar Cotizaciones";
             this.Load += new System.EventHandler(this.Gestionar_Cotizaciones_Load);
             this.Cotizaciones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.GridViewCotizaciones)).EndInit();
             this.Filtro.ResumeLayout(false);
             this.Filtro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -206,18 +209,15 @@
         #endregion
 
         private System.Windows.Forms.GroupBox Cotizaciones;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox Filtro;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton DNI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button Cancelar;
+        private System.Windows.Forms.Button btnfiltrar;
+        private System.Windows.Forms.TextBox txtCotizacion;
+        private System.Windows.Forms.TextBox txtDNI;
+        private System.Windows.Forms.RadioButton rbCotiID;
+        private System.Windows.Forms.RadioButton rbDNI;
+        private System.Windows.Forms.Button btnmodificar;
+        private System.Windows.Forms.Button btncancelar;
+        private System.Windows.Forms.DataGridView GridViewCotizaciones;
+        private System.Windows.Forms.Button btnlimpiar;
     }
 }

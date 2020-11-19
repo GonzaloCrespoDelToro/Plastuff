@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Modelo;
+using Servicios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Plustuff_TC.LogIn
 {
-    public partial class Error_Base : Form
+    public partial class Error_Base : Form, IObserverIdioma
     {
 
         C2_Negocio.Bitacora _Bitacora = new C2_Negocio.Bitacora();
@@ -49,6 +51,9 @@ namespace Plustuff_TC.LogIn
             cmbCriticidad.DataSource = criticidad;
             cmbCriticidad.DisplayMember = "Nombre";
             cmbCriticidad.ValueMember = "ID";
+
+            this.Traducir();
+            Servicios.ManagerIdioma.Suscribir(this);
         }
 
         private void btnRecalcular_Click(object sender, EventArgs e)
@@ -166,15 +171,79 @@ namespace Plustuff_TC.LogIn
             txttexto.Enabled = true;
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
             Seguridad.Restore restore = new Seguridad.Restore();
             restore.Show();
+        }
+
+        public void ActualizarIdioma(Idioma idioma)
+        {
+            this.Traducir();
+        }
+
+        private void Traducir()
+        {
+            Traductor traductor = new Traductor();
+            Modelo.Formulario formulario = new Formulario();
+            formulario.Nombre = "Bitacora";
+            List<Traduccion> traducciones;
+            if (Sesion != null)
+            {
+                traducciones = traductor.ObtenerTraducciones(Sesion.Usuario.Idioma, formulario);
+            }
+            else
+            {
+                Modelo.Idioma IdiomaDefault = new Idioma();
+                IdiomaDefault.id = 1;
+                IdiomaDefault.idioma = "Español";
+                traducciones = traductor.ObtenerTraducciones(IdiomaDefault, formulario);
+            }
+            if (traducciones.Any(t => t.Etiqueta == this.Name))
+            {
+                this.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.Name).Descripcion;
+            }
+            foreach (Control item in this.Controls)
+            {
+                if (traducciones.Any(t => t.Etiqueta == item.Name))
+                {
+                    item.Text = traducciones.FirstOrDefault(t => t.Etiqueta == item.Name).Descripcion;
+                }
+
+                TraducirControlesInternos(item, traducciones);
+            }
+        }
+
+        private void TraducirControlesInternos(Control item, List<Traduccion> traducciones)
+        {
+            if (item is GroupBox)
+            {
+                foreach (Control subItem in item.Controls)
+                {
+                    if (traducciones.Any(t => t.Etiqueta == subItem.Name))
+                    {
+                        subItem.Text = traducciones.FirstOrDefault(t => t.Etiqueta == subItem.Name).Descripcion;
+                    }
+
+                    TraducirControlesInternos(subItem, traducciones);
+                }
+            }
+        }
+
+        private void Error_Base_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Servicios.ManagerIdioma.Desuscribir(this);
+            if (this.MdiParent == null)
+            {
+                Environment.Exit(0);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

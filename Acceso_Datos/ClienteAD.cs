@@ -34,7 +34,7 @@ namespace Acceso_Datos
             try
             {
                 string consulta = _AccesoSQL.Ejecutar_Query("ExecuteNonQuery", $"INSERT INTO Clientes VALUES('{cliente.Nombre}','{cliente.Apellido}','{cliente.Direccion}'," +
-                    $"'{cliente.Fechanac}','{cliente.Mail}','{cliente.Telefono}','{cliente.DNI}','{cliente.DVH}')");
+                    $"'{cliente.Fechanac}','{cliente.Mail}','{cliente.Telefono}','{cliente.DNI}', '{cliente.Baja.ToString()}', '{cliente.DVH}')");
             }
             catch (Exception ex)
             {
@@ -48,7 +48,7 @@ namespace Acceso_Datos
             {
                 List<Cliente> clientes = new List<Cliente>();
 
-                DataSet ClientesDS = _AccesoSQL.Consultar_DS("SELECT ID, C_nombre,C_apellido, C_direccion, C_fechanac, C_mail, C_telefono, C_DNI, DVH FROM Clientes", "Clientes");
+                DataSet ClientesDS = _AccesoSQL.Consultar_DS("SELECT ID, C_nombre,C_apellido, C_direccion, C_fechanac, C_mail, C_telefono, C_DNI, C_baja, DVH FROM Clientes", "Clientes");
                 foreach (DataRow row in ClientesDS.Tables[0].Rows)
                 {
                     Modelo.Cliente cliente = new Cliente();
@@ -60,6 +60,7 @@ namespace Acceso_Datos
                     cliente.Mail = row["C_mail"].ToString();
                     cliente.Telefono = row["C_telefono"].ToString();
                     cliente.DNI = row["C_DNI"].ToString();
+                    cliente.Baja = Convert.ToBoolean(row["C_baja"].ToString());
                     cliente.DVH = row["DVH"].ToString();
                     clientes.Add(cliente);
                 }
@@ -76,7 +77,7 @@ namespace Acceso_Datos
         {
             try
             {
-                DataSet ClienteDs = _AccesoSQL.Consultar_DS($"SELECT ID, C_nombre,C_apellido, C_direccion, C_fechanac, C_mail, C_telefono, C_DNI, DVH FROM Clientes WHERE C_DNI = '{cliente.DNI}'", "Clientes");
+                DataSet ClienteDs = _AccesoSQL.Consultar_DS($"SELECT ID, C_nombre,C_apellido, C_direccion, C_fechanac, C_mail, C_telefono, C_DNI, C_baja, DVH FROM Clientes WHERE C_DNI = '{cliente.DNI}'", "Clientes");
                 cliente.ID = Convert.ToInt32(ClienteDs.Tables[0].Rows[0]["ID"].ToString());
                 cliente.Nombre = ClienteDs.Tables[0].Rows[0]["C_nombre"].ToString();
                 cliente.Apellido = ClienteDs.Tables[0].Rows[0]["C_apellido"].ToString();
@@ -85,12 +86,26 @@ namespace Acceso_Datos
                 cliente.Mail = ClienteDs.Tables[0].Rows[0]["C_mail"].ToString();
                 cliente.Telefono = ClienteDs.Tables[0].Rows[0]["C_telefono"].ToString();
                 cliente.DNI = ClienteDs.Tables[0].Rows[0]["C_DNI"].ToString();
+                cliente.Baja = Convert.ToBoolean(ClienteDs.Tables[0].Rows[0]["C_baja"].ToString());
                 cliente.DVH = ClienteDs.Tables[0].Rows[0]["DVH"].ToString();
                 return cliente;
             }
             catch (Exception ex)
             {
                 throw;
+            }
+        }
+
+        public void Modificar(Cliente cliente)
+        {
+            try
+            {
+                string consulta = _AccesoSQL.Ejecutar_Query("ExecuteNonQuery", $"UPDATE Clientes SET C_Nombre = '{cliente.Nombre}', C_apellido = '{cliente.Apellido}',C_direccion = '{cliente.Direccion}'," +
+                    $"C_fechanac = '{cliente.Fechanac}', C_mail = '{cliente.Mail}', C_telefono ='{cliente.Telefono}',C_DNI = '{cliente.DNI}', C_baja = '{cliente.Baja.ToString()}', DVH = '{cliente.DVH}' WHERE ID = {cliente.ID}");
+            }
+            catch (Exception ex)
+            {
+                return;
             }
         }
     }

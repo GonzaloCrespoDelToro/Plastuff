@@ -12,6 +12,17 @@ namespace Plustuff_TC.Negocio
 {
     public partial class Nueva_Cotizacion : Form
     {
+        Servicios.SessionManager Sesion = Servicios.SessionManager.Getinstance;
+
+        Modelo.Cotizacion _Cotizacion = new Modelo.Cotizacion();
+        Modelo.TipoFilamento _TipoFilamento = new Modelo.TipoFilamento();
+        Modelo.Bitacora bitacora = new Modelo.Bitacora();
+
+        C2_Negocio.Clientes _Clientes = new C2_Negocio.Clientes();
+        C2_Negocio.Filamentos _Filamentos = new C2_Negocio.Filamentos();
+        C2_Negocio.Bitacora _Bitacora = new C2_Negocio.Bitacora();
+        C2_Negocio.Cotizaciones _Cotizaciones = new C2_Negocio.Cotizaciones();
+
         public Nueva_Cotizacion()
         {
             InitializeComponent();
@@ -21,28 +32,32 @@ namespace Plustuff_TC.Negocio
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtgramos.Text) || !string.IsNullOrEmpty(txttiempo.Text))
+                Modelo.Cotizacion cotizacion = new Modelo.Cotizacion();
+
+                cotizacion.Ruta = txtruta.Text;
+                cotizacion.Detalle = txtdetalle.Text;
+                cotizacion.Tiempo = string.IsNullOrEmpty(txttiempo.Text) ? 0 : int.Parse(txttiempo.Text);
+                cotizacion.Gramos = string.IsNullOrEmpty(txtgramos.Text) ? 0 : double.Parse(txtgramos.Text);
+                cotizacion.Empleado = Sesion.Usuario.Empleado;
+                
+
+                if (!_Cotizaciones.Validacion(cotizacion))
                 {
-                    var tiempo = Convert.ToInt32(this.txttiempo.Text);
-                    var gramos = Convert.ToInt32(this.txtgramos.Text);
-                    int precioKilo = 1200;
-                    int precioImpresion = 200;
-
-                    var asd = ((gramos * precioKilo) / 1000);
-
-                    var Total = ((((gramos * precioKilo) / 1000) * 2) + ((tiempo * precioImpresion) / 60));
-
-                    this.lblTotal.Text = Total.ToString();
+                    MessageBox.Show("Complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
-                else
-                {
-                    MessageBox.Show("Debe completar todos los campos");
-                }
+
+                _TipoFilamento = cbxfilamento.SelectedItem as Modelo.TipoFilamento;
+
+                cotizacion = _Cotizaciones.CalcularCotizacion(cotizacion, _TipoFilamento);
+
+                this.lblTotal.Text = cotizacion.PrecioFinal.ToString();
+
+                _Cotizacion = cotizacion;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(this, "Ocurrio un error inesperado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -58,8 +73,83 @@ namespace Plustuff_TC.Negocio
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            this.openFileDialog1.ShowDialog();
-            this.txtruta.Text = openFileDialog1.FileName;
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                this.txtruta.Text = openFileDialog1.FileName;
+            }
+        }
+
+        private void Nueva_Cotizacion_Load(object sender, EventArgs e)
+        {
+            var clientes = _Clientes.ListarClientes().Where(c => c.Baja.Equals(false)).ToArray();
+            cbClientes.DataSource = clientes;
+            cbClientes.DisplayMember = "NombreCompleto";
+            cbClientes.ValueMember = "ID";
+
+            var tipoFilamentos = _Filamentos.ListarTipoFilamento();
+            cbxfilamento.DataSource = tipoFilamentos;
+            cbxfilamento.DisplayMember = "Tipo";
+            cbxfilamento.ValueMember = "ID";
+        }
+
+        private void lblTotal_TextChanged(object sender, EventArgs e)
+        {
+            if (lblTotal.Text != "0")
+            {
+                btnaceptar.Enabled = true;
+                btnguardar.Enabled = true;
+            }
+        }
+
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _Cotizacion.Cliente = cbClientes.SelectedItem as Modelo.Cliente;
+                _Cotizaciones.Alta(_Cotizacion);
+
+                //Da de alta en bitacora
+                bitacora.Accion = "AltaCotizacion";
+                bitacora.Descripcion = $"Se guardo la cotizacion del cliente {_Cotizacion.Cliente.Nombre} {_Cotizacion.Cliente.Apellido}";
+                bitacora.FechaHora = DateTime.Now;
+                bitacora.U_id = Sesion.Usuario.id;
+                bitacora.Criticidad = 3;
+                _Bitacora.Alta(bitacora);
+
+                MessageBox.Show("Guardado de cotizacion exitosa", "Alta de Cotizacion");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, "Ocurrio un error inesperado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnaceptar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _Cotizaciones.Alta(_Cotizacion);
+
+                _Cotizaciones.TraerCotizacionPorRuta(_Cotizacion); //Busca el ID de la cotizacion
+
+                _Cotizaciones.AceptarCotizacion(_Cotizacion);
+
+                //Da de alta en bitacora
+                bitacora.Accion = "AceptarCotizacion";
+                bitacora.Descripcion = $"El cliente {_Cotizacion.Cliente.Nombre} {_Cotizacion.Cliente.Apellido} acepto la cotizacion N° {_Cotizacion.ID}";
+                bitacora.FechaHora = DateTime.Now;
+                bitacora.U_id = Sesion.Usuario.id;
+                bitacora.Criticidad = 3;
+                _Bitacora.Alta(bitacora);
+
+                MessageBox.Show("La cotizacion ha sido aceptada", "Cotizacion");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, "Ocurrio un error inesperado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

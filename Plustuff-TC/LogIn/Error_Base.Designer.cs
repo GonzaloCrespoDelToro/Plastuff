@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Error_Base));
             this.dgvBitacora = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbbitacora = new System.Windows.Forms.GroupBox();
             this.btnRecalcular = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnrestore = new System.Windows.Forms.Button();
+            this.btncancelar = new System.Windows.Forms.Button();
+            this.gbfiltro = new System.Windows.Forms.GroupBox();
             this.txttexto = new System.Windows.Forms.TextBox();
             this.rbtexto = new System.Windows.Forms.RadioButton();
             this.btnclean = new System.Windows.Forms.Button();
@@ -47,8 +47,8 @@
             this.dtFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.dtFechaDesde = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBitacora)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbbitacora.SuspendLayout();
+            this.gbfiltro.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvBitacora
@@ -65,15 +65,15 @@
             this.dgvBitacora.Size = new System.Drawing.Size(544, 350);
             this.dgvBitacora.TabIndex = 0;
             // 
-            // groupBox1
+            // gbbitacora
             // 
-            this.groupBox1.Controls.Add(this.dgvBitacora);
-            this.groupBox1.Location = new System.Drawing.Point(12, 129);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(556, 375);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Bitacora";
+            this.gbbitacora.Controls.Add(this.dgvBitacora);
+            this.gbbitacora.Location = new System.Drawing.Point(12, 129);
+            this.gbbitacora.Name = "gbbitacora";
+            this.gbbitacora.Size = new System.Drawing.Size(556, 375);
+            this.gbbitacora.TabIndex = 1;
+            this.gbbitacora.TabStop = false;
+            this.gbbitacora.Text = "Bitacora";
             // 
             // btnRecalcular
             // 
@@ -88,51 +88,51 @@
             this.btnRecalcular.UseVisualStyleBackColor = false;
             this.btnRecalcular.Click += new System.EventHandler(this.btnRecalcular_Click);
             // 
-            // button2
+            // btnrestore
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(358, 510);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(210, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Realizar restore";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnrestore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnrestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnrestore.ForeColor = System.Drawing.Color.White;
+            this.btnrestore.Location = new System.Drawing.Point(358, 510);
+            this.btnrestore.Name = "btnrestore";
+            this.btnrestore.Size = new System.Drawing.Size(210, 23);
+            this.btnrestore.TabIndex = 3;
+            this.btnrestore.Text = "Realizar restore";
+            this.btnrestore.UseVisualStyleBackColor = false;
+            this.btnrestore.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btncancelar
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(12, 539);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(556, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btncancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancelar.ForeColor = System.Drawing.Color.White;
+            this.btncancelar.Location = new System.Drawing.Point(12, 539);
+            this.btncancelar.Name = "btncancelar";
+            this.btncancelar.Size = new System.Drawing.Size(556, 23);
+            this.btncancelar.TabIndex = 4;
+            this.btncancelar.Text = "Cancelar";
+            this.btncancelar.UseVisualStyleBackColor = false;
+            this.btncancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // groupBox2
+            // gbfiltro
             // 
-            this.groupBox2.Controls.Add(this.txttexto);
-            this.groupBox2.Controls.Add(this.rbtexto);
-            this.groupBox2.Controls.Add(this.btnclean);
-            this.groupBox2.Controls.Add(this.btnbuscar);
-            this.groupBox2.Controls.Add(this.cmbCriticidad);
-            this.groupBox2.Controls.Add(this.rbCriticidad);
-            this.groupBox2.Controls.Add(this.rbFecha);
-            this.groupBox2.Controls.Add(this.lblhasta);
-            this.groupBox2.Controls.Add(this.lbldesde);
-            this.groupBox2.Controls.Add(this.dtFechaHasta);
-            this.groupBox2.Controls.Add(this.dtFechaDesde);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(556, 111);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Filtro";
+            this.gbfiltro.Controls.Add(this.txttexto);
+            this.gbfiltro.Controls.Add(this.rbtexto);
+            this.gbfiltro.Controls.Add(this.btnclean);
+            this.gbfiltro.Controls.Add(this.btnbuscar);
+            this.gbfiltro.Controls.Add(this.cmbCriticidad);
+            this.gbfiltro.Controls.Add(this.rbCriticidad);
+            this.gbfiltro.Controls.Add(this.rbFecha);
+            this.gbfiltro.Controls.Add(this.lblhasta);
+            this.gbfiltro.Controls.Add(this.lbldesde);
+            this.gbfiltro.Controls.Add(this.dtFechaHasta);
+            this.gbfiltro.Controls.Add(this.dtFechaDesde);
+            this.gbfiltro.Location = new System.Drawing.Point(12, 12);
+            this.gbfiltro.Name = "gbfiltro";
+            this.gbfiltro.Size = new System.Drawing.Size(556, 111);
+            this.gbfiltro.TabIndex = 9;
+            this.gbfiltro.TabStop = false;
+            this.gbfiltro.Text = "Filtro";
             // 
             // txttexto
             // 
@@ -252,21 +252,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(577, 569);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.gbfiltro);
+            this.Controls.Add(this.btncancelar);
+            this.Controls.Add(this.btnrestore);
             this.Controls.Add(this.btnRecalcular);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbbitacora);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Error_Base";
             this.Text = "Administrador";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Error_Base_FormClosing);
             this.Load += new System.EventHandler(this.Error_Base_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBitacora)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbbitacora.ResumeLayout(false);
+            this.gbfiltro.ResumeLayout(false);
+            this.gbfiltro.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -274,11 +275,11 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvBitacora;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbbitacora;
         private System.Windows.Forms.Button btnRecalcular;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnrestore;
+        private System.Windows.Forms.Button btncancelar;
+        private System.Windows.Forms.GroupBox gbfiltro;
         private System.Windows.Forms.Button btnclean;
         private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.Label lblhasta;

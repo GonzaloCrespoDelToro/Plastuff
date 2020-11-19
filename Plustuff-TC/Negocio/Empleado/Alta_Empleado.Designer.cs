@@ -29,48 +29,48 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Alta_Empleado));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbempleado = new System.Windows.Forms.GroupBox();
             this.txtdni = new System.Windows.Forms.TextBox();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.txtcontacto = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblcontacto = new System.Windows.Forms.Label();
             this.txtdirecc = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbldirec = new System.Windows.Forms.Label();
             this.txtmail = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblmail = new System.Windows.Forms.Label();
+            this.lblfecha = new System.Windows.Forms.Label();
+            this.lblDNI = new System.Windows.Forms.Label();
             this.txtapellido = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblapellido = new System.Windows.Forms.Label();
             this.txtnombre = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblnombre = new System.Windows.Forms.Label();
             this.btnconfirmar = new System.Windows.Forms.Button();
             this.btncancelar = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.gbempleado.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbempleado
             // 
-            this.groupBox1.Controls.Add(this.txtdni);
-            this.groupBox1.Controls.Add(this.dtFecha);
-            this.groupBox1.Controls.Add(this.txtcontacto);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.txtdirecc);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtmail);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtapellido);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtnombre);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(260, 228);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Nuevo Empleado";
+            this.gbempleado.Controls.Add(this.txtdni);
+            this.gbempleado.Controls.Add(this.dtFecha);
+            this.gbempleado.Controls.Add(this.txtcontacto);
+            this.gbempleado.Controls.Add(this.lblcontacto);
+            this.gbempleado.Controls.Add(this.txtdirecc);
+            this.gbempleado.Controls.Add(this.lbldirec);
+            this.gbempleado.Controls.Add(this.txtmail);
+            this.gbempleado.Controls.Add(this.lblmail);
+            this.gbempleado.Controls.Add(this.lblfecha);
+            this.gbempleado.Controls.Add(this.lblDNI);
+            this.gbempleado.Controls.Add(this.txtapellido);
+            this.gbempleado.Controls.Add(this.lblapellido);
+            this.gbempleado.Controls.Add(this.txtnombre);
+            this.gbempleado.Controls.Add(this.lblnombre);
+            this.gbempleado.Location = new System.Drawing.Point(12, 12);
+            this.gbempleado.Name = "gbempleado";
+            this.gbempleado.Size = new System.Drawing.Size(260, 228);
+            this.gbempleado.TabIndex = 0;
+            this.gbempleado.TabStop = false;
+            this.gbempleado.Text = "Nuevo Empleado";
             // 
             // txtdni
             // 
@@ -97,14 +97,14 @@
             this.txtcontacto.TabIndex = 13;
             this.txtcontacto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcontacto_KeyPress);
             // 
-            // label7
+            // lblcontacto
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 195);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 16);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Contacto";
+            this.lblcontacto.AutoSize = true;
+            this.lblcontacto.Location = new System.Drawing.Point(6, 195);
+            this.lblcontacto.Name = "lblcontacto";
+            this.lblcontacto.Size = new System.Drawing.Size(61, 16);
+            this.lblcontacto.TabIndex = 12;
+            this.lblcontacto.Text = "Contacto";
             // 
             // txtdirecc
             // 
@@ -113,14 +113,14 @@
             this.txtdirecc.Size = new System.Drawing.Size(158, 22);
             this.txtdirecc.TabIndex = 11;
             // 
-            // label6
+            // lbldirec
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 111);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 16);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Direccion";
+            this.lbldirec.AutoSize = true;
+            this.lbldirec.Location = new System.Drawing.Point(5, 111);
+            this.lbldirec.Name = "lbldirec";
+            this.lbldirec.Size = new System.Drawing.Size(65, 16);
+            this.lbldirec.TabIndex = 10;
+            this.lbldirec.Text = "Direccion";
             // 
             // txtmail
             // 
@@ -129,32 +129,32 @@
             this.txtmail.Size = new System.Drawing.Size(158, 22);
             this.txtmail.TabIndex = 9;
             // 
-            // label5
+            // lblmail
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 167);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 16);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Email";
+            this.lblmail.AutoSize = true;
+            this.lblmail.Location = new System.Drawing.Point(6, 167);
+            this.lblmail.Name = "lblmail";
+            this.lblmail.Size = new System.Drawing.Size(42, 16);
+            this.lblmail.TabIndex = 8;
+            this.lblmail.Text = "Email";
             // 
-            // label4
+            // lblfecha
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 83);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 16);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Fecha Nac.";
+            this.lblfecha.AutoSize = true;
+            this.lblfecha.Location = new System.Drawing.Point(5, 83);
+            this.lblfecha.Name = "lblfecha";
+            this.lblfecha.Size = new System.Drawing.Size(77, 16);
+            this.lblfecha.TabIndex = 6;
+            this.lblfecha.Text = "Fecha Nac.";
             // 
-            // label3
+            // lblDNI
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 139);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 16);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "DNI";
+            this.lblDNI.AutoSize = true;
+            this.lblDNI.Location = new System.Drawing.Point(6, 139);
+            this.lblDNI.Name = "lblDNI";
+            this.lblDNI.Size = new System.Drawing.Size(31, 16);
+            this.lblDNI.TabIndex = 4;
+            this.lblDNI.Text = "DNI";
             // 
             // txtapellido
             // 
@@ -163,15 +163,14 @@
             this.txtapellido.Size = new System.Drawing.Size(158, 22);
             this.txtapellido.TabIndex = 3;
             // 
-            // label2
+            // lblapellido
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Apellido";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.lblapellido.AutoSize = true;
+            this.lblapellido.Location = new System.Drawing.Point(6, 55);
+            this.lblapellido.Name = "lblapellido";
+            this.lblapellido.Size = new System.Drawing.Size(58, 16);
+            this.lblapellido.TabIndex = 2;
+            this.lblapellido.Text = "Apellido";
             // 
             // txtnombre
             // 
@@ -180,14 +179,14 @@
             this.txtnombre.Size = new System.Drawing.Size(158, 22);
             this.txtnombre.TabIndex = 1;
             // 
-            // label1
+            // lblnombre
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
+            this.lblnombre.AutoSize = true;
+            this.lblnombre.Location = new System.Drawing.Point(6, 27);
+            this.lblnombre.Name = "lblnombre";
+            this.lblnombre.Size = new System.Drawing.Size(57, 16);
+            this.lblnombre.TabIndex = 0;
+            this.lblnombre.Text = "Nombre";
             // 
             // btnconfirmar
             // 
@@ -223,7 +222,7 @@
             this.ClientSize = new System.Drawing.Size(280, 282);
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.btnconfirmar);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbempleado);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -232,27 +231,27 @@
             this.Name = "Alta_Empleado";
             this.Text = "Alta Empleado";
             this.Load += new System.EventHandler(this.Alta_Empleado_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbempleado.ResumeLayout(false);
+            this.gbempleado.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox gbempleado;
+        private System.Windows.Forms.Label lblfecha;
+        private System.Windows.Forms.Label lblDNI;
         private System.Windows.Forms.TextBox txtapellido;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblapellido;
         private System.Windows.Forms.TextBox txtnombre;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblnombre;
         private System.Windows.Forms.TextBox txtcontacto;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblcontacto;
         private System.Windows.Forms.TextBox txtdirecc;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbldirec;
         private System.Windows.Forms.TextBox txtmail;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblmail;
         private System.Windows.Forms.Button btnconfirmar;
         private System.Windows.Forms.Button btncancelar;
         private System.Windows.Forms.DateTimePicker dtFecha;

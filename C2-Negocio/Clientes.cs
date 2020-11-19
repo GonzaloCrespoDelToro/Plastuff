@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Modelo;
 
 namespace C2_Negocio
 {
@@ -15,7 +16,7 @@ namespace C2_Negocio
             this.Encriptar(cliente);
             Modelo.Digito_Vertical DigitoVertical = new Modelo.Digito_Vertical();
             DigitoVertical.Tabla = "Clientes";
-            string[] datos = { cliente.Nombre, cliente.Apellido, cliente.Direccion, cliente.Fechanac.ToString(), cliente.Mail, cliente.Telefono, cliente.DNI };
+            string[] datos = { cliente.Nombre, cliente.Apellido, cliente.Direccion, cliente.Fechanac.ToString(), cliente.Mail, cliente.Telefono, cliente.DNI,cliente.Baja.ToString() };
             cliente.DVH = _verificadores.CalcularDVH(datos);
             _clienteAD.Alta(cliente);
             _verificadores.Recalcular_DVV(DigitoVertical);
@@ -23,18 +24,25 @@ namespace C2_Negocio
 
         public bool Validacion(Modelo.Cliente cliente)
         {
-            foreach (PropertyInfo pi in cliente.GetType().GetProperties())
+            try
             {
-                if (pi.Name != "DVH")
+                foreach (PropertyInfo pi in cliente.GetType().GetProperties())
                 {
-                    string value = (string)pi.GetValue(cliente).ToString();
-                    if (String.IsNullOrEmpty(value))
+                    if (pi.Name != "DVH" && pi.Name != "NombreCompleto")
                     {
-                        return false;
+                        string value = (string)pi.GetValue(cliente).ToString();
+                        if (String.IsNullOrEmpty(value))
+                        {
+                            return false;
+                        }
                     }
                 }
+                return true;
             }
-            return true;
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public List<Modelo.Cliente> ListarClientes()
@@ -47,6 +55,7 @@ namespace C2_Negocio
                     cliente.Nombre = _Encriptacion.Desencriptar(cliente.Nombre);
                     cliente.Apellido = _Encriptacion.Desencriptar(cliente.Apellido);
                     cliente.Mail = _Encriptacion.Desencriptar(cliente.Mail);
+                    cliente.NombreCompleto = $"{cliente.Nombre} {cliente.Apellido}";
                 }
 
                 return ClientesList;
@@ -65,6 +74,17 @@ namespace C2_Negocio
             return cliente;
         }
 
+        public void Modificar_Cliente(Cliente cliente)
+        {
+            this.Encriptar(cliente);
+            Modelo.Digito_Vertical DigitoVertical = new Modelo.Digito_Vertical();
+            DigitoVertical.Tabla = "Clientes";
+            string[] datos = { cliente.Nombre, cliente.Apellido, cliente.Direccion, cliente.Fechanac.ToString(), cliente.Mail, cliente.Telefono, cliente.DNI, cliente.Baja.ToString() };
+            cliente.DVH = _verificadores.CalcularDVH(datos);
+            _clienteAD.Modificar(cliente);
+            _verificadores.Recalcular_DVV(DigitoVertical);
+        }
+
         public bool Consistencia(Modelo.Cliente cliente)
         {
             if (!_clienteAD.Check_DNI(cliente))
@@ -72,6 +92,19 @@ namespace C2_Negocio
                 return false;
             }
             return true;
+        }
+
+        public void Baja_Logica(Cliente cliente)
+        {
+            try
+            {
+                cliente.Baja = true;
+                this.Modificar_Cliente(cliente);
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
 
         public Modelo.Cliente TraerClientePorDNI(Modelo.Cliente cliente)

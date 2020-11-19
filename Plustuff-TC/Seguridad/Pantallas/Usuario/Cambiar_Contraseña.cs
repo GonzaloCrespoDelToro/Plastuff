@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Modelo;
+using Servicios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,15 +12,59 @@ using System.Windows.Forms;
 
 namespace Plustuff_TC.Seguridad.Pantallas.Usuario
 {
-    public partial class Cambiar_Contraseña : Form
+    public partial class Cambiar_Contraseña : Form, IObserverIdioma
     {
         Servicios.SessionManager _Sesion = Servicios.SessionManager.Getinstance;
         C2_Negocio.Usuarios _Usuarios = new C2_Negocio.Usuarios();
         Modelo.Usuario Usuario = new Modelo.Usuario();
+        Servicios.SessionManager Sesion = Servicios.SessionManager.Getinstance;
+
 
         public Cambiar_Contraseña()
         {
             InitializeComponent();
+        }
+
+        public void ActualizarIdioma(Idioma idioma)
+        {
+            this.Traducir();
+        }
+
+        private void Traducir()
+        {
+            Traductor traductor = new Traductor();
+            Modelo.Formulario formulario = new Formulario();
+            formulario.Nombre = "CambiarPass";
+            var traducciones = traductor.ObtenerTraducciones(Sesion.Usuario.Idioma, formulario);
+            if (traducciones.Any(t => t.Etiqueta == this.Name))
+            {
+                this.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.Name).Descripcion;
+            }
+            foreach (Control item in this.Controls)
+            {
+                if (traducciones.Any(t => t.Etiqueta == item.Name))
+                {
+                    item.Text = traducciones.FirstOrDefault(t => t.Etiqueta == item.Name).Descripcion;
+                }
+
+                TraducirControlesInternos(item, traducciones);
+            }
+        }
+
+        private void TraducirControlesInternos(Control item, List<Traduccion> traducciones)
+        {
+            if (item is GroupBox)
+            {
+                foreach (Control subItem in item.Controls)
+                {
+                    if (traducciones.Any(t => t.Etiqueta == subItem.Name))
+                    {
+                        subItem.Text = traducciones.FirstOrDefault(t => t.Etiqueta == subItem.Name).Descripcion;
+                    }
+
+                    TraducirControlesInternos(subItem, traducciones);
+                }
+            }
         }
 
         private void btnconfirm_Click(object sender, EventArgs e)
@@ -54,7 +100,18 @@ namespace Plustuff_TC.Seguridad.Pantallas.Usuario
 
         private void Cambiar_Contraseña_Load(object sender, EventArgs e)
         {
-           
+            this.Traducir();
+            Servicios.ManagerIdioma.Suscribir(this);
+        }
+
+        private void btncancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Cambiar_Contraseña_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Servicios.ManagerIdioma.Desuscribir(this);
         }
     }
 }

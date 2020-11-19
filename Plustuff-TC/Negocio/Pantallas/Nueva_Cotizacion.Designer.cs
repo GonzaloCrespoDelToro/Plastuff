@@ -35,7 +35,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtdetalle = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.cbxfilamento = new System.Windows.Forms.ComboBox();
@@ -47,12 +47,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbClientes = new System.Windows.Forms.ComboBox();
             this.Cliente = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnaceptar = new System.Windows.Forms.Button();
+            this.btncancelar = new System.Windows.Forms.Button();
+            this.btnguardar = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
@@ -62,17 +62,20 @@
             // 
             // txtruta
             // 
-            this.txtruta.Location = new System.Drawing.Point(123, 27);
+            this.txtruta.Location = new System.Drawing.Point(164, 33);
+            this.txtruta.Margin = new System.Windows.Forms.Padding(4);
             this.txtruta.Name = "txtruta";
-            this.txtruta.Size = new System.Drawing.Size(153, 20);
+            this.txtruta.ReadOnly = true;
+            this.txtruta.Size = new System.Drawing.Size(203, 22);
             this.txtruta.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 30);
+            this.label1.Location = new System.Drawing.Point(8, 37);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.Size = new System.Drawing.Size(83, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Ruta archivo";
             // 
@@ -80,7 +83,7 @@
             // 
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtdetalle);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.btnCalcular);
             this.groupBox1.Controls.Add(this.cbxfilamento);
@@ -91,9 +94,11 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtruta);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(16, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(315, 197);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(420, 242);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Generar Cotizacion";
@@ -102,9 +107,10 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(282, 27);
+            this.pictureBox1.Location = new System.Drawing.Point(374, 31);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(27, 20);
+            this.pictureBox1.Size = new System.Drawing.Size(36, 25);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
@@ -114,25 +120,28 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 56);
+            this.label4.Location = new System.Drawing.Point(8, 69);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.Size = new System.Drawing.Size(51, 16);
             this.label4.TabIndex = 13;
             this.label4.Text = "Detalle";
             // 
-            // textBox1
+            // txtdetalle
             // 
-            this.textBox1.Location = new System.Drawing.Point(123, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(153, 20);
-            this.textBox1.TabIndex = 12;
+            this.txtdetalle.Location = new System.Drawing.Point(164, 65);
+            this.txtdetalle.Margin = new System.Windows.Forms.Padding(4);
+            this.txtdetalle.Name = "txtdetalle";
+            this.txtdetalle.Size = new System.Drawing.Size(203, 22);
+            this.txtdetalle.TabIndex = 12;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(153, 82);
+            this.label7.Location = new System.Drawing.Point(204, 101);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 11;
@@ -144,9 +153,10 @@
             this.btnCalcular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
             this.btnCalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalcular.ForeColor = System.Drawing.Color.White;
-            this.btnCalcular.Location = new System.Drawing.Point(6, 168);
+            this.btnCalcular.Location = new System.Drawing.Point(8, 207);
+            this.btnCalcular.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(303, 23);
+            this.btnCalcular.Size = new System.Drawing.Size(404, 28);
             this.btnCalcular.TabIndex = 10;
             this.btnCalcular.Text = "Calcular Cotizacion";
             this.btnCalcular.UseVisualStyleBackColor = false;
@@ -159,72 +169,81 @@
             "PLA",
             "ABS",
             "FLEX"});
-            this.cbxfilamento.Location = new System.Drawing.Point(123, 131);
+            this.cbxfilamento.Location = new System.Drawing.Point(164, 161);
+            this.cbxfilamento.Margin = new System.Windows.Forms.Padding(4);
             this.cbxfilamento.Name = "cbxfilamento";
-            this.cbxfilamento.Size = new System.Drawing.Size(90, 21);
+            this.cbxfilamento.Size = new System.Drawing.Size(119, 24);
             this.cbxfilamento.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 134);
+            this.label5.Location = new System.Drawing.Point(8, 165);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 13);
+            this.label5.Size = new System.Drawing.Size(98, 16);
             this.label5.TabIndex = 8;
             this.label5.Text = "Tipo Filamento";
             // 
             // txtgramos
             // 
-            this.txtgramos.Location = new System.Drawing.Point(123, 105);
+            this.txtgramos.Location = new System.Drawing.Point(164, 129);
+            this.txtgramos.Margin = new System.Windows.Forms.Padding(4);
             this.txtgramos.Name = "txtgramos";
-            this.txtgramos.Size = new System.Drawing.Size(90, 20);
+            this.txtgramos.Size = new System.Drawing.Size(119, 22);
             this.txtgramos.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 108);
+            this.label3.Location = new System.Drawing.Point(8, 133);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 13);
+            this.label3.Size = new System.Drawing.Size(137, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Gramos de Filamento";
             // 
             // txttiempo
             // 
-            this.txttiempo.Location = new System.Drawing.Point(123, 79);
+            this.txttiempo.Location = new System.Drawing.Point(164, 97);
+            this.txttiempo.Margin = new System.Windows.Forms.Padding(4);
             this.txttiempo.MaxLength = 3;
             this.txttiempo.Name = "txttiempo";
-            this.txttiempo.Size = new System.Drawing.Size(76, 20);
+            this.txttiempo.Size = new System.Drawing.Size(100, 22);
             this.txttiempo.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 82);
+            this.label2.Location = new System.Drawing.Point(8, 101);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 13);
+            this.label2.Size = new System.Drawing.Size(136, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Tiempo de impresion";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 31);
+            this.label6.Location = new System.Drawing.Point(8, 38);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 13);
+            this.label6.Size = new System.Drawing.Size(104, 16);
             this.label6.TabIndex = 3;
             this.label6.Text = "Total Cotizacion";
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblTotal);
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.cbClientes);
             this.groupBox2.Controls.Add(this.Cliente);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(12, 215);
+            this.groupBox2.Location = new System.Drawing.Point(16, 265);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(315, 96);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(420, 118);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cotizacion";
@@ -232,29 +251,33 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(129, 31);
+            this.lblTotal.Location = new System.Drawing.Point(172, 38);
+            this.lblTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(40, 13);
+            this.lblTotal.Size = new System.Drawing.Size(15, 16);
             this.lblTotal.TabIndex = 4;
-            this.lblTotal.Text = "000,00";
+            this.lblTotal.Text = "0";
+            this.lblTotal.TextChanged += new System.EventHandler(this.lblTotal_TextChanged);
             // 
-            // comboBox2
+            // cbClientes
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbClientes.FormattingEnabled = true;
+            this.cbClientes.Items.AddRange(new object[] {
             "Santiago Lopez"});
-            this.comboBox2.Location = new System.Drawing.Point(123, 56);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 7;
+            this.cbClientes.Location = new System.Drawing.Point(164, 69);
+            this.cbClientes.Margin = new System.Windows.Forms.Padding(4);
+            this.cbClientes.Name = "cbClientes";
+            this.cbClientes.Size = new System.Drawing.Size(160, 24);
+            this.cbClientes.TabIndex = 7;
             // 
             // Cliente
             // 
             this.Cliente.AutoSize = true;
             this.Cliente.Cursor = System.Windows.Forms.Cursors.Help;
-            this.Cliente.Location = new System.Drawing.Point(6, 59);
+            this.Cliente.Location = new System.Drawing.Point(8, 72);
+            this.Cliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Cliente.Name = "Cliente";
-            this.Cliente.Size = new System.Drawing.Size(39, 13);
+            this.Cliente.Size = new System.Drawing.Size(49, 16);
             this.Cliente.TabIndex = 6;
             this.Cliente.Text = "Cliente";
             this.toolTip1.SetToolTip(this.Cliente, "Seleccione el cliente");
@@ -262,48 +285,56 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(120, 31);
+            this.label8.Location = new System.Drawing.Point(160, 38);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(13, 13);
+            this.label8.Size = new System.Drawing.Size(15, 16);
             this.label8.TabIndex = 5;
             this.label8.Text = "$";
             // 
-            // button2
+            // btnaceptar
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(12, 317);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Aceptar Cotizacion";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnaceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnaceptar.Enabled = false;
+            this.btnaceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnaceptar.ForeColor = System.Drawing.Color.White;
+            this.btnaceptar.Location = new System.Drawing.Point(16, 390);
+            this.btnaceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnaceptar.Name = "btnaceptar";
+            this.btnaceptar.Size = new System.Drawing.Size(192, 28);
+            this.btnaceptar.TabIndex = 5;
+            this.btnaceptar.Text = "Aceptar Cotizacion";
+            this.btnaceptar.UseVisualStyleBackColor = false;
+            this.btnaceptar.Click += new System.EventHandler(this.btnaceptar_Click);
             // 
-            // button3
+            // btncancelar
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(12, 346);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(315, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btncancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancelar.ForeColor = System.Drawing.Color.White;
+            this.btncancelar.Location = new System.Drawing.Point(16, 426);
+            this.btncancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btncancelar.Name = "btncancelar";
+            this.btncancelar.Size = new System.Drawing.Size(420, 28);
+            this.btncancelar.TabIndex = 6;
+            this.btncancelar.Text = "Cancelar";
+            this.btncancelar.UseVisualStyleBackColor = false;
+            this.btncancelar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button1
+            // btnguardar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(183, 317);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Guardar Cotizacion";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnguardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnguardar.Enabled = false;
+            this.btnguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnguardar.ForeColor = System.Drawing.Color.White;
+            this.btnguardar.Location = new System.Drawing.Point(244, 390);
+            this.btnguardar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnguardar.Name = "btnguardar";
+            this.btnguardar.Size = new System.Drawing.Size(192, 28);
+            this.btnguardar.TabIndex = 7;
+            this.btnguardar.Text = "Guardar Cotizacion";
+            this.btnguardar.UseVisualStyleBackColor = false;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
             // openFileDialog1
             // 
@@ -311,19 +342,24 @@
             // 
             // Nueva_Cotizacion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(339, 375);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(452, 462);
+            this.Controls.Add(this.btnguardar);
+            this.Controls.Add(this.btncancelar);
+            this.Controls.Add(this.btnaceptar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Nueva_Cotizacion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nueva Cotizacion";
+            this.Load += new System.EventHandler(this.Nueva_Cotizacion_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -349,14 +385,14 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbClientes;
         private System.Windows.Forms.Label Cliente;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnaceptar;
+        private System.Windows.Forms.Button btncancelar;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnguardar;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtdetalle;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolTip toolTip1;

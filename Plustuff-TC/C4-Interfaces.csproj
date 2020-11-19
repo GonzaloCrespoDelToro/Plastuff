@@ -145,11 +145,35 @@
     <Compile Include="Negocio\Empleado\Mostrar_Empleados.Designer.cs">
       <DependentUpon>Mostrar_Empleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Negocio\Pantallas\Gestionar_Pedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Gestionar_Pedidos.Designer.cs">
+      <DependentUpon>Gestionar_Pedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Modificar_Cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Modificar_Cliente.Designer.cs">
+      <DependentUpon>Modificar_Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Modificar_Estado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Modificar_Estado.Designer.cs">
+      <DependentUpon>Modificar_Estado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Negocio\Pantallas\Mostrar_Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Negocio\Pantallas\Mostrar_Clientes.Designer.cs">
       <DependentUpon>Mostrar_Clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Mostrar_FIlamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Negocio\Pantallas\Mostrar_FIlamentos.Designer.cs">
+      <DependentUpon>Mostrar_FIlamentos.cs</DependentUpon>
     </Compile>
     <Compile Include="Negocio\Pantallas\Nueva_Cotizacion.cs">
       <SubType>Form</SubType>
@@ -271,8 +295,20 @@
     <EmbeddedResource Include="Negocio\Empleado\Mostrar_Empleados.resx">
       <DependentUpon>Mostrar_Empleados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Negocio\Pantallas\Gestionar_Pedidos.resx">
+      <DependentUpon>Gestionar_Pedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Negocio\Pantallas\Modificar_Cliente.resx">
+      <DependentUpon>Modificar_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Negocio\Pantallas\Modificar_Estado.resx">
+      <DependentUpon>Modificar_Estado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Negocio\Pantallas\Mostrar_Clientes.resx">
       <DependentUpon>Mostrar_Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Negocio\Pantallas\Mostrar_FIlamentos.resx">
+      <DependentUpon>Mostrar_FIlamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Negocio\Pantallas\Nueva_Cotizacion.resx">
       <DependentUpon>Nueva_Cotizacion.cs</DependentUpon>
@@ -361,6 +397,35 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
