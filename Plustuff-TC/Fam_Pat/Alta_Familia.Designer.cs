@@ -29,85 +29,87 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Alta_Familia));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.gbfamilia = new System.Windows.Forms.GroupBox();
+            this.txtdescrip = new System.Windows.Forms.RichTextBox();
+            this.lbldescripcion = new System.Windows.Forms.Label();
+            this.txtnombre = new System.Windows.Forms.TextBox();
+            this.lblnombre = new System.Windows.Forms.Label();
+            this.btnconfirmar = new System.Windows.Forms.Button();
+            this.btncancelar = new System.Windows.Forms.Button();
+            this.gbfamilia.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbfamilia
             // 
-            this.groupBox1.Controls.Add(this.richTextBox1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(325, 159);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Nueva Familia";
+            this.gbfamilia.Controls.Add(this.txtdescrip);
+            this.gbfamilia.Controls.Add(this.lbldescripcion);
+            this.gbfamilia.Controls.Add(this.txtnombre);
+            this.gbfamilia.Controls.Add(this.lblnombre);
+            this.gbfamilia.Location = new System.Drawing.Point(12, 12);
+            this.gbfamilia.Name = "gbfamilia";
+            this.gbfamilia.Size = new System.Drawing.Size(325, 159);
+            this.gbfamilia.TabIndex = 0;
+            this.gbfamilia.TabStop = false;
+            this.gbfamilia.Text = "Nueva Familia";
             // 
-            // richTextBox1
+            // txtdescrip
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(92, 59);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(227, 89);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
+            this.txtdescrip.Location = new System.Drawing.Point(92, 59);
+            this.txtdescrip.Name = "txtdescrip";
+            this.txtdescrip.Size = new System.Drawing.Size(227, 89);
+            this.txtdescrip.TabIndex = 3;
+            this.txtdescrip.Text = "";
             // 
-            // label2
+            // lbldescripcion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Descripcion";
+            this.lbldescripcion.AutoSize = true;
+            this.lbldescripcion.Location = new System.Drawing.Point(6, 62);
+            this.lbldescripcion.Name = "lbldescripcion";
+            this.lbldescripcion.Size = new System.Drawing.Size(80, 16);
+            this.lbldescripcion.TabIndex = 2;
+            this.lbldescripcion.Text = "Descripcion";
             // 
-            // textBox1
+            // txtnombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(92, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(227, 22);
-            this.textBox1.TabIndex = 1;
+            this.txtnombre.Location = new System.Drawing.Point(92, 31);
+            this.txtnombre.Name = "txtnombre";
+            this.txtnombre.Size = new System.Drawing.Size(227, 22);
+            this.txtnombre.TabIndex = 1;
             // 
-            // label1
+            // lblnombre
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre";
+            this.lblnombre.AutoSize = true;
+            this.lblnombre.Location = new System.Drawing.Point(6, 34);
+            this.lblnombre.Name = "lblnombre";
+            this.lblnombre.Size = new System.Drawing.Size(57, 16);
+            this.lblnombre.TabIndex = 0;
+            this.lblnombre.Text = "Nombre";
             // 
-            // button1
+            // btnconfirmar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(12, 177);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 34);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Confirmar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnconfirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnconfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnconfirmar.ForeColor = System.Drawing.Color.White;
+            this.btnconfirmar.Location = new System.Drawing.Point(12, 177);
+            this.btnconfirmar.Name = "btnconfirmar";
+            this.btnconfirmar.Size = new System.Drawing.Size(155, 34);
+            this.btnconfirmar.TabIndex = 1;
+            this.btnconfirmar.Text = "Confirmar";
+            this.btnconfirmar.UseVisualStyleBackColor = false;
+            this.btnconfirmar.Click += new System.EventHandler(this.btnconfirmar_Click);
             // 
-            // button2
+            // btncancelar
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(182, 177);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(155, 34);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btncancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancelar.ForeColor = System.Drawing.Color.White;
+            this.btncancelar.Location = new System.Drawing.Point(182, 177);
+            this.btncancelar.Name = "btncancelar";
+            this.btncancelar.Size = new System.Drawing.Size(155, 34);
+            this.btncancelar.TabIndex = 2;
+            this.btncancelar.Text = "Cancelar";
+            this.btncancelar.UseVisualStyleBackColor = false;
+            this.btncancelar.Click += new System.EventHandler(this.button2_Click);
             // 
             // Alta_Familia
             // 
@@ -115,28 +117,30 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(349, 220);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btncancelar);
+            this.Controls.Add(this.btnconfirmar);
+            this.Controls.Add(this.gbfamilia);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Alta_Familia";
             this.Text = "Alta Familia";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbfamilia.ResumeLayout(false);
+            this.gbfamilia.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox gbfamilia;
+        private System.Windows.Forms.RichTextBox txtdescrip;
+        private System.Windows.Forms.Label lbldescripcion;
+        private System.Windows.Forms.TextBox txtnombre;
+        private System.Windows.Forms.Label lblnombre;
+        private System.Windows.Forms.Button btnconfirmar;
+        private System.Windows.Forms.Button btncancelar;
     }
 }

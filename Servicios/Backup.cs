@@ -35,5 +35,17 @@ namespace Servicios
         {
            return _BackupAD.TraerUltimoBack();
         }
+
+        public void RealizarRestore(Modelo.Backup Restore)
+        {
+            try
+            {
+                _BackupAD.RealizarRestore(Restore);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

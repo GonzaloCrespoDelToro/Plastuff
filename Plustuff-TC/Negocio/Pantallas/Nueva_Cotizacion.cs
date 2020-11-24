@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Modelo;
+using Servicios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Plustuff_TC.Negocio
 {
-    public partial class Nueva_Cotizacion : Form
+    public partial class Nueva_Cotizacion : Form, IObserverIdioma
     {
         Servicios.SessionManager Sesion = Servicios.SessionManager.Getinstance;
 
@@ -90,6 +92,50 @@ namespace Plustuff_TC.Negocio
             cbxfilamento.DataSource = tipoFilamentos;
             cbxfilamento.DisplayMember = "Tipo";
             cbxfilamento.ValueMember = "ID";
+
+            this.Traducir();
+            Servicios.ManagerIdioma.Suscribir(this);
+        }
+        public void ActualizarIdioma(Idioma idioma)
+        {
+            this.Traducir();
+        }
+
+        private void Traducir()
+        {
+            Traductor traductor = new Traductor();
+            Modelo.Formulario formulario = new Formulario();
+            formulario.Nombre = "NuevaCotizacion";
+            var traducciones = traductor.ObtenerTraducciones(Sesion.Usuario.Idioma, formulario);
+            if (traducciones.Any(t => t.Etiqueta == this.Name))
+            {
+                this.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.Name).Descripcion;
+            }
+            foreach (Control item in this.Controls)
+            {
+                if (traducciones.Any(t => t.Etiqueta == item.Name))
+                {
+                    item.Text = traducciones.FirstOrDefault(t => t.Etiqueta == item.Name).Descripcion;
+                }
+
+                TraducirControlesInternos(item, traducciones);
+            }
+        }
+
+        private void TraducirControlesInternos(Control item, List<Traduccion> traducciones)
+        {
+            if (item is GroupBox)
+            {
+                foreach (Control subItem in item.Controls)
+                {
+                    if (traducciones.Any(t => t.Etiqueta == subItem.Name))
+                    {
+                        subItem.Text = traducciones.FirstOrDefault(t => t.Etiqueta == subItem.Name).Descripcion;
+                    }
+
+                    TraducirControlesInternos(subItem, traducciones);
+                }
+            }
         }
 
         private void lblTotal_TextChanged(object sender, EventArgs e)
@@ -150,6 +196,11 @@ namespace Plustuff_TC.Negocio
             {
                 MessageBox.Show(this, "Ocurrio un error inesperado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Nueva_Cotizacion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Servicios.ManagerIdioma.Desuscribir(this);
         }
     }
 }

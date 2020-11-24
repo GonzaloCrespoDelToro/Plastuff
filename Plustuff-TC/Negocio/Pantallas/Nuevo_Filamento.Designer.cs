@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Nuevo_Filamento));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbfilamento = new System.Windows.Forms.GroupBox();
             this.txtprecio = new System.Windows.Forms.TextBox();
             this.lblprecio = new System.Windows.Forms.Label();
             this.txtmaterial = new System.Windows.Forms.TextBox();
@@ -39,23 +39,23 @@
             this.btnagregar = new System.Windows.Forms.Button();
             this.btncancelar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox1.SuspendLayout();
+            this.gbfilamento.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbfilamento
             // 
-            this.groupBox1.Controls.Add(this.txtprecio);
-            this.groupBox1.Controls.Add(this.lblprecio);
-            this.groupBox1.Controls.Add(this.txtmaterial);
-            this.groupBox1.Controls.Add(this.lblmaterial);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(207, 109);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Nuevo Filamento";
+            this.gbfilamento.Controls.Add(this.txtprecio);
+            this.gbfilamento.Controls.Add(this.lblprecio);
+            this.gbfilamento.Controls.Add(this.txtmaterial);
+            this.gbfilamento.Controls.Add(this.lblmaterial);
+            this.gbfilamento.Location = new System.Drawing.Point(13, 13);
+            this.gbfilamento.Margin = new System.Windows.Forms.Padding(4);
+            this.gbfilamento.Name = "gbfilamento";
+            this.gbfilamento.Padding = new System.Windows.Forms.Padding(4);
+            this.gbfilamento.Size = new System.Drawing.Size(207, 109);
+            this.gbfilamento.TabIndex = 0;
+            this.gbfilamento.TabStop = false;
+            this.gbfilamento.Text = "Nuevo Filamento";
             // 
             // txtprecio
             // 
@@ -125,7 +125,7 @@
             this.ClientSize = new System.Drawing.Size(232, 166);
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.btnagregar);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbfilamento);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -134,15 +134,17 @@
             this.Name = "Nuevo_Filamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nuevo Filamento";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Nuevo_Filamento_FormClosing);
+            this.Load += new System.EventHandler(this.Nuevo_Filamento_Load);
+            this.gbfilamento.ResumeLayout(false);
+            this.gbfilamento.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbfilamento;
         private System.Windows.Forms.TextBox txtprecio;
         private System.Windows.Forms.Label lblprecio;
         private System.Windows.Forms.TextBox txtmaterial;

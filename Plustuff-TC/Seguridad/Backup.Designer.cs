@@ -182,6 +182,7 @@
             this.MaximizeBox = false;
             this.Name = "Backup";
             this.Text = "Generar Backup";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Backup_FormClosing);
             this.Load += new System.EventHandler(this.Backup_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

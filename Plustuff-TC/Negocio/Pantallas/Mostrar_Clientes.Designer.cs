@@ -196,6 +196,7 @@
             this.Name = "Mostrar_Clientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Mostrar Clientes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Mostrar_Clientes_FormClosing);
             this.Load += new System.EventHandler(this.Mostrar_Clientes_Load);
             this.gbfiltro.ResumeLayout(false);
             this.gbfiltro.PerformLayout();

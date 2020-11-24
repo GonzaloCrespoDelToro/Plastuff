@@ -38,8 +38,9 @@
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.rbCotiID = new System.Windows.Forms.RadioButton();
             this.rbDNI = new System.Windows.Forms.RadioButton();
-            this.btnmodificar = new System.Windows.Forms.Button();
+            this.btnaceptar = new System.Windows.Forms.Button();
             this.btncancelar = new System.Windows.Forms.Button();
+            this.btnmodificar = new System.Windows.Forms.Button();
             this.Cotizaciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewCotizaciones)).BeginInit();
             this.Filtro.SuspendLayout();
@@ -93,7 +94,7 @@
             this.btnlimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
             this.btnlimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnlimpiar.Location = new System.Drawing.Point(345, 27);
+            this.btnlimpiar.Location = new System.Drawing.Point(347, 27);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.Size = new System.Drawing.Size(83, 36);
             this.btnlimpiar.TabIndex = 4;
@@ -106,7 +107,7 @@
             this.btnfiltrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
             this.btnfiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnfiltrar.ForeColor = System.Drawing.Color.White;
-            this.btnfiltrar.Location = new System.Drawing.Point(256, 27);
+            this.btnfiltrar.Location = new System.Drawing.Point(258, 27);
             this.btnfiltrar.Name = "btnfiltrar";
             this.btnfiltrar.Size = new System.Drawing.Size(83, 36);
             this.btnfiltrar.TabIndex = 1;
@@ -155,40 +156,54 @@
             this.rbDNI.UseVisualStyleBackColor = true;
             this.rbDNI.CheckedChanged += new System.EventHandler(this.DNI_CheckedChanged);
             // 
-            // btnmodificar
+            // btnaceptar
             // 
-            this.btnmodificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.btnmodificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnmodificar.ForeColor = System.Drawing.Color.White;
-            this.btnmodificar.Location = new System.Drawing.Point(12, 454);
-            this.btnmodificar.Name = "btnmodificar";
-            this.btnmodificar.Size = new System.Drawing.Size(160, 31);
-            this.btnmodificar.TabIndex = 1;
-            this.btnmodificar.Text = "Modificar Cotizacion";
-            this.btnmodificar.UseVisualStyleBackColor = false;
-            this.btnmodificar.Click += new System.EventHandler(this.btnaceptar_Click);
+            this.btnaceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnaceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnaceptar.ForeColor = System.Drawing.Color.White;
+            this.btnaceptar.Location = new System.Drawing.Point(12, 454);
+            this.btnaceptar.Name = "btnaceptar";
+            this.btnaceptar.Size = new System.Drawing.Size(186, 31);
+            this.btnaceptar.TabIndex = 1;
+            this.btnaceptar.Text = "Aceptar Cotizacion";
+            this.btnaceptar.UseVisualStyleBackColor = false;
+            this.btnaceptar.Click += new System.EventHandler(this.btnaceptar_Click);
             // 
             // btncancelar
             // 
             this.btncancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
             this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncancelar.ForeColor = System.Drawing.Color.White;
-            this.btncancelar.Location = new System.Drawing.Point(300, 454);
+            this.btncancelar.Location = new System.Drawing.Point(12, 491);
             this.btncancelar.Name = "btncancelar";
-            this.btncancelar.Size = new System.Drawing.Size(160, 31);
+            this.btncancelar.Size = new System.Drawing.Size(448, 31);
             this.btncancelar.TabIndex = 2;
             this.btncancelar.Text = "Cancelar";
             this.btncancelar.UseVisualStyleBackColor = false;
             this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
+            // 
+            // btnmodificar
+            // 
+            this.btnmodificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnmodificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnmodificar.ForeColor = System.Drawing.Color.White;
+            this.btnmodificar.Location = new System.Drawing.Point(274, 454);
+            this.btnmodificar.Name = "btnmodificar";
+            this.btnmodificar.Size = new System.Drawing.Size(186, 31);
+            this.btnmodificar.TabIndex = 3;
+            this.btnmodificar.Text = "Modificar";
+            this.btnmodificar.UseVisualStyleBackColor = false;
+            this.btnmodificar.Click += new System.EventHandler(this.btnmodificar_Click);
             // 
             // Gestionar_Cotizaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(471, 495);
-            this.Controls.Add(this.btncancelar);
+            this.ClientSize = new System.Drawing.Size(471, 527);
             this.Controls.Add(this.btnmodificar);
+            this.Controls.Add(this.btncancelar);
+            this.Controls.Add(this.btnaceptar);
             this.Controls.Add(this.Cotizaciones);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -215,9 +230,10 @@
         private System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.RadioButton rbCotiID;
         private System.Windows.Forms.RadioButton rbDNI;
-        private System.Windows.Forms.Button btnmodificar;
+        private System.Windows.Forms.Button btnaceptar;
         private System.Windows.Forms.Button btncancelar;
         private System.Windows.Forms.DataGridView GridViewCotizaciones;
         private System.Windows.Forms.Button btnlimpiar;
+        private System.Windows.Forms.Button btnmodificar;
     }
 }

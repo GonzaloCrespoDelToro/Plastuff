@@ -71,6 +71,22 @@ namespace C2_Negocio
             }
         }
 
+        public Modelo.Cotizacion TraerCotizacionPorID(Modelo.Cotizacion cotizacion)
+        {
+            try
+            {
+                cotizacion = _CotizacionAD.TraerCotizacionPorID(cotizacion);
+                cotizacion.Cliente.Nombre = _Encriptacion.Desencriptar(cotizacion.Cliente.Nombre);
+                cotizacion.Cliente.Apellido = _Encriptacion.Desencriptar(cotizacion.Cliente.Apellido);
+                cotizacion.Cliente.NombreCompleto = $"{cotizacion.Cliente.Nombre} {cotizacion.Cliente.Apellido}";
+                return cotizacion;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public Modelo.Cotizacion TraerCotizacionPorRuta(Modelo.Cotizacion cotizacion)
         {
             try
@@ -89,6 +105,18 @@ namespace C2_Negocio
             try
             {
                 _CotizacionAD.AceptarCotizacion(cotizacion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void ModificarCotizacion(Cotizacion cotizacion)
+        {
+            try
+            {
+                _CotizacionAD.ModificarCotizacion(cotizacion);
             }
             catch (Exception ex)
             {

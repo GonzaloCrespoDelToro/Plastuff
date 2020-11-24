@@ -47,5 +47,33 @@ namespace C2_Negocio
         {
             return _FilamentoAD.TraerTipoFilamento(tipoFilamento);
         }
+
+        public bool Baja(TipoFilamento tipoFilamento)
+        {
+            try
+            {
+                if (_FilamentoAD.Baja(tipoFilamento))
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void Modificar_TipoFilamento(TipoFilamento tipoFilamento)
+        {
+            try
+            {
+                _FilamentoAD.Modificar_TipoFilamento(tipoFilamento);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

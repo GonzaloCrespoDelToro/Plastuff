@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Modelo;
+using Servicios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Plustuff_TC.Negocio.Pantallas
 {
-    public partial class Modificar_Cliente : Form
+    public partial class Modificar_Cliente : Form, IObserverIdioma
     {
         public Modelo.Cliente _Cliente;
         C2_Negocio.Clientes _Clientes = new C2_Negocio.Clientes();
@@ -42,6 +44,51 @@ namespace Plustuff_TC.Negocio.Pantallas
                 this.lblbaja.Hide();
             }
             this.cbxbaja.Checked = _Cliente.Baja;
+
+            this.Traducir();
+            Servicios.ManagerIdioma.Suscribir(this);
+        }
+
+        public void ActualizarIdioma(Idioma idioma)
+        {
+            this.Traducir();
+        }
+
+        private void Traducir()
+        {
+            Traductor traductor = new Traductor();
+            Modelo.Formulario formulario = new Formulario();
+            formulario.Nombre = "AltaCliente";
+            var traducciones = traductor.ObtenerTraducciones(Sesion.Usuario.Idioma, formulario);
+            if (traducciones.Any(t => t.Etiqueta == this.Name))
+            {
+                this.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.Name).Descripcion;
+            }
+            foreach (Control item in this.Controls)
+            {
+                if (traducciones.Any(t => t.Etiqueta == item.Name))
+                {
+                    item.Text = traducciones.FirstOrDefault(t => t.Etiqueta == item.Name).Descripcion;
+                }
+
+                TraducirControlesInternos(item, traducciones);
+            }
+        }
+
+        private void TraducirControlesInternos(Control item, List<Traduccion> traducciones)
+        {
+            if (item is GroupBox)
+            {
+                foreach (Control subItem in item.Controls)
+                {
+                    if (traducciones.Any(t => t.Etiqueta == subItem.Name))
+                    {
+                        subItem.Text = traducciones.FirstOrDefault(t => t.Etiqueta == subItem.Name).Descripcion;
+                    }
+
+                    TraducirControlesInternos(subItem, traducciones);
+                }
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -91,6 +138,46 @@ namespace Plustuff_TC.Negocio.Pantallas
             MessageBox.Show("El cliente se modifico con exito", "Modificacion de cliente");
             this.Close();
 
+        }
+
+        private void Modificar_Cliente_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Servicios.ManagerIdioma.Desuscribir(this);
+        }
+
+        private void txtdni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+               (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtcontacto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtcontacto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+               (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

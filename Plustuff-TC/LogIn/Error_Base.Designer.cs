@@ -78,6 +78,7 @@
             // btnRecalcular
             // 
             this.btnRecalcular.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnRecalcular.Enabled = false;
             this.btnRecalcular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRecalcular.ForeColor = System.Drawing.Color.White;
             this.btnRecalcular.Location = new System.Drawing.Point(12, 510);
@@ -91,6 +92,7 @@
             // btnrestore
             // 
             this.btnrestore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnrestore.Enabled = false;
             this.btnrestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnrestore.ForeColor = System.Drawing.Color.White;
             this.btnrestore.Location = new System.Drawing.Point(358, 510);
@@ -181,6 +183,7 @@
             // 
             // cmbCriticidad
             // 
+            this.cmbCriticidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCriticidad.FormattingEnabled = true;
             this.cmbCriticidad.Location = new System.Drawing.Point(139, 50);
             this.cmbCriticidad.Name = "cmbCriticidad";

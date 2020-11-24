@@ -6,6 +6,8 @@ namespace Plustuff_TC.Negocio.Pantallas
 {
     public partial class Gestionar_Cotizaciones : Form
     {
+        public Menu_Principal Menu_Principal = new Menu_Principal();
+
         Servicios.SessionManager Sesion = Servicios.SessionManager.Getinstance;
 
         Modelo.Cotizacion _Cotizacion = new Modelo.Cotizacion();
@@ -46,7 +48,7 @@ namespace Plustuff_TC.Negocio.Pantallas
             try
             {
                 this.listar();
-                
+
                 txtDNI.Enabled = false;
                 txtCotizacion.Enabled = false;
             }
@@ -92,6 +94,8 @@ namespace Plustuff_TC.Negocio.Pantallas
                     bitacora.Criticidad = 3;
                     _Bitacora.Alta(bitacora);
 
+                    MessageBox.Show($"La cotizacion N° {cotizacion.ID} fue aceptada", "Cotizacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     this.listar();
                 }
             }
@@ -121,7 +125,7 @@ namespace Plustuff_TC.Negocio.Pantallas
             else if (rbCotiID.Checked == true && !string.IsNullOrEmpty(txtCotizacion.Text))
             {
                 this.GridViewCotizaciones.DataSource = (from c in cotizaciones
-                                                        where (c.ID ==Convert.ToInt32(txtCotizacion.Text))
+                                                        where (c.ID == Convert.ToInt32(txtCotizacion.Text))
                                                         select new
                                                         {
                                                             ID = c.ID,
@@ -171,6 +175,31 @@ namespace Plustuff_TC.Negocio.Pantallas
         private void btncancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnmodificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Modelo.Cotizacion cotizacion = new Modelo.Cotizacion();
+                if (GridViewCotizaciones.SelectedCells.Count > 0 && GridViewCotizaciones.SelectedCells.Count < 2)
+                {
+                    int selectedrowindex = GridViewCotizaciones.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = GridViewCotizaciones.Rows[selectedrowindex];
+                    int ID = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+                    cotizacion.ID = ID;
+
+                    Modificar_Cotizacion modificar_Cotizacion = new Modificar_Cotizacion();
+                    modificar_Cotizacion.cotizacion = cotizacion;
+                    modificar_Cotizacion.MdiParent = Menu_Principal;
+                    modificar_Cotizacion.Show();
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, "Ocurrio un error inesperado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

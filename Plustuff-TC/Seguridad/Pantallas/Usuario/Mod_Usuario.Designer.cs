@@ -79,6 +79,7 @@
             // 
             // cmbidioma
             // 
+            this.cmbidioma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbidioma.FormattingEnabled = true;
             this.cmbidioma.Items.AddRange(new object[] {
             "Español",

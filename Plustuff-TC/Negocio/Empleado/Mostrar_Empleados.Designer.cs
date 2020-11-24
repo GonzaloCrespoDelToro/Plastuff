@@ -29,32 +29,32 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mostrar_Empleados));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbemp = new System.Windows.Forms.GroupBox();
             this.GridViewEmpleados = new System.Windows.Forms.DataGridView();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btncerrar = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbfiltro = new System.Windows.Forms.GroupBox();
             this.btnclean = new System.Windows.Forms.Button();
             this.lblfiltro = new System.Windows.Forms.Label();
             this.btnbuscar = new System.Windows.Forms.Button();
             this.txtfilter = new System.Windows.Forms.TextBox();
-            this.groupBox1.SuspendLayout();
+            this.gbemp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewEmpleados)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.gbfiltro.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbemp
             // 
-            this.groupBox1.Controls.Add(this.GridViewEmpleados);
-            this.groupBox1.Location = new System.Drawing.Point(16, 82);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(448, 362);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Empleados";
+            this.gbemp.Controls.Add(this.GridViewEmpleados);
+            this.gbemp.Location = new System.Drawing.Point(16, 82);
+            this.gbemp.Margin = new System.Windows.Forms.Padding(4);
+            this.gbemp.Name = "gbemp";
+            this.gbemp.Padding = new System.Windows.Forms.Padding(4);
+            this.gbemp.Size = new System.Drawing.Size(448, 362);
+            this.gbemp.TabIndex = 0;
+            this.gbemp.TabStop = false;
+            this.gbemp.Text = "Empleados";
             // 
             // GridViewEmpleados
             // 
@@ -108,18 +108,18 @@
             this.btncerrar.Text = "Cerrar";
             this.btncerrar.UseVisualStyleBackColor = false;
             // 
-            // groupBox2
+            // gbfiltro
             // 
-            this.groupBox2.Controls.Add(this.btnclean);
-            this.groupBox2.Controls.Add(this.lblfiltro);
-            this.groupBox2.Controls.Add(this.btnbuscar);
-            this.groupBox2.Controls.Add(this.txtfilter);
-            this.groupBox2.Location = new System.Drawing.Point(16, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(448, 63);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Filtro";
+            this.gbfiltro.Controls.Add(this.btnclean);
+            this.gbfiltro.Controls.Add(this.lblfiltro);
+            this.gbfiltro.Controls.Add(this.btnbuscar);
+            this.gbfiltro.Controls.Add(this.txtfilter);
+            this.gbfiltro.Location = new System.Drawing.Point(16, 12);
+            this.gbfiltro.Name = "gbfiltro";
+            this.gbfiltro.Size = new System.Drawing.Size(448, 63);
+            this.gbfiltro.TabIndex = 8;
+            this.gbfiltro.TabStop = false;
+            this.gbfiltro.Text = "Filtro";
             // 
             // btnclean
             // 
@@ -169,11 +169,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(477, 487);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbfiltro);
             this.Controls.Add(this.btncerrar);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbemp);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -181,23 +181,24 @@
             this.MaximizeBox = false;
             this.Name = "Mostrar_Empleados";
             this.Text = "Mostrar Empleados";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Mostrar_Empleados_FormClosing);
             this.Load += new System.EventHandler(this.Mostrar_Empleados_Load);
-            this.groupBox1.ResumeLayout(false);
+            this.gbemp.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridViewEmpleados)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbfiltro.ResumeLayout(false);
+            this.gbfiltro.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbemp;
         private System.Windows.Forms.DataGridView GridViewEmpleados;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btncerrar;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbfiltro;
         private System.Windows.Forms.Button btnclean;
         private System.Windows.Forms.Label lblfiltro;
         private System.Windows.Forms.Button btnbuscar;

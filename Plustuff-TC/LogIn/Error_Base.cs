@@ -54,6 +54,50 @@ namespace Plustuff_TC.LogIn
 
             this.Traducir();
             Servicios.ManagerIdioma.Suscribir(this);
+
+            ValidarPermisos();
+        }
+
+        public void ValidarPermisos()
+        {
+            try
+            {
+                foreach (var p in Sesion.Usuario.Permisos)
+                {
+                    if (p is Modelo.Familia)
+                    {
+                        Modelo.Familia familia = (Modelo.Familia)p;
+
+                        foreach (Modelo.Patente patente in familia.Permisos)
+                        {
+                            this.ValidarPatente(patente);
+                        }
+                    }
+                    else
+                    {
+                        Modelo.Patente patente = (Modelo.Patente)p;
+
+                        this.ValidarPatente(patente);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void ValidarPatente(Patente patente)
+        {
+            switch (patente.Nombre)
+            {
+                case "RECALCULAR DÍGITOS VERIFICADORES":
+                    this.btnRecalcular.Enabled = true;
+                    break;
+                case "REALIZAR RESTORE":
+                    this.btnrestore.Enabled = true;
+                    break;
+            }
         }
 
         private void btnRecalcular_Click(object sender, EventArgs e)

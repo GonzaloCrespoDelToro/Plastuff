@@ -263,6 +263,35 @@ namespace Acceso_Datos
             }
         }
 
+        public List<Permiso> TraerPermisos(Usuario usuario)
+        {
+            string consulta = $"SELECT p.Id, p.Nombre, p.Familia, p.Descripcion FROM Usu_Per up " +
+                $"INNER JOIN Usuarios u ON u.id = up.ID_U " +
+                $"INNER JOIN Permisos p ON p.id = up.ID_P WHERE u.id = {usuario.id}";
+
+            DataSet PermisosDS = _accesoSQL.Consultar_DS(consulta, "Usu_Per");
+
+            if (PermisosDS.Tables[0].Rows.Count == 0)
+            {
+                return new List<Permiso>();
+            }
+
+            List<Modelo.Permiso> Permisos = new List<Permiso>();
+
+            foreach (DataRow row in PermisosDS.Tables[0].Rows)
+            {
+                Modelo.Patente patente = new Patente();
+                patente.ID = Convert.ToInt32(row["Id"].ToString());
+                patente.Nombre = row["Nombre"].ToString();
+                patente.Familia = Convert.ToBoolean(row["Familia"].ToString());
+                patente.Descripcion = row["Descripcion"].ToString();
+
+                Permisos.Add(patente);
+            }
+
+            return Permisos;
+        }
+
         public void Bloquear_Usu(Modelo.Usuario usuario)
         {
             try

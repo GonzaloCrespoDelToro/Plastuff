@@ -39,6 +39,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.gbusuarios = new System.Windows.Forms.GroupBox();
             this.GridViewUsuarios = new System.Windows.Forms.DataGridView();
+            this.btndesbloquear = new System.Windows.Forms.Button();
             this.gbfiltro.SuspendLayout();
             this.gbusuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewUsuarios)).BeginInit();
@@ -104,9 +105,9 @@
             this.btncerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
             this.btncerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btncerrar.ForeColor = System.Drawing.Color.White;
-            this.btncerrar.Location = new System.Drawing.Point(278, 451);
+            this.btncerrar.Location = new System.Drawing.Point(12, 483);
             this.btncerrar.Name = "btncerrar";
-            this.btncerrar.Size = new System.Drawing.Size(111, 26);
+            this.btncerrar.Size = new System.Drawing.Size(377, 26);
             this.btncerrar.TabIndex = 12;
             this.btncerrar.Text = "Cerrar";
             this.btncerrar.UseVisualStyleBackColor = false;
@@ -123,6 +124,7 @@
             this.btnBorrar.TabIndex = 11;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = false;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnModificar
             // 
@@ -166,12 +168,26 @@
             this.GridViewUsuarios.TabIndex = 0;
             this.GridViewUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridViewUsuarios_CellContentClick);
             // 
+            // btndesbloquear
+            // 
+            this.btndesbloquear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btndesbloquear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btndesbloquear.ForeColor = System.Drawing.Color.White;
+            this.btndesbloquear.Location = new System.Drawing.Point(278, 451);
+            this.btndesbloquear.Name = "btndesbloquear";
+            this.btndesbloquear.Size = new System.Drawing.Size(111, 26);
+            this.btndesbloquear.TabIndex = 14;
+            this.btndesbloquear.Text = "Desbloquear";
+            this.btndesbloquear.UseVisualStyleBackColor = false;
+            this.btndesbloquear.Click += new System.EventHandler(this.btndesbloquear_Click);
+            // 
             // Mostrar_Usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(401, 482);
+            this.ClientSize = new System.Drawing.Size(401, 517);
+            this.Controls.Add(this.btndesbloquear);
             this.Controls.Add(this.gbfiltro);
             this.Controls.Add(this.btncerrar);
             this.Controls.Add(this.btnBorrar);
@@ -203,5 +219,6 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.GroupBox gbusuarios;
         private System.Windows.Forms.DataGridView GridViewUsuarios;
+        private System.Windows.Forms.Button btndesbloquear;
     }
 }

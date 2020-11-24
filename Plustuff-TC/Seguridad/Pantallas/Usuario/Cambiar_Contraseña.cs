@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -83,9 +84,23 @@ namespace Plustuff_TC.Seguridad.Pantallas.Usuario
 
                 Usuario.Pass = txtpass.Text;
 
+                var input = txtpass.Text;
+
+                var hasNumber = new Regex(@"[0-9]+");
+                var hasUpperChar = new Regex(@"[A-Z]+");
+                var hasMinimum8Chars = new Regex(@".{8,}");
+
+                var isValidated = hasNumber.IsMatch(input) && hasUpperChar.IsMatch(input) && hasMinimum8Chars.IsMatch(input);
+
+                if (!isValidated)
+                {
+                    MessageBox.Show(this, "La contraseña no respeta la pantilla", "Error Validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 if (!_Usuarios.Modificar_Pass(Usuario))
                 {
-                    MessageBox.Show("Se profijo un error al modificar la contraseña", "Error de contraseña");
+                    MessageBox.Show("Se produjo un error al modificar la contraseña", "Error de contraseña");
                     return;
                 }
 

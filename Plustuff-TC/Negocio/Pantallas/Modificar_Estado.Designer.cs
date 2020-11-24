@@ -35,8 +35,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.gbModificar = new System.Windows.Forms.GroupBox();
-            this.lblestado = new System.Windows.Forms.Label();
             this.cbestados = new System.Windows.Forms.ComboBox();
+            this.lblestado = new System.Windows.Forms.Label();
             this.gbPedidoSelec.SuspendLayout();
             this.gbModificar.SuspendLayout();
             this.SuspendLayout();
@@ -114,6 +114,15 @@
             this.gbModificar.TabStop = false;
             this.gbModificar.Text = "Modificar Estado";
             // 
+            // cbestados
+            // 
+            this.cbestados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbestados.FormattingEnabled = true;
+            this.cbestados.Location = new System.Drawing.Point(77, 23);
+            this.cbestados.Name = "cbestados";
+            this.cbestados.Size = new System.Drawing.Size(130, 24);
+            this.cbestados.TabIndex = 19;
+            // 
             // lblestado
             // 
             this.lblestado.AutoSize = true;
@@ -123,14 +132,6 @@
             this.lblestado.Size = new System.Drawing.Size(51, 16);
             this.lblestado.TabIndex = 18;
             this.lblestado.Text = "Estado";
-            // 
-            // cbestados
-            // 
-            this.cbestados.FormattingEnabled = true;
-            this.cbestados.Location = new System.Drawing.Point(77, 23);
-            this.cbestados.Name = "cbestados";
-            this.cbestados.Size = new System.Drawing.Size(130, 24);
-            this.cbestados.TabIndex = 19;
             // 
             // Modificar_Estado
             // 
@@ -145,7 +146,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Modificar_Estado";
             this.Text = "Modificar Estado";

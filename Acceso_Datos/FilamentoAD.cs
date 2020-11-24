@@ -53,5 +53,30 @@ namespace Acceso_Datos
                 throw;
             }
         }
+
+        public void Modificar_TipoFilamento(TipoFilamento tipoFilamento)
+        {
+            try
+            {
+                _AccesoSQL.Ejecutar_Query("ExecuteNonQuery", $"UPDATE Tipo_Filamento SET TF_tipo = '{tipoFilamento.Tipo}', TF_Precio= {tipoFilamento.Precio} WHERE ID = {tipoFilamento.ID}");
+            }
+            catch (Exception ex) 
+            {
+                throw ex;
+            }
+        }
+
+        public bool Baja(TipoFilamento tipoFilamento)
+        {
+            try
+            {
+                _AccesoSQL.Ejecutar_Query("ExecuteNonQuery", $"DELETE FROM Tipo_Filamento where ID = {tipoFilamento.ID}");
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

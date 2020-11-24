@@ -204,6 +204,7 @@ namespace Plustuff_TC
         private void gestionarCotizaionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Negocio.Pantallas.Gestionar_Cotizaciones gestionar_Cotizaciones = new Negocio.Pantallas.Gestionar_Cotizaciones();
+            gestionar_Cotizaciones.Menu_Principal = this;
             gestionar_Cotizaciones.MdiParent = this;
             gestionar_Cotizaciones.Show();
         }
@@ -234,6 +235,32 @@ namespace Plustuff_TC
             gestionar_Pedidos.MdiParent = this;
             gestionar_Pedidos.Menu_Principal = this;
             gestionar_Pedidos.Show();
+        }
+
+        private void Menu_Principal_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            
+        }
+
+        private void altaToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            Fam_Pat.Alta_Familia alta_Familia = new Fam_Pat.Alta_Familia();
+            alta_Familia.MdiParent = this;
+            alta_Familia.Show();
+        }
+
+        private void asignarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fam_Pat.Asignar_Pat_Fam asignar_Pat_Fam = new Fam_Pat.Asignar_Pat_Fam();
+            asignar_Pat_Fam.MdiParent = this;
+            asignar_Pat_Fam.Show();
+        }
+
+        private void asignarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fam_Pat.Asignar_Fam_Usu asignar_Fam_Usu = new Fam_Pat.Asignar_Fam_Usu();
+            asignar_Fam_Usu.MdiParent = this;
+            asignar_Fam_Usu.Show();
         }
     }
 }

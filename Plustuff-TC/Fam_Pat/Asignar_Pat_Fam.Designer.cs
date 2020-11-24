@@ -29,126 +29,174 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Asignar_Pat_Fam));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.gbfamilia = new System.Windows.Forms.GroupBox();
+            this.cmbFamilias = new System.Windows.Forms.ComboBox();
+            this.lblfamilia = new System.Windows.Forms.Label();
+            this.btnasignar = new System.Windows.Forms.Button();
+            this.btndesasignar = new System.Windows.Forms.Button();
+            this.btncancelar = new System.Windows.Forms.Button();
+            this.lvpatentes = new System.Windows.Forms.ListView();
+            this.lvpatentesAsignadas = new System.Windows.Forms.ListView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.gbfamilia.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbfamilia
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(497, 62);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
+            this.gbfamilia.Controls.Add(this.cmbFamilias);
+            this.gbfamilia.Controls.Add(this.lblfamilia);
+            this.gbfamilia.Location = new System.Drawing.Point(12, 15);
+            this.gbfamilia.Margin = new System.Windows.Forms.Padding(4);
+            this.gbfamilia.Name = "gbfamilia";
+            this.gbfamilia.Padding = new System.Windows.Forms.Padding(4);
+            this.gbfamilia.Size = new System.Drawing.Size(566, 62);
+            this.gbfamilia.TabIndex = 0;
+            this.gbfamilia.TabStop = false;
+            this.gbfamilia.Text = "Seleccione Familia";
             // 
-            // textBox1
+            // cmbFamilias
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(67, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(175, 22);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Emp_Vent";
+            this.cmbFamilias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFamilias.FormattingEnabled = true;
+            this.cmbFamilias.Location = new System.Drawing.Point(67, 25);
+            this.cmbFamilias.Name = "cmbFamilias";
+            this.cmbFamilias.Size = new System.Drawing.Size(163, 24);
+            this.cmbFamilias.TabIndex = 2;
+            this.cmbFamilias.SelectedIndexChanged += new System.EventHandler(this.cmbFamilias_SelectedIndexChanged);
             // 
-            // label1
+            // lblfamilia
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 28);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Familia";
+            this.lblfamilia.AutoSize = true;
+            this.lblfamilia.Location = new System.Drawing.Point(8, 28);
+            this.lblfamilia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblfamilia.Name = "lblfamilia";
+            this.lblfamilia.Size = new System.Drawing.Size(52, 16);
+            this.lblfamilia.TabIndex = 1;
+            this.lblfamilia.Text = "Familia";
             // 
-            // dataGridView1
+            // btnasignar
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 84);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(378, 239);
-            this.dataGridView1.TabIndex = 1;
+            this.btnasignar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnasignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnasignar.ForeColor = System.Drawing.Color.White;
+            this.btnasignar.Location = new System.Drawing.Point(238, 100);
+            this.btnasignar.Name = "btnasignar";
+            this.btnasignar.Size = new System.Drawing.Size(114, 29);
+            this.btnasignar.TabIndex = 2;
+            this.btnasignar.Text = "Asignar ->";
+            this.btnasignar.UseVisualStyleBackColor = false;
+            this.btnasignar.Click += new System.EventHandler(this.btnasignar_Click);
             // 
-            // button1
+            // btndesasignar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(400, 84);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 29);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Asignar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btndesasignar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btndesasignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btndesasignar.ForeColor = System.Drawing.Color.White;
+            this.btndesasignar.Location = new System.Drawing.Point(238, 135);
+            this.btndesasignar.Name = "btndesasignar";
+            this.btndesasignar.Size = new System.Drawing.Size(114, 29);
+            this.btndesasignar.TabIndex = 3;
+            this.btndesasignar.Text = "<- Desasignar";
+            this.btndesasignar.UseVisualStyleBackColor = false;
+            this.btndesasignar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button2
+            // btncancelar
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(400, 119);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 29);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Desasignar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btncancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancelar.ForeColor = System.Drawing.Color.White;
+            this.btncancelar.Location = new System.Drawing.Point(237, 310);
+            this.btncancelar.Name = "btncancelar";
+            this.btncancelar.Size = new System.Drawing.Size(114, 29);
+            this.btncancelar.TabIndex = 4;
+            this.btncancelar.Text = "Cancelar";
+            this.btncancelar.UseVisualStyleBackColor = false;
+            this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
             // 
-            // button3
+            // lvpatentes
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(399, 294);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(114, 29);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.lvpatentes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvpatentes.HideSelection = false;
+            this.lvpatentes.Location = new System.Drawing.Point(12, 100);
+            this.lvpatentes.Name = "lvpatentes";
+            this.lvpatentes.Size = new System.Drawing.Size(220, 239);
+            this.lvpatentes.TabIndex = 5;
+            this.lvpatentes.UseCompatibleStateImageBehavior = false;
+            this.lvpatentes.View = System.Windows.Forms.View.List;
+            // 
+            // lvpatentesAsignadas
+            // 
+            this.lvpatentesAsignadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lvpatentesAsignadas.HideSelection = false;
+            this.lvpatentesAsignadas.Location = new System.Drawing.Point(358, 100);
+            this.lvpatentesAsignadas.Name = "lvpatentesAsignadas";
+            this.lvpatentesAsignadas.Size = new System.Drawing.Size(220, 239);
+            this.lvpatentesAsignadas.TabIndex = 6;
+            this.lvpatentesAsignadas.UseCompatibleStateImageBehavior = false;
+            this.lvpatentesAsignadas.View = System.Windows.Forms.View.List;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 81);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(130, 16);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Patentes sin Asignar";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(355, 81);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(129, 16);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Patentes Asignadas";
             // 
             // Asignar_Pat_Fam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(526, 335);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(586, 345);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lvpatentesAsignadas);
+            this.Controls.Add(this.lvpatentes);
+            this.Controls.Add(this.btncancelar);
+            this.Controls.Add(this.btndesasignar);
+            this.Controls.Add(this.btnasignar);
+            this.Controls.Add(this.gbfamilia);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Asignar_Pat_Fam";
             this.Text = "Asignar Patentes";
             this.Load += new System.EventHandler(this.Asignar_Pat_Fam_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.gbfamilia.ResumeLayout(false);
+            this.gbfamilia.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.GroupBox gbfamilia;
+        private System.Windows.Forms.Label lblfamilia;
+        private System.Windows.Forms.Button btnasignar;
+        private System.Windows.Forms.Button btndesasignar;
+        private System.Windows.Forms.Button btncancelar;
+        private System.Windows.Forms.ComboBox cmbFamilias;
+        private System.Windows.Forms.ListView lvpatentes;
+        private System.Windows.Forms.ListView lvpatentesAsignadas;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

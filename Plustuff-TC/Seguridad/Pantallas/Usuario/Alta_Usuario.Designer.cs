@@ -60,6 +60,7 @@
             // 
             // cmbEmpleado
             // 
+            this.cmbEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEmpleado.FormattingEnabled = true;
             this.cmbEmpleado.Items.AddRange(new object[] {
             "Gonzalo Crespo"});
@@ -80,6 +81,7 @@
             // 
             // cmbidioma
             // 
+            this.cmbidioma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbidioma.FormattingEnabled = true;
             this.cmbidioma.Items.AddRange(new object[] {
             "Español",

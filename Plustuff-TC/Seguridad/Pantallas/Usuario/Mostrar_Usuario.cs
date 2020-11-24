@@ -17,6 +17,10 @@ namespace Plustuff_TC.Seguridad.Pantallas.Usuario
         C2_Negocio.Usuarios _Usuarios = new C2_Negocio.Usuarios();
         Servicios.SessionManager Sesion = Servicios.SessionManager.Getinstance;
         public Menu_Principal Menu_Principal;
+        Modelo.Bitacora bitacora = new Modelo.Bitacora();
+        C2_Negocio.Bitacora _Bitacora = new C2_Negocio.Bitacora();
+        private Encriptacion _encriptacion = new Encriptacion();
+
 
         public Mostrar_Usuario()
         {
@@ -32,7 +36,7 @@ namespace Plustuff_TC.Seguridad.Pantallas.Usuario
                 this.Traducir();
                 Servicios.ManagerIdioma.Suscribir(this);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("Se produjo un error al cargar el formulario", "Error");
                 this.Close();
@@ -146,6 +150,50 @@ namespace Plustuff_TC.Seguridad.Pantallas.Usuario
         }
 
         private void GridViewUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btndesbloquear_Click(object sender, EventArgs e)
+        {
+            Modelo.Usuario User = new Modelo.Usuario();
+            if (GridViewUsuarios.SelectedCells.Count > 0 && GridViewUsuarios.SelectedCells.Count < 2)
+            {
+                int selectedrowindex = GridViewUsuarios.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = GridViewUsuarios.Rows[selectedrowindex];
+                string Nombre = Convert.ToString(selectedRow.Cells["Usuario"].Value);
+                User.Nombre = Nombre;
+                User = _Usuarios.TraerUsuByNombre(User);
+                User.Nombre = _encriptacion.Encriptar(User.Nombre, 2);
+
+                if (User.bloqueado != true)
+                {
+                    MessageBox.Show("El usuario ya se encuentra Desbloqueado","Usuario");
+                    return;
+                }
+                User.bloqueado = false;
+                var mod = _Usuarios.Modificar_Usuario(User);
+                if (!mod)
+                {
+                    MessageBox.Show("No se pudo realizar la modificacion del usuario", "Error");
+                    return;
+                }
+                
+                //Da de alta en bitacora
+                bitacora.Accion = "DesbloqueoUsuario";
+                bitacora.Descripcion = $"Se desbloqueo el usuario {Nombre}";
+                bitacora.FechaHora = DateTime.Now;
+                bitacora.U_id = Sesion.Usuario.id;
+                bitacora.Criticidad = 2;
+                _Bitacora.Alta(bitacora);
+
+                MessageBox.Show("Desbloqueo exitoso", "Modificacion");
+                this.listar();
+
+            }
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
         {
 
         }

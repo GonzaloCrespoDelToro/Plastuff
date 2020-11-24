@@ -40,7 +40,25 @@ namespace Acceso_Datos
         {
             try
             {
-                cotizacion.ID = Convert.ToInt32(_AccesoSQL.Ejecutar_Query("ExecuteScalar", $"SELECT ID FROM Cotizaciones WHERE ID = {cotizacion.ID} "));
+                Modelo.Cliente cliente = new Cliente();
+
+                DataSet CotizacionDS = _AccesoSQL.Consultar_DS($"SELECT ID, E_ID, C_ID, C_preciofinal, C_ruta, C_Fecha, C_Detalle FROM Cotizaciones WHERE ID = {cotizacion.ID}", "Cotizaciones");
+                cotizacion.ID = Convert.ToInt32(CotizacionDS.Tables[0].Rows[0]["ID"].ToString());
+                cotizacion.Detalle = CotizacionDS.Tables[0].Rows[0]["C_Detalle"].ToString();
+                cotizacion.Fecha = Convert.ToDateTime(CotizacionDS.Tables[0].Rows[0]["C_Fecha"].ToString());
+                cotizacion.PrecioFinal = Convert.ToDouble(CotizacionDS.Tables[0].Rows[0]["C_preciofinal"].ToString());
+                cotizacion.Ruta = CotizacionDS.Tables[0].Rows[0]["C_ruta"].ToString();
+
+                int ClienteID = Convert.ToInt32(CotizacionDS.Tables[0].Rows[0]["C_ID"].ToString());
+
+                DataSet ClienteDS = _AccesoSQL.Consultar_DS($"SELECT ID, C_nombre, C_apellido FROM Clientes WHERE ID= {ClienteID}", "Cliente");
+                cliente.ID = Convert.ToInt32(ClienteDS.Tables[0].Rows[0]["ID"].ToString());
+                cliente.Nombre = ClienteDS.Tables[0].Rows[0]["C_nombre"].ToString();
+                cliente.Apellido = ClienteDS.Tables[0].Rows[0]["C_apellido"].ToString();
+                cliente.NombreCompleto = $"{cliente.Nombre} {cliente.Apellido}";
+
+                cotizacion.Cliente = cliente;
+
                 return cotizacion;
             }
             catch (Exception ex)
@@ -58,7 +76,7 @@ namespace Acceso_Datos
             catch (Exception ex)
             {
                 throw ex;
-            } 
+            }
         }
 
         public List<Modelo.Cotizacion> ListarCotizacionesPendientes()
@@ -86,6 +104,19 @@ namespace Acceso_Datos
                     cotizaciones.Add(cotizacion);
                 }
                 return cotizaciones;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void ModificarCotizacion(Cotizacion cotizacion)
+        {
+            try
+            {
+                _AccesoSQL.Ejecutar_Query("ExecuteNonQuery", $"UPDATE Cotizaciones SET E_ID = {cotizacion.Empleado.ID}, C_ID = {cotizacion.Cliente.ID}," +
+                    $" C_preciofinal = '{cotizacion.PrecioFinal}', C_ruta = '{cotizacion.Ruta}', C_Fecha = '{cotizacion.Fecha}', C_Detalle = '{cotizacion.Detalle}'   WHERE ID = {cotizacion.ID} ");
             }
             catch (Exception ex)
             {

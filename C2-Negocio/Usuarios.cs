@@ -17,6 +17,8 @@ namespace C2_Negocio
         Verificadores _Verificador = new Verificadores();
         Modelo.Digito_Vertical DVV = new Modelo.Digito_Vertical();
         MailManager _MailManager = new MailManager();
+        Familias _Familias = new Familias();
+        C2_Negocio.Patente _Patente = new Patente();
 
         public string Nombre;
         public string Contraseña;
@@ -238,6 +240,7 @@ namespace C2_Negocio
                     _Verificador.Recalcular_DVV(DVV);
                 }
 
+                this.TraerPermisos(UserDB);
                 SessionManager.Login(UserDB);
                 //SessionManager session = SessionManager.Getinstance;
                 return 1;
@@ -293,7 +296,35 @@ namespace C2_Negocio
 
         public Usuario GetUserByName(Modelo.Usuario User)
         {
-            return _UsuarioAD.GetUserByName(User);
+            Modelo.Usuario usuario = _UsuarioAD.GetUserByName(User);
+
+            this.TraerPermisos(usuario);
+
+            return usuario;
+        }
+
+        private void TraerPermisos(Usuario usuario)
+        {
+            try
+            {
+                List<Modelo.Permiso> permisos = _UsuarioAD.TraerPermisos(usuario);
+
+                foreach (var p in permisos)
+                {
+                    if (p.Familia)
+                    {
+                        usuario.Permisos.Add(_Familias.TraeFamilia(p));
+                    }
+                    else
+                    {
+                        usuario.Permisos.Add(_Patente.TraePatente(p));
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

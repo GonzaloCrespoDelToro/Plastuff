@@ -66,9 +66,34 @@ namespace Plustuff_TC.LogIn
                                                  MessageBoxDefaultButton.Button1, 0,
                                                  "mspaint.chm",
                                                  "mspaint.chm::/paint_brush.htm");
+                            return;
                         }
 
                        Modelo.Usuario User = _Usuario.GetUserByName(usuario);
+
+                        
+
+                        
+
+                        if (!string.IsNullOrEmpty(Error_DVH) || !string.IsNullOrEmpty(Error_DVV))
+                        {
+                            //Verificar si es administrador
+                            if (User.Permisos.Any(p => p.Nombre == "ADMIN"))
+                            {
+                                this.Hide();
+                                Error_Base error_Base = new Error_Base();
+                                error_Base.Show();
+                                return;
+                            }
+                            else
+                            {
+                                lblerror.Visible = true;
+                                lblerror.Text = "Solo el Administrador puede ingresar";
+                                return;
+                            }
+                        }
+
+                        this.Hide();
 
                         bitacora.Accion = "Login";
                         bitacora.Descripcion = $"Login exitoso";
@@ -76,18 +101,6 @@ namespace Plustuff_TC.LogIn
                         bitacora.U_id = User.id;
                         bitacora.Criticidad = 3;
                         _Bitacora.Alta(bitacora);
-
-                        this.Hide();
-
-                        if (!string.IsNullOrEmpty(Error_DVH) || !string.IsNullOrEmpty(Error_DVV))
-                        {
-                            //Verificar si es administrador
-                            Error_Base error_Base = new Error_Base();
-                            error_Base.Show();
-                            //lblerror.Visible = true;
-                            //lblerror.Text = "Solo el Administrador puede ingresar";
-                            return;
-                        }
 
                         Menu_Principal menu_Principal = new Menu_Principal();
                         menu_Principal.Show();

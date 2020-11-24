@@ -230,6 +230,8 @@
             this.MaximizeBox = false;
             this.Name = "Nuevo_Cliente";
             this.Text = "Nuevo_Cliente";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Nuevo_Cliente_FormClosing);
+            this.Load += new System.EventHandler(this.Nuevo_Cliente_Load);
             this.gbnuevocliente.ResumeLayout(false);
             this.gbnuevocliente.PerformLayout();
             this.ResumeLayout(false);

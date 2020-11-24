@@ -1,9 +1,13 @@
-﻿using System;
+﻿using Modelo;
+using Servicios;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Plustuff_TC.Seguridad
 {
-    public partial class Backup : Form
+    public partial class Backup : Form, IObserverIdioma
     {
         Servicios.Backup _Backup = new Servicios.Backup();
         Modelo.Bitacora bitacora = new Modelo.Bitacora();
@@ -80,6 +84,56 @@ namespace Plustuff_TC.Seguridad
                 lblfechahora.Text = "No hay Backups generados.";
             }
             lblfechahora.Text = FechaHora;
+
+            this.Traducir();
+            Servicios.ManagerIdioma.Suscribir(this);
+        }
+
+        public void ActualizarIdioma(Idioma idioma)
+        {
+            this.Traducir();
+        }
+
+        private void Traducir()
+        {
+            Traductor traductor = new Traductor();
+            Modelo.Formulario formulario = new Formulario();
+            formulario.Nombre = "Backup";
+            var traducciones = traductor.ObtenerTraducciones(Sesion.Usuario.Idioma, formulario);
+            if (traducciones.Any(t => t.Etiqueta == this.Name))
+            {
+                this.Text = traducciones.FirstOrDefault(t => t.Etiqueta == this.Name).Descripcion;
+            }
+            foreach (Control item in this.Controls)
+            {
+                if (traducciones.Any(t => t.Etiqueta == item.Name))
+                {
+                    item.Text = traducciones.FirstOrDefault(t => t.Etiqueta == item.Name).Descripcion;
+                }
+
+                TraducirControlesInternos(item, traducciones);
+            }
+        }
+
+        private void TraducirControlesInternos(Control item, List<Traduccion> traducciones)
+        {
+            if (item is GroupBox)
+            {
+                foreach (Control subItem in item.Controls)
+                {
+                    if (traducciones.Any(t => t.Etiqueta == subItem.Name))
+                    {
+                        subItem.Text = traducciones.FirstOrDefault(t => t.Etiqueta == subItem.Name).Descripcion;
+                    }
+
+                    TraducirControlesInternos(subItem, traducciones);
+                }
+            }
+        }
+
+        private void Backup_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Servicios.ManagerIdioma.Desuscribir(this);
         }
     }
 }

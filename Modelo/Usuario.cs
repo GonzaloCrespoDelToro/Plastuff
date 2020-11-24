@@ -8,6 +8,11 @@ namespace Modelo
 {
     public class Usuario
     {
+        public Usuario()
+        {
+            Permisos = new List<Permiso>();
+        }
+
         public int id { get; set; }
         public string Nombre { get; set; }
         public string Pass { get; set; }
@@ -17,5 +22,6 @@ namespace Modelo
         public Empleado Empleado { get; set; }
         public Idioma Idioma { get; set; }
         public List<Usuario> usuarios { get; set; }
+        public List<Permiso> Permisos { get; set; }
     }
 }

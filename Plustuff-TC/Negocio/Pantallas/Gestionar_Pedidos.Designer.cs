@@ -115,6 +115,7 @@
             // 
             // cbestados
             // 
+            this.cbestados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbestados.FormattingEnabled = true;
             this.cbestados.Location = new System.Drawing.Point(115, 46);
             this.cbestados.Name = "cbestados";
