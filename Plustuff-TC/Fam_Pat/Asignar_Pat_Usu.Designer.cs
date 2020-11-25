@@ -29,130 +29,190 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Asignar_Pat_Usu));
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lvpatentesAsignadas = new System.Windows.Forms.ListView();
+            this.lvpatentes = new System.Windows.Forms.ListView();
+            this.btncancelar = new System.Windows.Forms.Button();
+            this.btndesasignar = new System.Windows.Forms.Button();
+            this.btnasignar = new System.Windows.Forms.Button();
+            this.gbusuario = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmbusuarios = new System.Windows.Forms.ComboBox();
+            this.lblusu = new System.Windows.Forms.Label();
+            this.gbusuario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button3
+            // label3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(528, 359);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 36);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(357, 97);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(129, 16);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Patentes Asignadas";
             // 
-            // button2
+            // label2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(529, 144);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(152, 36);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Desasignar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 97);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(130, 16);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Patentes sin Asignar";
             // 
-            // button1
+            // lvpatentesAsignadas
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(529, 101);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(152, 36);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Asignar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.lvpatentesAsignadas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.lvpatentesAsignadas.HideSelection = false;
+            this.lvpatentesAsignadas.Location = new System.Drawing.Point(360, 116);
+            this.lvpatentesAsignadas.Name = "lvpatentesAsignadas";
+            this.lvpatentesAsignadas.Size = new System.Drawing.Size(220, 239);
+            this.lvpatentesAsignadas.TabIndex = 21;
+            this.lvpatentesAsignadas.UseCompatibleStateImageBehavior = false;
+            this.lvpatentesAsignadas.View = System.Windows.Forms.View.List;
             // 
-            // dataGridView1
+            // lvpatentes
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 101);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(504, 294);
-            this.dataGridView1.TabIndex = 6;
+            this.lvpatentes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvpatentes.HideSelection = false;
+            this.lvpatentes.Location = new System.Drawing.Point(14, 116);
+            this.lvpatentes.Name = "lvpatentes";
+            this.lvpatentes.Size = new System.Drawing.Size(220, 239);
+            this.lvpatentes.TabIndex = 20;
+            this.lvpatentes.UseCompatibleStateImageBehavior = false;
+            this.lvpatentes.View = System.Windows.Forms.View.List;
             // 
-            // groupBox1
+            // btncancelar
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(17, 16);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.groupBox1.Size = new System.Drawing.Size(663, 76);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
+            this.btncancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btncancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncancelar.ForeColor = System.Drawing.Color.White;
+            this.btncancelar.Location = new System.Drawing.Point(239, 326);
+            this.btncancelar.Name = "btncancelar";
+            this.btncancelar.Size = new System.Drawing.Size(114, 29);
+            this.btncancelar.TabIndex = 19;
+            this.btncancelar.Text = "Cancelar";
+            this.btncancelar.UseVisualStyleBackColor = false;
+            this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
             // 
-            // textBox1
+            // btndesasignar
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(89, 31);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(232, 22);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Gonza";
+            this.btndesasignar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btndesasignar.Enabled = false;
+            this.btndesasignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btndesasignar.ForeColor = System.Drawing.Color.White;
+            this.btndesasignar.Location = new System.Drawing.Point(240, 151);
+            this.btndesasignar.Name = "btndesasignar";
+            this.btndesasignar.Size = new System.Drawing.Size(114, 29);
+            this.btndesasignar.TabIndex = 18;
+            this.btndesasignar.Text = "<- Desasignar";
+            this.btndesasignar.UseVisualStyleBackColor = false;
+            this.btndesasignar.Click += new System.EventHandler(this.btndesasignar_Click);
             // 
-            // label1
+            // btnasignar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 34);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Usuario";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.btnasignar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnasignar.Enabled = false;
+            this.btnasignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnasignar.ForeColor = System.Drawing.Color.White;
+            this.btnasignar.Location = new System.Drawing.Point(240, 116);
+            this.btnasignar.Name = "btnasignar";
+            this.btnasignar.Size = new System.Drawing.Size(114, 29);
+            this.btnasignar.TabIndex = 16;
+            this.btnasignar.Text = "Asignar ->";
+            this.btnasignar.UseVisualStyleBackColor = false;
+            this.btnasignar.Click += new System.EventHandler(this.btnasignar_Click);
+            // 
+            // gbusuario
+            // 
+            this.gbusuario.Controls.Add(this.pictureBox1);
+            this.gbusuario.Controls.Add(this.cmbusuarios);
+            this.gbusuario.Controls.Add(this.lblusu);
+            this.gbusuario.Location = new System.Drawing.Point(14, 14);
+            this.gbusuario.Margin = new System.Windows.Forms.Padding(5);
+            this.gbusuario.Name = "gbusuario";
+            this.gbusuario.Padding = new System.Windows.Forms.Padding(5);
+            this.gbusuario.Size = new System.Drawing.Size(566, 78);
+            this.gbusuario.TabIndex = 15;
+            this.gbusuario.TabStop = false;
+            this.gbusuario.Text = "Seleccione Usuario";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(273, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(285, 56);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
+            // 
+            // cmbusuarios
+            // 
+            this.cmbusuarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbusuarios.FormattingEnabled = true;
+            this.cmbusuarios.Location = new System.Drawing.Point(74, 31);
+            this.cmbusuarios.Name = "cmbusuarios";
+            this.cmbusuarios.Size = new System.Drawing.Size(193, 24);
+            this.cmbusuarios.TabIndex = 3;
+            this.cmbusuarios.SelectedIndexChanged += new System.EventHandler(this.cmbusuarios_SelectedIndexChanged);
+            // 
+            // lblusu
+            // 
+            this.lblusu.AutoSize = true;
+            this.lblusu.Location = new System.Drawing.Point(11, 34);
+            this.lblusu.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblusu.Name = "lblusu";
+            this.lblusu.Size = new System.Drawing.Size(55, 16);
+            this.lblusu.TabIndex = 1;
+            this.lblusu.Text = "Usuario";
             // 
             // Asignar_Pat_Usu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(695, 408);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(591, 362);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lvpatentesAsignadas);
+            this.Controls.Add(this.lvpatentes);
+            this.Controls.Add(this.btncancelar);
+            this.Controls.Add(this.btndesasignar);
+            this.Controls.Add(this.btnasignar);
+            this.Controls.Add(this.gbusuario);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Asignar_Pat_Usu";
             this.Text = "Asignar Patentes - Usuarios";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Load += new System.EventHandler(this.Asignar_Pat_Usu_Load);
+            this.gbusuario.ResumeLayout(false);
+            this.gbusuario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListView lvpatentesAsignadas;
+        private System.Windows.Forms.ListView lvpatentes;
+        private System.Windows.Forms.Button btncancelar;
+        private System.Windows.Forms.Button btndesasignar;
+        private System.Windows.Forms.Button btnasignar;
+        private System.Windows.Forms.GroupBox gbusuario;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox cmbusuarios;
+        private System.Windows.Forms.Label lblusu;
     }
 }

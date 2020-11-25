@@ -71,10 +71,6 @@ namespace Plustuff_TC.LogIn
 
                        Modelo.Usuario User = _Usuario.GetUserByName(usuario);
 
-                        
-
-                        
-
                         if (!string.IsNullOrEmpty(Error_DVH) || !string.IsNullOrEmpty(Error_DVV))
                         {
                             //Verificar si es administrador

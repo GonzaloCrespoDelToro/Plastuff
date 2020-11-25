@@ -42,15 +42,13 @@
             this.altaUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MostrarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.familiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.altaToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.asignarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.asignarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GestionarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.visualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.permisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asignarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.eiliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.visualizarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.altaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,8 +64,6 @@
             this.altaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.altaToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.asignarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -190,13 +186,19 @@
             this.altaToolStripMenuItem3,
             this.asignarToolStripMenuItem,
             this.asignarUsuarioToolStripMenuItem,
-            this.modificarToolStripMenuItem1,
-            this.eliminarToolStripMenuItem1,
-            this.visualizarToolStripMenuItem});
+            this.GestionarToolStripMenuItem1,
+            this.eliminarToolStripMenuItem1});
             this.familiasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("familiasToolStripMenuItem.Image")));
             this.familiasToolStripMenuItem.Name = "familiasToolStripMenuItem";
             this.familiasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.familiasToolStripMenuItem.Text = "Familias";
+            // 
+            // altaToolStripMenuItem3
+            // 
+            this.altaToolStripMenuItem3.Name = "altaToolStripMenuItem3";
+            this.altaToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.altaToolStripMenuItem3.Text = "Alta";
+            this.altaToolStripMenuItem3.Click += new System.EventHandler(this.altaToolStripMenuItem3_Click);
             // 
             // asignarToolStripMenuItem
             // 
@@ -205,11 +207,19 @@
             this.asignarToolStripMenuItem.Text = "Asignar";
             this.asignarToolStripMenuItem.Click += new System.EventHandler(this.asignarToolStripMenuItem_Click);
             // 
-            // modificarToolStripMenuItem1
+            // asignarUsuarioToolStripMenuItem
             // 
-            this.modificarToolStripMenuItem1.Name = "modificarToolStripMenuItem1";
-            this.modificarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.modificarToolStripMenuItem1.Text = "Modificar";
+            this.asignarUsuarioToolStripMenuItem.Name = "asignarUsuarioToolStripMenuItem";
+            this.asignarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asignarUsuarioToolStripMenuItem.Text = "Asignar Usuario";
+            this.asignarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.asignarUsuarioToolStripMenuItem_Click);
+            // 
+            // GestionarToolStripMenuItem1
+            // 
+            this.GestionarToolStripMenuItem1.Name = "GestionarToolStripMenuItem1";
+            this.GestionarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.GestionarToolStripMenuItem1.Text = "Gestionar";
+            this.GestionarToolStripMenuItem1.Click += new System.EventHandler(this.GestionarToolStripMenuItem1_Click);
             // 
             // eliminarToolStripMenuItem1
             // 
@@ -217,19 +227,10 @@
             this.eliminarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.eliminarToolStripMenuItem1.Text = "Eliminar";
             // 
-            // visualizarToolStripMenuItem
-            // 
-            this.visualizarToolStripMenuItem.Name = "visualizarToolStripMenuItem";
-            this.visualizarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.visualizarToolStripMenuItem.Text = "Visualizar";
-            // 
             // permisosToolStripMenuItem
             // 
             this.permisosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.asignarToolStripMenuItem1,
-            this.modificarToolStripMenuItem2,
-            this.eiliminarToolStripMenuItem,
-            this.visualizarToolStripMenuItem1});
+            this.asignarToolStripMenuItem1});
             this.permisosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("permisosToolStripMenuItem.Image")));
             this.permisosToolStripMenuItem.Name = "permisosToolStripMenuItem";
             this.permisosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
@@ -238,26 +239,9 @@
             // asignarToolStripMenuItem1
             // 
             this.asignarToolStripMenuItem1.Name = "asignarToolStripMenuItem1";
-            this.asignarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.asignarToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
             this.asignarToolStripMenuItem1.Text = "Asignar";
-            // 
-            // modificarToolStripMenuItem2
-            // 
-            this.modificarToolStripMenuItem2.Name = "modificarToolStripMenuItem2";
-            this.modificarToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.modificarToolStripMenuItem2.Text = "Modificar";
-            // 
-            // eiliminarToolStripMenuItem
-            // 
-            this.eiliminarToolStripMenuItem.Name = "eiliminarToolStripMenuItem";
-            this.eiliminarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.eiliminarToolStripMenuItem.Text = "Eiliminar";
-            // 
-            // visualizarToolStripMenuItem1
-            // 
-            this.visualizarToolStripMenuItem1.Name = "visualizarToolStripMenuItem1";
-            this.visualizarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.visualizarToolStripMenuItem1.Text = "Visualizar";
+            this.asignarToolStripMenuItem1.Click += new System.EventHandler(this.asignarToolStripMenuItem1_Click);
             // 
             // empleadosToolStripMenuItem
             // 
@@ -272,7 +256,7 @@
             // 
             this.altaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("altaToolStripMenuItem.Image")));
             this.altaToolStripMenuItem.Name = "altaToolStripMenuItem";
-            this.altaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.altaToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.altaToolStripMenuItem.Text = "Alta";
             this.altaToolStripMenuItem.Click += new System.EventHandler(this.altaToolStripMenuItem_Click);
             // 
@@ -280,7 +264,7 @@
             // 
             this.modificarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("modificarToolStripMenuItem.Image")));
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.modificarToolStripMenuItem.Text = "Listar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
@@ -382,20 +366,6 @@
             this.backUpToolStripMenuItem.Text = "BackUp";
             this.backUpToolStripMenuItem.Click += new System.EventHandler(this.backUpToolStripMenuItem_Click);
             // 
-            // altaToolStripMenuItem3
-            // 
-            this.altaToolStripMenuItem3.Name = "altaToolStripMenuItem3";
-            this.altaToolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.altaToolStripMenuItem3.Text = "Alta";
-            this.altaToolStripMenuItem3.Click += new System.EventHandler(this.altaToolStripMenuItem3_Click);
-            // 
-            // asignarUsuarioToolStripMenuItem
-            // 
-            this.asignarUsuarioToolStripMenuItem.Name = "asignarUsuarioToolStripMenuItem";
-            this.asignarUsuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.asignarUsuarioToolStripMenuItem.Text = "Asignar Usuario";
-            this.asignarUsuarioToolStripMenuItem.Click += new System.EventHandler(this.asignarUsuarioToolStripMenuItem_Click);
-            // 
             // Menu_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -431,14 +401,10 @@
         private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem familiasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asignarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem GestionarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem visualizarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem permisosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asignarToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem eiliminarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem visualizarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem altaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cotizacionesToolStripMenuItem;

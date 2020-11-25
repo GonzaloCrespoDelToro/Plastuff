@@ -269,6 +269,7 @@ namespace C2_Negocio
                 usuario.Nombre = _encriptacion.Encriptar(usuario.Nombre, 2);
                 var user = _UsuarioAD.GetUserByName(usuario);
                 user.Nombre = _encriptacion.Desencriptar(user.Nombre);
+                this.TraerPermisos(user);
                 return user;
             }
             catch (Exception)
@@ -285,6 +286,7 @@ namespace C2_Negocio
                 foreach (Modelo.Usuario user in usuarios)
                 {
                     user.Nombre = _encriptacion.Desencriptar(user.Nombre);
+                    this.TraerPermisos(user);
                 }
                 return usuarios;
             }
@@ -323,6 +325,97 @@ namespace C2_Negocio
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        public bool Baja(Usuario user)
+        {
+            try
+            {
+                if (!this.ValidarBaja(user))
+                {
+                    return false;
+                }
+
+                _UsuarioAD.Baja(user);
+
+                Modelo.Digito_Vertical DigitoVertical = new Modelo.Digito_Vertical();
+                DigitoVertical.Tabla = "Usuarios";
+
+                _Verificador.Recalcular_DVV(DigitoVertical);
+
+                return true;
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private bool ValidarBaja(Usuario user)
+        {
+            C2_Negocio.Patente _Patente = new Patente();
+            C2_Negocio.Familias _Familia = new Familias();
+
+            foreach (Modelo.Permiso permiso in user.Permisos)
+            {
+                if (permiso.Familia)
+                {
+                    permiso.Nombre = _encriptacion.Encriptar(permiso.Nombre, 2);
+                    Modelo.Familia familia = _Familia.TraeFamilia(permiso);
+
+                    foreach (Modelo.Patente patente in familia.Permisos)
+                    {
+                        if (_Patente.ObtUsuAsignadorPorPatFam(patente, user) == 0 && _Patente.ObtUsuAsignados(patente, user) == 0)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                else
+                {
+                    if (_Patente.ObtUsuAsignadorPorPatFam(permiso, user) == 0 && _Patente.ObtUsuAsignados(permiso, user) == 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        public List<Modelo.Permiso> ObtenerPermisos(Modelo.Usuario usuario)
+        {
+            try
+            {
+                List<Modelo.Permiso> permisos = _UsuarioAD.TraerPermisos(usuario);
+                foreach (var p in permisos)
+                {
+                    if (p.Familia)
+                    {
+                        p.Nombre = _encriptacion.Desencriptar(p.Nombre);
+                    }
+                }
+
+                //foreach (var p in permisos)
+                //{
+                //    if (p.Familia)
+                //    {
+                //        usuario.Permisos.Add(_Familias.TraeFamilia(p));
+                //    }
+                //    else
+                //    {
+                //        usuario.Permisos.Add(_Patente.TraePatente(p));
+                //    }
+                //}
+
+                return permisos;
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }

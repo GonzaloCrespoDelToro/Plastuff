@@ -20,6 +20,7 @@ namespace Plustuff_TC.Seguridad.Pantallas.Usuario
         Modelo.Bitacora bitacora = new Modelo.Bitacora();
         C2_Negocio.Bitacora _Bitacora = new C2_Negocio.Bitacora();
         private Encriptacion _encriptacion = new Encriptacion();
+        bool PatenteValida = false;
 
 
         public Mostrar_Usuario()
@@ -33,6 +34,14 @@ namespace Plustuff_TC.Seguridad.Pantallas.Usuario
             {
                 this.listar();
 
+                this.ValidarPermisos();
+                if (PatenteValida == false)
+                {
+                    MessageBox.Show("No tiene permiso para ingresar a este formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.BeginInvoke(new MethodInvoker(this.Close));
+                    return;
+                }
+
                 this.Traducir();
                 Servicios.ManagerIdioma.Suscribir(this);
             }
@@ -40,6 +49,54 @@ namespace Plustuff_TC.Seguridad.Pantallas.Usuario
             {
                 MessageBox.Show("Se produjo un error al cargar el formulario", "Error");
                 this.Close();
+            }
+        }
+
+        public void ValidarPermisos()
+        {
+            try
+            {
+                foreach (var p in Sesion.Usuario.Permisos)
+                {
+                    if (p is Modelo.Familia)
+                    {
+                        Modelo.Familia familia = (Modelo.Familia)p;
+
+                        foreach (Modelo.Patente patente in familia.Permisos)
+                        {
+                            this.ValidarPatente(patente);
+                        }
+                    }
+                    else
+                    {
+                        Modelo.Patente patente = (Modelo.Patente)p;
+
+                        this.ValidarPatente(patente);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void ValidarPatente(Modelo.Patente patente)
+        {
+            switch (patente.Nombre)
+            {
+                case "MODIFICAR USUARIO":
+                    this.btnModificar.Enabled = true;
+                    PatenteValida = true;
+                    break;
+                case "BAJA USUARIO":
+                    this.btnBorrar.Enabled = true;
+                    PatenteValida = true;
+                    break;
+                case "DESBLOQUEAR USUARIO":
+                    this.btndesbloquear.Enabled = true;
+                    PatenteValida = true;
+                    break;
             }
         }
 
@@ -195,6 +252,51 @@ namespace Plustuff_TC.Seguridad.Pantallas.Usuario
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Modelo.Usuario User = new Modelo.Usuario();
+
+                if (GridViewUsuarios.SelectedCells.Count > 0 && GridViewUsuarios.SelectedCells.Count < 2)
+                {
+                    int selectedrowindex = GridViewUsuarios.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = GridViewUsuarios.Rows[selectedrowindex];
+                    string Nombre = Convert.ToString(selectedRow.Cells["Usuario"].Value);
+                    User.Nombre = Nombre;
+                    User = _Usuarios.TraerUsuByNombre(User);
+
+                    if (User.id == Sesion.Usuario.id)
+                    {
+                        MessageBox.Show("No se puede eliminar el usuario ya que es el mismo que esta logeado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    DialogResult result = MessageBox.Show("¿Seguro desea elimiar el uaurio?", "Eliminacion de Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        if (!_Usuarios.Baja(User))
+                        {
+                            MessageBox.Show("No se puede eliminar al usuario ya que posee patentes que otros no tienen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        //Da de alta en bitacora
+                        bitacora.Accion = "BajaUsuario";
+                        bitacora.Descripcion = $"Se dio de baja al usuario {Nombre}";
+                        bitacora.FechaHora = DateTime.Now;
+                        bitacora.U_id = Sesion.Usuario.id;
+                        bitacora.Criticidad = 2;
+                        _Bitacora.Alta(bitacora);
+
+                        MessageBox.Show("Baja exitosa", "Baja de usuario");
+                        this.listar();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrio un error inesperado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }

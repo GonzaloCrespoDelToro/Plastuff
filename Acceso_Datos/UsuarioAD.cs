@@ -292,6 +292,25 @@ namespace Acceso_Datos
             return Permisos;
         }
 
+        public void Baja(Usuario user)
+        {
+            try
+            {
+                string consulta = $"DELETE FROM Usu_Per WHERE ID_U = {user.id}";
+                string consulta1 = $"DELETE FROM Bitacora WHERE U_id = {user.id}";
+                string consulta2 = $"DELETE FROM Usuarios WHERE ID = {user.id}";
+                
+
+                _accesoSQL.Ejecutar_Query("ExecuteNonQuery", consulta);
+                _accesoSQL.Ejecutar_Query("ExecuteNonQuery", consulta1);
+                _accesoSQL.Ejecutar_Query("ExecuteNonQuery", consulta2);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void Bloquear_Usu(Modelo.Usuario usuario)
         {
             try

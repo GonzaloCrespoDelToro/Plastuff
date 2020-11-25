@@ -87,9 +87,26 @@ namespace Acceso_Datos
             }
         }
 
+        public void Baja(Familia familia)
+        {
+            _AccesoSQL.Ejecutar_Query("ExecuteNonQuery", $"DELETE FROM Permisos WHERE ID = {familia.ID} ");
+        }
+
         public void DesasignarPatente(Familia familia, Patente patente)
         {
             string consulta = _AccesoSQL.Ejecutar_Query("ExecuteNonQuery", $"DELETE FROM Fam_Per WHERE ID_Fam = {familia.ID} AND ID_Per = {patente.ID}");
+        }
+
+        public void AsignarUsuario(Usuario usuario, Familia familia)
+        {
+            try
+            {
+                var consulta = _AccesoSQL.Ejecutar_Query("ExecuteNonQuery", $"INSERT INTO Usu_Per VALUES({usuario.id}, {familia.ID})");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public int ObtUsuAsignados(Familia familia)
@@ -127,6 +144,12 @@ namespace Acceso_Datos
             ConsultarPatentes(_Familia);
 
             return _Familia;
+        }
+
+        public void DesasignarUsuario(Usuario usuario, Permiso permiso)
+        {
+            string Consulta = $"DELETE FROM Usu_Per WHERE ID_U = {usuario.id} AND ID_P = {permiso.ID}";
+            _AccesoSQL.Ejecutar_Query("ExecuteNonQuery", Consulta);
         }
     }
 }

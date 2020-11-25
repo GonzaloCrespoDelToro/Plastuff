@@ -12,6 +12,7 @@ namespace Plustuff_TC.Fam_Pat
 {
     public partial class Modificar_Familia : Form
     {
+        public Modelo.Familia familia = new Modelo.Familia();
         public Modificar_Familia()
         {
             InitializeComponent();
@@ -19,8 +20,19 @@ namespace Plustuff_TC.Fam_Pat
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this, "¿Seguro desea eliminar la Familia?", "Eliminar Familia", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
+        }
+
+        private void Modificar_Familia_Load(object sender, EventArgs e)
+        {
+            txtnombreselec.Text = familia.Nombre;
+            txtnombre.Text = familia.Nombre;
+            txtdescrip.Text = familia.Descripcion;
+        }
+
+        private void btncancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

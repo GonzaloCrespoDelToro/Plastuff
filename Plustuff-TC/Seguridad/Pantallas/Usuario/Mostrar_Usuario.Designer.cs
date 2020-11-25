@@ -116,6 +116,7 @@
             // btnBorrar
             // 
             this.btnBorrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnBorrar.Enabled = false;
             this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrar.ForeColor = System.Drawing.Color.White;
             this.btnBorrar.Location = new System.Drawing.Point(146, 451);
@@ -129,6 +130,7 @@
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnModificar.Enabled = false;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Location = new System.Drawing.Point(12, 451);
@@ -171,6 +173,7 @@
             // btndesbloquear
             // 
             this.btndesbloquear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btndesbloquear.Enabled = false;
             this.btndesbloquear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndesbloquear.ForeColor = System.Drawing.Color.White;
             this.btndesbloquear.Location = new System.Drawing.Point(278, 451);

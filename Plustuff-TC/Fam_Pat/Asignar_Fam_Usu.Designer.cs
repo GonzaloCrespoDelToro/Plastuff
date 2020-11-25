@@ -129,6 +129,7 @@
             this.lvpatentes.TabIndex = 12;
             this.lvpatentes.UseCompatibleStateImageBehavior = false;
             this.lvpatentes.View = System.Windows.Forms.View.List;
+            this.lvpatentes.SelectedIndexChanged += new System.EventHandler(this.lvpatentes_SelectedIndexChanged);
             // 
             // btncancelar
             // 
@@ -146,6 +147,7 @@
             // btndesasignar
             // 
             this.btndesasignar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btndesasignar.Enabled = false;
             this.btndesasignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndesasignar.ForeColor = System.Drawing.Color.White;
             this.btndesasignar.Location = new System.Drawing.Point(243, 153);
@@ -154,10 +156,12 @@
             this.btndesasignar.TabIndex = 10;
             this.btndesasignar.Text = "<- Desasignar";
             this.btndesasignar.UseVisualStyleBackColor = false;
+            this.btndesasignar.Click += new System.EventHandler(this.btndesasignar_Click);
             // 
             // btnasignar
             // 
             this.btnasignar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnasignar.Enabled = false;
             this.btnasignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnasignar.ForeColor = System.Drawing.Color.White;
             this.btnasignar.Location = new System.Drawing.Point(243, 118);
@@ -166,6 +170,7 @@
             this.btnasignar.TabIndex = 8;
             this.btnasignar.Text = "Asignar ->";
             this.btnasignar.UseVisualStyleBackColor = false;
+            this.btnasignar.Click += new System.EventHandler(this.btnasignar_Click);
             // 
             // Asignar_Fam_Usu
             // 

@@ -160,5 +160,15 @@ namespace Plustuff_TC.Negocio.Pantallas
         {
             Servicios.ManagerIdioma.Desuscribir(this);
         }
+
+        private void gbfiltro_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbclientes_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -78,6 +78,7 @@
             // btnasignar
             // 
             this.btnasignar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnasignar.Enabled = false;
             this.btnasignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnasignar.ForeColor = System.Drawing.Color.White;
             this.btnasignar.Location = new System.Drawing.Point(238, 100);
@@ -91,6 +92,7 @@
             // btndesasignar
             // 
             this.btndesasignar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btndesasignar.Enabled = false;
             this.btndesasignar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btndesasignar.ForeColor = System.Drawing.Color.White;
             this.btndesasignar.Location = new System.Drawing.Point(238, 135);

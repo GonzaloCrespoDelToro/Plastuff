@@ -104,6 +104,12 @@
     <Compile Include="Fam_Pat\Asignar_Pat_Usu.Designer.cs">
       <DependentUpon>Asignar_Pat_Usu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fam_Pat\Gestionar_Familias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fam_Pat\Gestionar_Familias.Designer.cs">
+      <DependentUpon>Gestionar_Familias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fam_Pat\Modificar_Familia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fam_Pat\Asignar_Pat_Usu.resx">
       <DependentUpon>Asignar_Pat_Usu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fam_Pat\Gestionar_Familias.resx">
+      <DependentUpon>Gestionar_Familias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fam_Pat\Modificar_Familia.resx">
       <DependentUpon>Modificar_Familia.cs</DependentUpon>

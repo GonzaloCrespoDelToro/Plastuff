@@ -60,6 +60,7 @@
             this.gbfiltro.TabIndex = 18;
             this.gbfiltro.TabStop = false;
             this.gbfiltro.Text = "Filtro";
+            this.gbfiltro.Enter += new System.EventHandler(this.gbfiltro_Enter);
             // 
             // btnclean
             // 
@@ -160,6 +161,7 @@
             this.gbclientes.TabIndex = 14;
             this.gbclientes.TabStop = false;
             this.gbclientes.Text = "Clientes";
+            this.gbclientes.Enter += new System.EventHandler(this.gbclientes_Enter);
             // 
             // GridViewClientes
             // 

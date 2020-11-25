@@ -16,6 +16,7 @@ namespace Plustuff_TC.Fam_Pat
         C2_Negocio.Patente _Patentes = new C2_Negocio.Patente();
         List<Modelo.Patente> patentes;
         Modelo.Familia familia;
+        bool PatenteValida = false;
         Modelo.Bitacora bitacora = new Modelo.Bitacora();
         C2_Negocio.Bitacora _Bitacora = new C2_Negocio.Bitacora();
         Servicios.SessionManager Sesion = Servicios.SessionManager.Getinstance;
@@ -29,6 +30,14 @@ namespace Plustuff_TC.Fam_Pat
         {
             try
             {
+                this.ValidarPermisos();
+                if (PatenteValida == false)
+                {
+                    MessageBox.Show("No tiene permiso para ingresar a este formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.BeginInvoke(new MethodInvoker(this.Close));
+                    return;
+                }
+
                 this.cmbFamilias.DataSource = _Familias.ListarFamilias();
                 this.cmbFamilias.DisplayMember = "Nombre";
                 this.cmbFamilias.ValueMember = "Id";
@@ -45,6 +54,50 @@ namespace Plustuff_TC.Fam_Pat
             catch (Exception ex)
             {
                 throw;
+            }
+        }
+
+        public void ValidarPermisos()
+        {
+            try
+            {
+                foreach (var p in Sesion.Usuario.Permisos)
+                {
+                    if (p is Modelo.Familia)
+                    {
+                        Modelo.Familia familia = (Modelo.Familia)p;
+
+                        foreach (Modelo.Patente patente in familia.Permisos)
+                        {
+                            this.ValidarPatente(patente);
+                        }
+                    }
+                    else
+                    {
+                        Modelo.Patente patente = (Modelo.Patente)p;
+
+                        this.ValidarPatente(patente);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void ValidarPatente(Modelo.Patente patente)
+        {
+            switch (patente.Nombre)
+            {
+                case "ASIGNACIÓN PATENTE-FAMILIA":
+                    this.btnasignar.Enabled = true;
+                    PatenteValida = true;
+                    break;
+                case "QUITAR PATENTE-FAMILIA":
+                    this.btndesasignar.Enabled = true;
+                    PatenteValida = true;
+                    break;
             }
         }
 
@@ -122,7 +175,7 @@ namespace Plustuff_TC.Fam_Pat
                 this.lvpatentesAsignadas.Items.Add(patente.Nombre);
                 familia.Permisos.Add(patente);
 
-                MessageBox.Show("La patente se asigno correctamente.", "Asignar Patente");
+                MessageBox.Show("La Patente se asigno correctamente.", "Asignar Patente");
             }
             catch (Exception ex)
             {

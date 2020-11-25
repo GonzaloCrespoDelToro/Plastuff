@@ -262,5 +262,20 @@ namespace Plustuff_TC
             asignar_Fam_Usu.MdiParent = this;
             asignar_Fam_Usu.Show();
         }
+
+        private void asignarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Fam_Pat.Asignar_Pat_Usu asignar_Pat_Usu = new Fam_Pat.Asignar_Pat_Usu();
+            asignar_Pat_Usu.MdiParent = this;
+            asignar_Pat_Usu.Show();
+        }
+
+        private void GestionarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Fam_Pat.Gestionar_Familias gestionar_Familias = new Fam_Pat.Gestionar_Familias();
+            gestionar_Familias.MdiParent = this;
+            gestionar_Familias.Menu_Principal = this;
+            gestionar_Familias.Show();
+        }
     }
 }

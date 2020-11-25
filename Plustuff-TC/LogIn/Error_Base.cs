@@ -20,7 +20,7 @@ namespace Plustuff_TC.LogIn
         Modelo.Bitacora bitacora = new Modelo.Bitacora();
         Servicios.SessionManager Sesion = Servicios.SessionManager.Getinstance;
         List<Modelo.Bitacora> Bitacora;
-
+        bool PatenteValida = false;
 
         public Error_Base()
         {
@@ -56,6 +56,12 @@ namespace Plustuff_TC.LogIn
             Servicios.ManagerIdioma.Suscribir(this);
 
             ValidarPermisos();
+            if (this.PatenteValida == false)
+            {
+                MessageBox.Show("No tiene permiso para ingresar a este formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BeginInvoke(new MethodInvoker(this.Close));
+                return;
+            }
         }
 
         public void ValidarPermisos()
@@ -91,6 +97,9 @@ namespace Plustuff_TC.LogIn
         {
             switch (patente.Nombre)
             {
+                case "CONSULTAR BITÁCORA":
+                    this.PatenteValida = true;
+                    break;
                 case "RECALCULAR DÍGITOS VERIFICADORES":
                     this.btnRecalcular.Enabled = true;
                     break;
@@ -102,7 +111,7 @@ namespace Plustuff_TC.LogIn
 
         private void btnRecalcular_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show(this, "¿Desea reclacular los digitos?", "Recalcular Digitos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            DialogResult dialogResult = MessageBox.Show(this, "¿Desea recalcular los digitos?", "Recalcular Digitos", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (dialogResult == DialogResult.Yes)
             {
                 if (!_Verificadores.Recalcular_TodosDVV())
