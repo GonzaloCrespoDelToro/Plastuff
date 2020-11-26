@@ -79,15 +79,35 @@ namespace Servicios
                     int TotalDVH = 0;
                     foreach (DataRow Fila in TablaDS.Tables[0].Rows)
                     {
+                        string Concadena = "";
+                        int ValDVH = 0;
+                        for (int j = 1; j <= columnas - 2; j++)
+                        {
+                            Concadena = Concadena + Fila[j].ToString();
+                        }
+                        int pos = 0;
+                        foreach (char c in Concadena)
+                        {
+                            pos += 1;
+                            ValDVH += (Encoding.ASCII.GetBytes(c.ToString())[0] * pos);
+                        }
+                        string DVHE = _Encriptacion.Encriptar(ValDVH.ToString(), 1);
+
                         filacount += 1;
+                        var id = Fila[0].ToString();
                         string DVHTabla = Fila[columnas - 1].ToString();
                         int posicion = 0;
                         int ValorDVH = 0;
 
-                        foreach (char c in DVHTabla)
+                        foreach (char c in DVHE)
                         {
                             posicion += 1;
                             ValorDVH += (Encoding.ASCII.GetBytes(c.ToString())[0] * posicion);
+                        }
+                        //realiza el uptada del dvh
+                        if (DVHTabla != DVHE)
+                        {
+                            _DigitosVerticalesAD.UpdateDHV(id, DVHE, tabla.Tabla);
                         }
 
                         TotalDVH += ValorDVH;
@@ -113,10 +133,11 @@ namespace Servicios
                 int columnas = TablaDS.Tables[0].Columns.Count;
                 int filacount = 0;
                 int TotalDVH = 0;
+                string DVHTabla = "";
                 foreach (DataRow Fila in TablaDS.Tables[0].Rows)
                 {
                     filacount += 1;
-                    string DVHTabla = Fila[columnas - 1].ToString();
+                    DVHTabla = Fila[columnas - 1].ToString();
                     int posicion = 0;
                     int ValorDVH = 0;
 
@@ -249,10 +270,10 @@ namespace Servicios
                             HayError = true;
                         }
                     }
-                    if (HayError == true)
-                    {
-                        return Errores;
-                    }
+                }
+                if (HayError == true)
+                {
+                    return Errores;
                 }
                 return "";
             }

@@ -29,16 +29,24 @@ namespace Plustuff_TC.LogIn
 
         private void Listar()
         {
-            Bitacora = _Bitacora.Listar_Bitacora();
-            dgvBitacora.DataSource = (from b in Bitacora
-                                      select new
-                                      {
-                                          Accion = b.Accion,
-                                          Descripcion = b.Descripcion,
-                                          Criticidad = b.CriticidadNombre,
-                                          FechayHora = b.FechaHora,
-                                          Usuario = b.Usuario
-                                      }).ToArray();
+            try
+            {
+                Bitacora = _Bitacora.Listar_Bitacora();
+                dgvBitacora.DataSource = (from b in Bitacora
+                                          select new
+                                          {
+                                              Accion = b.Accion,
+                                              Descripcion = b.Descripcion,
+                                              Criticidad = b.CriticidadNombre,
+                                              FechayHora = b.FechaHora,
+                                              Usuario = b.Usuario
+                                          }).ToArray();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocurrio un error inesperado", "Error");
+            }
+            
         }
 
         private void Error_Base_Load(object sender, EventArgs e)

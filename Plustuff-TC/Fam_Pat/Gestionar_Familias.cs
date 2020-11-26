@@ -18,7 +18,7 @@ namespace Plustuff_TC.Fam_Pat
         C2_Negocio.Bitacora _Bitacora = new C2_Negocio.Bitacora();
         Servicios.SessionManager Sesion = Servicios.SessionManager.Getinstance;
         public Menu_Principal Menu_Principal = new Menu_Principal();
-
+        bool PatenteValida = false;
 
         public Gestionar_Familias()
         {
@@ -28,6 +28,57 @@ namespace Plustuff_TC.Fam_Pat
         private void Gestionar_Familias_Load(object sender, EventArgs e)
         {
             listar();
+            ValidarPermisos();
+            if (PatenteValida == false)
+            {
+                MessageBox.Show("No tiene permiso para ingresar a este formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BeginInvoke(new MethodInvoker(this.Close));
+                return;
+            }
+        }
+
+        public void ValidarPermisos()
+        {
+            try
+            {
+                foreach (var p in Sesion.Usuario.Permisos)
+                {
+                    if (p is Modelo.Familia)
+                    {
+                        Modelo.Familia familia = (Modelo.Familia)p;
+
+                        foreach (Modelo.Patente patente in familia.Permisos)
+                        {
+                            this.ValidarPatente(patente);
+                        }
+                    }
+                    else
+                    {
+                        Modelo.Patente patente = (Modelo.Patente)p;
+
+                        this.ValidarPatente(patente);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void ValidarPatente(Modelo.Patente patente)
+        {
+            switch (patente.Nombre)
+            {
+                case "BAJA FAMILIA":
+                    this.btnBaja.Enabled = true;
+                    PatenteValida = true;
+                    break;
+                case "MODIFICAR FAMILIA":
+                    this.btnModificar.Enabled = true;
+                    PatenteValida = true;
+                    break;
+            }
         }
 
         void listar()

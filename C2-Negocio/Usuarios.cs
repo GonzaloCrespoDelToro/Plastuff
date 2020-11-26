@@ -344,6 +344,10 @@ namespace C2_Negocio
                 DigitoVertical.Tabla = "Usuarios";
 
                 _Verificador.Recalcular_DVV(DigitoVertical);
+                
+                DigitoVertical.Tabla = "Bitacora";
+
+                _Verificador.Recalcular_DVV(DigitoVertical);
 
                 return true;
                 

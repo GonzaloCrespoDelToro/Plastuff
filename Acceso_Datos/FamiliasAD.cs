@@ -89,6 +89,7 @@ namespace Acceso_Datos
 
         public void Baja(Familia familia)
         {
+            _AccesoSQL.Ejecutar_Query("ExecuteNonQuery", $"DELETE FROM Fam_Per WHERE ID_Fam = {familia.ID} ");
             _AccesoSQL.Ejecutar_Query("ExecuteNonQuery", $"DELETE FROM Permisos WHERE ID = {familia.ID} ");
         }
 

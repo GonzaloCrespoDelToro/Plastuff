@@ -24,6 +24,7 @@ namespace Plustuff_TC.Negocio
         C2_Negocio.Filamentos _Filamentos = new C2_Negocio.Filamentos();
         C2_Negocio.Bitacora _Bitacora = new C2_Negocio.Bitacora();
         C2_Negocio.Cotizaciones _Cotizaciones = new C2_Negocio.Cotizaciones();
+        bool PatenteValida = false;
 
         public Nueva_Cotizacion()
         {
@@ -95,6 +96,52 @@ namespace Plustuff_TC.Negocio
 
             this.Traducir();
             Servicios.ManagerIdioma.Suscribir(this);
+
+            ValidarPermisos();
+            if (PatenteValida == false)
+            {
+                MessageBox.Show("No tiene permiso para ingresar a este formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BeginInvoke(new MethodInvoker(this.Close));
+                return;
+            }
+        }
+        public void ValidarPermisos()
+        {
+            try
+            {
+                foreach (var p in Sesion.Usuario.Permisos)
+                {
+                    if (p is Modelo.Familia)
+                    {
+                        Modelo.Familia familia = (Modelo.Familia)p;
+
+                        foreach (Modelo.Patente patente in familia.Permisos)
+                        {
+                            this.ValidarPatente(patente);
+                        }
+                    }
+                    else
+                    {
+                        Modelo.Patente patente = (Modelo.Patente)p;
+
+                        this.ValidarPatente(patente);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void ValidarPatente(Modelo.Patente patente)
+        {
+            switch (patente.Nombre)
+            {
+                case "GENERAR COTIZACIÓN":
+                    PatenteValida = true;
+                    break;
+            }
         }
         public void ActualizarIdioma(Idioma idioma)
         {

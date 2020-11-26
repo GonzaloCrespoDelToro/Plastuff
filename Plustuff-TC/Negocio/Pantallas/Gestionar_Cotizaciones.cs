@@ -19,6 +19,8 @@ namespace Plustuff_TC.Negocio.Pantallas
         C2_Negocio.Bitacora _Bitacora = new C2_Negocio.Bitacora();
         C2_Negocio.Cotizaciones _Cotizaciones = new C2_Negocio.Cotizaciones();
 
+        bool PatenteValida = false;
+
         public Gestionar_Cotizaciones()
         {
             InitializeComponent();
@@ -51,10 +53,56 @@ namespace Plustuff_TC.Negocio.Pantallas
 
                 txtDNI.Enabled = false;
                 txtCotizacion.Enabled = false;
+
+                ValidarPermisos();
+                if (PatenteValida == false)
+                {
+                    MessageBox.Show("No tiene permiso para ingresar a este formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.BeginInvoke(new MethodInvoker(this.Close));
+                    return;
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(this, "Ocurrio un error inesperado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public void ValidarPermisos()
+        {
+            try
+            {
+                foreach (var p in Sesion.Usuario.Permisos)
+                {
+                    if (p is Modelo.Familia)
+                    {
+                        Modelo.Familia familia = (Modelo.Familia)p;
+
+                        foreach (Modelo.Patente patente in familia.Permisos)
+                        {
+                            this.ValidarPatente(patente);
+                        }
+                    }
+                    else
+                    {
+                        Modelo.Patente patente = (Modelo.Patente)p;
+
+                        this.ValidarPatente(patente);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void ValidarPatente(Modelo.Patente patente)
+        {
+            switch (patente.Nombre)
+            {
+                case "MODIFICAR COTIZACIÓN":
+                    PatenteValida = true;
+                    break;
             }
         }
 

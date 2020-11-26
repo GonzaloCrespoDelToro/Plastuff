@@ -54,5 +54,10 @@ namespace Acceso_Datos
             }
         }
 
+        public void UpdateDHV(string id, string dvh, string tabla)
+        {
+            var consulta = _AccesoSQL.Ejecutar_Query("ExecuteNonQuery", $"UPDATE {tabla} SET DVH = '{dvh}' WHERE ID = {id}");
+        }
+
 }
 }

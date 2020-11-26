@@ -19,6 +19,7 @@ namespace Plustuff_TC.Negocio.Pantallas
         Modelo.Bitacora bitacora = new Modelo.Bitacora();
         C2_Negocio.Bitacora _Bitacora = new C2_Negocio.Bitacora();
         Servicios.SessionManager Sesion = Servicios.SessionManager.Getinstance;
+        bool PatenteValida = false;
 
         public Nuevo_Filamento()
         {
@@ -82,6 +83,52 @@ namespace Plustuff_TC.Negocio.Pantallas
         {
             this.Traducir();
             Servicios.ManagerIdioma.Suscribir(this);
+
+            ValidarPermisos();
+            if (PatenteValida == false)
+            {
+                MessageBox.Show("No tiene permiso para ingresar a este formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.BeginInvoke(new MethodInvoker(this.Close));
+                return;
+            }
+        }
+        public void ValidarPermisos()
+        {
+            try
+            {
+                foreach (var p in Sesion.Usuario.Permisos)
+                {
+                    if (p is Modelo.Familia)
+                    {
+                        Modelo.Familia familia = (Modelo.Familia)p;
+
+                        foreach (Modelo.Patente patente in familia.Permisos)
+                        {
+                            this.ValidarPatente(patente);
+                        }
+                    }
+                    else
+                    {
+                        Modelo.Patente patente = (Modelo.Patente)p;
+
+                        this.ValidarPatente(patente);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void ValidarPatente(Modelo.Patente patente)
+        {
+            switch (patente.Nombre)
+            {
+                case "ALTA FILAMENTO":
+                    PatenteValida = true;
+                    break;
+            }
         }
 
         public void ActualizarIdioma(Idioma idioma)

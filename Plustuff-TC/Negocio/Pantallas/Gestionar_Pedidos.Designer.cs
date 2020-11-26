@@ -33,7 +33,7 @@
             this.btnmodificar = new System.Windows.Forms.Button();
             this.gbPedidos = new System.Windows.Forms.GroupBox();
             this.GridViewPedidos = new System.Windows.Forms.DataGridView();
-            this.Filtro = new System.Windows.Forms.GroupBox();
+            this.gbFiltro = new System.Windows.Forms.GroupBox();
             this.cbestados = new System.Windows.Forms.ComboBox();
             this.btnlimpiar = new System.Windows.Forms.Button();
             this.btnfiltrar = new System.Windows.Forms.Button();
@@ -42,7 +42,7 @@
             this.rbDNI = new System.Windows.Forms.RadioButton();
             this.gbPedidos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewPedidos)).BeginInit();
-            this.Filtro.SuspendLayout();
+            this.gbFiltro.SuspendLayout();
             this.SuspendLayout();
             // 
             // btncancelar
@@ -74,7 +74,7 @@
             // gbPedidos
             // 
             this.gbPedidos.Controls.Add(this.GridViewPedidos);
-            this.gbPedidos.Controls.Add(this.Filtro);
+            this.gbPedidos.Controls.Add(this.gbFiltro);
             this.gbPedidos.Location = new System.Drawing.Point(12, 12);
             this.gbPedidos.Name = "gbPedidos";
             this.gbPedidos.Size = new System.Drawing.Size(448, 436);
@@ -98,20 +98,20 @@
             this.GridViewPedidos.Size = new System.Drawing.Size(436, 322);
             this.GridViewPedidos.TabIndex = 1;
             // 
-            // Filtro
+            // gbFiltro
             // 
-            this.Filtro.Controls.Add(this.cbestados);
-            this.Filtro.Controls.Add(this.btnlimpiar);
-            this.Filtro.Controls.Add(this.btnfiltrar);
-            this.Filtro.Controls.Add(this.txtDNI);
-            this.Filtro.Controls.Add(this.rbEstado);
-            this.Filtro.Controls.Add(this.rbDNI);
-            this.Filtro.Location = new System.Drawing.Point(6, 21);
-            this.Filtro.Name = "Filtro";
-            this.Filtro.Size = new System.Drawing.Size(436, 80);
-            this.Filtro.TabIndex = 0;
-            this.Filtro.TabStop = false;
-            this.Filtro.Text = "Filtro";
+            this.gbFiltro.Controls.Add(this.cbestados);
+            this.gbFiltro.Controls.Add(this.btnlimpiar);
+            this.gbFiltro.Controls.Add(this.btnfiltrar);
+            this.gbFiltro.Controls.Add(this.txtDNI);
+            this.gbFiltro.Controls.Add(this.rbEstado);
+            this.gbFiltro.Controls.Add(this.rbDNI);
+            this.gbFiltro.Location = new System.Drawing.Point(6, 21);
+            this.gbFiltro.Name = "gbFiltro";
+            this.gbFiltro.Size = new System.Drawing.Size(436, 80);
+            this.gbFiltro.TabIndex = 0;
+            this.gbFiltro.TabStop = false;
+            this.gbFiltro.Text = "Filtro";
             // 
             // cbestados
             // 
@@ -196,11 +196,12 @@
             this.MaximizeBox = false;
             this.Name = "Gestionar_Pedidos";
             this.Text = "Gestionar Pedidos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Gestionar_Pedidos_FormClosing);
             this.Load += new System.EventHandler(this.Gestionar_Pedidos_Load);
             this.gbPedidos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridViewPedidos)).EndInit();
-            this.Filtro.ResumeLayout(false);
-            this.Filtro.PerformLayout();
+            this.gbFiltro.ResumeLayout(false);
+            this.gbFiltro.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -211,7 +212,7 @@
         private System.Windows.Forms.Button btnmodificar;
         private System.Windows.Forms.GroupBox gbPedidos;
         private System.Windows.Forms.DataGridView GridViewPedidos;
-        private System.Windows.Forms.GroupBox Filtro;
+        private System.Windows.Forms.GroupBox gbFiltro;
         private System.Windows.Forms.Button btnlimpiar;
         private System.Windows.Forms.Button btnfiltrar;
         private System.Windows.Forms.TextBox txtDNI;
