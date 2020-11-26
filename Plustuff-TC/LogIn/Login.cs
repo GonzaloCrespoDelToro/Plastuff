@@ -15,7 +15,7 @@ namespace Plustuff_TC.LogIn
     {
         public Usuarios _Usuario = new Usuarios();
         public string Error_DVV = null;
-        public string Error_DVH = null;
+        public List<string>Error_DVH = null;
         public bool Admin = false;
         Modelo.Bitacora bitacora = new Modelo.Bitacora();
         Bitacora _Bitacora = new C2_Negocio.Bitacora();
@@ -71,7 +71,7 @@ namespace Plustuff_TC.LogIn
 
                        Modelo.Usuario User = _Usuario.GetUserByName(usuario);
 
-                        if (!string.IsNullOrEmpty(Error_DVH) || !string.IsNullOrEmpty(Error_DVV))
+                        if (Error_DVH.Count != 0 || !string.IsNullOrEmpty(Error_DVV))
                         {
                             //Verificar si es administrador
                             if (User.Permisos.Any(p => p.Nombre == "ADMIN"))
@@ -117,7 +117,7 @@ namespace Plustuff_TC.LogIn
 
         private void Login_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Error_DVH) || !string.IsNullOrEmpty(Error_DVV))
+            if (Error_DVH.Count != 0 || !string.IsNullOrEmpty(Error_DVV))
             {
                 lblerror.Text = "Hay error en digitos, solo puede ingresar un administrador.";
                 lblerror.Visible = true;

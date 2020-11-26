@@ -233,10 +233,11 @@ namespace Servicios
             }
         }
 
-        public string Verificar_DVH()
+        public List<string> Verificar_DVH()
         {
             try
             {
+                List<string> Lerrores = new List<string>(); 
                 string Errores = "";
                 bool HayError = false;
                 List<Modelo.Digito_Vertical> Tablas = _DigitosVerticalesAD.TraerTablas();
@@ -251,6 +252,7 @@ namespace Servicios
                         filacount += 1;
                         DVHTabla = "";
                         DVHTabla = Fila[columnas - 1].ToString();
+                        var idfila = Fila[0].ToString();
                         string Concadena = "";
                         int ValorDVH = 0;
                         for (int j = 1; j <= columnas - 2; j++)
@@ -266,20 +268,22 @@ namespace Servicios
                         string DVHE = _Encriptacion.Encriptar(ValorDVH.ToString(), 1);
                         if (DVHTabla != DVHE)
                         {
-                            Errores = Errores + "Tabla: " + tabla.Tabla + ", Fila: " + filacount.ToString();
+                            Errores = $"Tabla: { tabla.Tabla}, Fila: {filacount.ToString()}, ID: {idfila}";
+                            Lerrores.Add(Errores);
                             HayError = true;
                         }
                     }
                 }
                 if (HayError == true)
                 {
-                    return Errores;
+                    return Lerrores;
                 }
-                return "";
+                return Lerrores;
             }
             catch (Exception ex)
             {
-                return "";
+                List<string> Lerrores = new List<string>();
+                return Lerrores;
             }
         }
 

@@ -58,10 +58,13 @@ namespace Plustuff_TC.LogIn
             lblproc.Text = "Verificando digitos horizontales de la base de datos..";
             this.Refresh();
             System.Threading.Thread.Sleep(500);
-            string ErrorDVH = _Verificador.Verificar_DVH(); //Verificacion de DVH
-            if (!string.IsNullOrEmpty(ErrorDVH))
+            List<string> ErrorDVH = _Verificador.Verificar_DVH(); //Verificacion de DVH
+            if (ErrorDVH != null)
             {
-                this.Alta_Bitacora("ErrorDVH", ErrorDVH);
+                foreach (var error in ErrorDVH)
+                {
+                    this.Alta_Bitacora("ErrorDVH", error);
+                }
             }
             lblproc.Text = "Verificando digitos verticales de la base de datos..";
             this.Refresh();
