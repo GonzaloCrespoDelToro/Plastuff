@@ -41,7 +41,7 @@ namespace C2_Negocio
             }
         }
 
-        public void ModificarEstadoPedido(Pedidos pedido)
+        public int ModificarEstadoPedido(Pedidos pedido) // Si se envia un 1 es que se modifico a Terminado
         {
             try
             {
@@ -49,8 +49,9 @@ namespace C2_Negocio
                 if (pedido.Estados.ID == 3 )
                 {
                     _MailManager.EnviarMail(pedido.Cotizacion.Cliente.Mail, "Pedido Terminado", $"Su Pedido N° {pedido.ID} esta listo para ser retirado por nuestra sucursal. <br>Muchas Gracias. Plastuff");
-
+                    return 1;
                 }
+                return 0;
             }
             catch (Exception ex)
             {

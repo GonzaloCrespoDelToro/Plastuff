@@ -2,13 +2,12 @@
 using Servicios;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace Plustuff_TC.Negocio.Pantallas
 {
@@ -17,6 +16,9 @@ namespace Plustuff_TC.Negocio.Pantallas
         C2_Negocio.Cotizaciones _Cotizaciones = new C2_Negocio.Cotizaciones();
         public Menu_Principal Menu_Principal = new Menu_Principal();
         Servicios.SessionManager Sesion = Servicios.SessionManager.Getinstance;
+        private string nombredearchivo;
+        private string titulo;
+        private string parrafo;
 
         bool PatenteValida = false;
         public Gestionar_Pedidos()
@@ -220,6 +222,94 @@ namespace Plustuff_TC.Negocio.Pantallas
         private void Gestionar_Pedidos_FormClosing(object sender, FormClosingEventArgs e)
         {
             Servicios.ManagerIdioma.Desuscribir(this);
+        }
+
+        private void btnexportar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                nombredearchivo = "ReportePedidos";
+                titulo = "Reporte de Pedidos";
+                parrafo = "Pedidos a dia de hoy";
+                if (GridViewPedidos.Rows.Count > 0)
+                {
+                    SaveFileDialog sfd = new SaveFileDialog();
+                    sfd.Filter = "PDF (*.pdf)|*.pdf";
+                    sfd.FileName = this.nombredearchivo;
+                    bool fileError = false;
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        if (File.Exists(sfd.FileName))
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        if (!fileError)
+                        {
+                            PdfPTable pdfTable = new PdfPTable(GridViewPedidos.Columns.Count);
+                            pdfTable.DefaultCell.Padding = 3;
+                            pdfTable.WidthPercentage = 100;
+                            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+
+                            foreach (DataGridViewColumn column in GridViewPedidos.Columns)
+                            {
+                                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                                pdfTable.AddCell(cell);
+                            }
+
+                            foreach (DataGridViewRow row in GridViewPedidos.Rows)
+                            {
+                                foreach (DataGridViewCell cell in row.Cells)
+                                {
+                                    pdfTable.AddCell(cell.Value.ToString());
+                                }
+                            }
+
+                            using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                            {
+                                Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
+                                PdfWriter.GetInstance(pdfDoc, stream);
+
+                                pdfDoc.Open();
+
+                                iTextSharp.text.Font titleFont = FontFactory.GetFont("Arial", 26);
+                                titleFont.IsUnderlined();
+
+                                iTextSharp.text.Font regularFont = FontFactory.GetFont("Arial", 15);
+
+                                Paragraph title = new Paragraph(this.titulo, titleFont);
+                                title.Alignment = Element.ALIGN_CENTER;
+                                pdfDoc.Add(title);
+
+                                pdfDoc.Add(new Chunk("\n"));
+
+                                Paragraph text = new Paragraph(this.parrafo, regularFont);
+                                pdfDoc.Add(text);
+
+                                pdfDoc.Add(new Chunk("\n"));
+
+                                pdfDoc.Add(pdfTable);
+                                pdfDoc.Close();
+                                stream.Close();
+                            }
+                            MessageBox.Show("Reporte creado exitosamente.", "Reporte", MessageBoxButtons.OK);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No hay registros en la tabla para exportar.", "Reporte", MessageBoxButtons.OK);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Gestionar_Pedidos_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            string Ruta = System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, "Resources") + @"\Plaware Help.chm";
+            Help.ShowHelp(this, Ruta, "ListarPedidos.htm");
         }
     }
 }

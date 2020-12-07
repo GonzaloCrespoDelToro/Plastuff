@@ -153,5 +153,11 @@ namespace Plustuff_TC.Negocio.Pantallas
                 e.Handled = true;
             }
         }
+
+        private void Modificar_Cotizacion_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            string Ruta = System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, "Resources") + @"\Plaware Help.chm";
+            Help.ShowHelp(this, Ruta, "ModificarCotizacion.htm");
+        }
     }
 }

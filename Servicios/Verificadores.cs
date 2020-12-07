@@ -104,7 +104,7 @@ namespace Servicios
                             posicion += 1;
                             ValorDVH += (Encoding.ASCII.GetBytes(c.ToString())[0] * posicion);
                         }
-                        //realiza el uptada del dvh
+                        //Recalcula los DVH
                         if (DVHTabla != DVHE)
                         {
                             _DigitosVerticalesAD.UpdateDHV(id, DVHE, tabla.Tabla);

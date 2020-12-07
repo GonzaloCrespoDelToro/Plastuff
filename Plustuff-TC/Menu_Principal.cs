@@ -3,12 +3,7 @@ using Modelo;
 using Servicios;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Plustuff_TC
@@ -123,9 +118,11 @@ namespace Plustuff_TC
         {
             this.CerrarSesion();
 
-            LogIn.Login login = new LogIn.Login();
-            login.Show();
-            this.Hide();
+            //LogIn.Login login = new LogIn.Login();
+            //login.Show();
+            //this.Hide();
+            this.Close();
+            Application.Restart();
         }
 
         private void altaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -239,7 +236,15 @@ namespace Plustuff_TC
 
         private void Menu_Principal_HelpRequested(object sender, HelpEventArgs hlpevent)
         {
-            
+            try
+            {
+                string Ruta = System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, "Resources") + @"\Plaware Help.chm";
+                Help.ShowHelp(this, Ruta, "Bienvenido.htm");
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         private void altaToolStripMenuItem3_Click(object sender, EventArgs e)

@@ -202,6 +202,7 @@ namespace C2_Negocio
             DVV.Tabla = "Usuarios";
             Modelo.Usuario UserDB = new Modelo.Usuario();
             UserDB = _UsuarioAD.GetUserByName(usuario);
+            this.TraerPermisos(UserDB);
             string[] datos;
 
             if (passE != UserDB.Pass)
@@ -217,7 +218,10 @@ namespace C2_Negocio
                         _Verificador.Recalcular_DVV(DVV);
                         return 3;
                     }
-                    UserDB.bloqueado = true;
+                    if (!UserDB.Permisos.Any(p => p.Nombre == "ADMIN")) //Si el usuario es Admin no se bloquea
+                    {
+                        UserDB.bloqueado = true;
+                    }
                     UserDB.Intentos = 0;
                     datos = new string[] { UserDB.Nombre, UserDB.Pass, UserDB.Intentos.ToString(), UserDB.bloqueado.ToString(), UserDB.Empleado.ID.ToString(), UserDB.Idioma.id.ToString() };
                     UserDB.DVH = _Verificador.CalcularDVH(datos);
@@ -323,7 +327,7 @@ namespace C2_Negocio
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -344,13 +348,13 @@ namespace C2_Negocio
                 DigitoVertical.Tabla = "Usuarios";
 
                 _Verificador.Recalcular_DVV(DigitoVertical);
-                
+
                 DigitoVertical.Tabla = "Bitacora";
 
                 _Verificador.Recalcular_DVV(DigitoVertical);
 
                 return true;
-                
+
             }
             catch (Exception ex)
             {

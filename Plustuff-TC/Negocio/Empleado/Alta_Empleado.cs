@@ -31,6 +31,12 @@ namespace Plustuff_TC.Negocio.Empleado
             empleado.Mail = txtmail.Text;
             empleado.Telefono = txtcontacto.Text;
 
+            if (!empleado.Mail.Contains("@") && !empleado.Mail.Contains(".com"))
+            {
+                MessageBox.Show(this, "Mail invalido", "Alta de empleado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (_empleado.Vacio(empleado))
             {
                 MessageBox.Show(this, "Debe completar todos los campos", "Alta de empleado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -134,6 +140,22 @@ namespace Plustuff_TC.Negocio.Empleado
 
                     TraducirControlesInternos(subItem, traducciones);
                 }
+            }
+        }
+
+        private void txtnombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if  (!char.IsLetter(e.KeyChar) && !char.IsSeparator(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtapellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsSeparator(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

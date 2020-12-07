@@ -136,6 +136,7 @@
             this.Text = "Nuevo Filamento";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Nuevo_Filamento_FormClosing);
             this.Load += new System.EventHandler(this.Nuevo_Filamento_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Nuevo_Filamento_HelpRequested);
             this.gbfilamento.ResumeLayout(false);
             this.gbfilamento.PerformLayout();
             this.ResumeLayout(false);

@@ -38,15 +38,15 @@ namespace Plustuff_TC.Seguridad
         {
             try
             {
-                if (!_Backup.Consistencia(txtnombre.Text) || !_Backup.Consistencia(txtruta.Text))
-                {
-                    MessageBox.Show("Error de consistencia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
                 if (string.IsNullOrEmpty(txtnombre.Text) || string.IsNullOrEmpty(txtruta.Text))
                 {
                     MessageBox.Show("Complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!_Backup.Consistencia(txtnombre.Text) || !_Backup.Consistencia(txtruta.Text))
+                {
+                    MessageBox.Show("Error de consistencia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 

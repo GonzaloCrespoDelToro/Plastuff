@@ -188,5 +188,11 @@ namespace Plustuff_TC.Negocio.Pantallas
         {
             Servicios.ManagerIdioma.Desuscribir(this);
         }
+
+        private void Mostrar_Filamentos_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            string Ruta = System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, "Resources") + @"\Plaware Help.chm";
+            Help.ShowHelp(this, Ruta, "ListarFilamentos.htm");
+        }
     }
 }

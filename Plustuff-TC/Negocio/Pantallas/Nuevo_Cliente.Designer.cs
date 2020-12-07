@@ -64,6 +64,7 @@
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(189, 22);
             this.txtnombre.TabIndex = 1;
+            this.txtnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombre_KeyPress);
             // 
             // txtapellido
             // 
@@ -71,6 +72,7 @@
             this.txtapellido.Name = "txtapellido";
             this.txtapellido.Size = new System.Drawing.Size(189, 22);
             this.txtapellido.TabIndex = 2;
+            this.txtapellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtapellido_KeyPress);
             // 
             // lblapellido
             // 
@@ -232,6 +234,7 @@
             this.Text = "Nuevo_Cliente";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Nuevo_Cliente_FormClosing);
             this.Load += new System.EventHandler(this.Nuevo_Cliente_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Nuevo_Cliente_HelpRequested);
             this.gbnuevocliente.ResumeLayout(false);
             this.gbnuevocliente.PerformLayout();
             this.ResumeLayout(false);

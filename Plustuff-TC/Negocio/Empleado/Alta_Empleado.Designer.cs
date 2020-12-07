@@ -162,6 +162,7 @@
             this.txtapellido.Name = "txtapellido";
             this.txtapellido.Size = new System.Drawing.Size(158, 22);
             this.txtapellido.TabIndex = 3;
+            this.txtapellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtapellido_KeyPress);
             // 
             // lblapellido
             // 
@@ -178,6 +179,7 @@
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(158, 22);
             this.txtnombre.TabIndex = 1;
+            this.txtnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombre_KeyPress);
             // 
             // lblnombre
             // 

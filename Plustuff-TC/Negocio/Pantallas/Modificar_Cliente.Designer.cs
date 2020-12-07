@@ -313,6 +313,7 @@
             this.Text = "Modificar Cliente";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Modificar_Cliente_FormClosing);
             this.Load += new System.EventHandler(this.Modificar_Cliente_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Modificar_Cliente_HelpRequested);
             this.gbClienteSelec.ResumeLayout(false);
             this.gbClienteSelec.PerformLayout();
             this.gbModificar.ResumeLayout(false);

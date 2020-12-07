@@ -142,6 +142,7 @@
             this.Text = "Mostrar Filamentos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Mostrar_Filamentos_FormClosing);
             this.Load += new System.EventHandler(this.Mostrar_Filamentos_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Mostrar_Filamentos_HelpRequested);
             this.gbfilamentos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridViewFilamentos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -59,7 +59,7 @@ namespace Plustuff_TC.LogIn
             this.Refresh();
             System.Threading.Thread.Sleep(500);
             List<string> ErrorDVH = _Verificador.Verificar_DVH(); //Verificacion de DVH
-            if (ErrorDVH != null)
+            if (ErrorDVH.Count != 0)
             {
                 foreach (var error in ErrorDVH)
                 {

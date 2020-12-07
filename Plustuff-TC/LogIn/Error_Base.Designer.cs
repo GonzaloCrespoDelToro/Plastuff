@@ -266,6 +266,7 @@
             this.Name = "Error_Base";
             this.Text = "Administrador";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Error_Base_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Error_Base_FormClosed);
             this.Load += new System.EventHandler(this.Error_Base_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBitacora)).EndInit();
             this.gbbitacora.ResumeLayout(false);

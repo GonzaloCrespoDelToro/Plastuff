@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Datos_Conexion));
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAceptar = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@
             this.Label3 = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.GroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,12 +61,15 @@
             // 
             // btnAceptar
             // 
+            this.btnAceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAceptar.ForeColor = System.Drawing.Color.White;
             this.btnAceptar.Location = new System.Drawing.Point(12, 171);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(326, 30);
             this.btnAceptar.TabIndex = 11;
             this.btnAceptar.Text = "Aceptar y Guardar la Conexion";
-            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // txtBDD
@@ -77,11 +82,13 @@
             // Label5
             // 
             this.Label5.AutoSize = true;
+            this.Label5.Cursor = System.Windows.Forms.Cursors.Help;
             this.Label5.Location = new System.Drawing.Point(8, 129);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(48, 20);
             this.Label5.TabIndex = 5;
             this.Label5.Text = "BDD:";
+            this.toolTip1.SetToolTip(this.Label5, "Nombre de la base de datos");
             // 
             // txtServidor
             // 
@@ -98,6 +105,7 @@
             this.Label4.Size = new System.Drawing.Size(71, 20);
             this.Label4.TabIndex = 3;
             this.Label4.Text = "Servidor:";
+            this.toolTip1.SetToolTip(this.Label4, "Servidor en el que se encuentra la base de datos");
             // 
             // Label3
             // 
@@ -158,5 +166,6 @@
         internal System.Windows.Forms.Label Label3;
         internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.Label Label1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

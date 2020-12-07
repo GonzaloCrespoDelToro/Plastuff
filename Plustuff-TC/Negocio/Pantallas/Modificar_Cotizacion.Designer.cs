@@ -400,6 +400,7 @@
             this.Name = "Modificar_Cotizacion";
             this.Text = "Modificar Cotizacion";
             this.Load += new System.EventHandler(this.Modificar_Cotizacion_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Modificar_Cotizacion_HelpRequested);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);

@@ -44,7 +44,7 @@ namespace Plustuff_TC.LogIn
             }
             catch (Exception)
             {
-                MessageBox.Show("Ocurrio un error inesperado", "Error");
+                MessageBox.Show("Ocurrio un error inesperado, los datos estan corruptos.", "Error");
             }
             
         }
@@ -295,16 +295,21 @@ namespace Plustuff_TC.LogIn
 
         private void Error_Base_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Servicios.ManagerIdioma.Desuscribir(this);
-            if (this.MdiParent == null)
-            {
-                Environment.Exit(0);
-            }
+            
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Error_Base_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Servicios.ManagerIdioma.Desuscribir(this);
+            if (this.MdiParent == null)
+            {
+                Application.Restart();
+            }
         }
     }
 }

@@ -102,17 +102,24 @@ namespace Plustuff_TC.Seguridad.Pantallas.Usuario
 
         private void listar()
         {
-            txtfilter.Clear();
+            try
+            {
+                txtfilter.Clear();
 
-            var Usuarios = _Usuarios.Listar_Usuarios();
-            this.GridViewUsuarios.DataSource = (from u in Usuarios
-                                                select new
-                                                {
-                                                    Usuario = u.Nombre,
-                                                    Empleado = $"{u.Empleado.Nombre} {u.Empleado.Apellido}",
-                                                    Bloqueado = u.bloqueado,
-                                                    Idioma = u.Idioma.idioma
-                                                }).ToList();
+                var Usuarios = _Usuarios.Listar_Usuarios();
+                this.GridViewUsuarios.DataSource = (from u in Usuarios
+                                                    select new
+                                                    {
+                                                        Usuario = u.Nombre,
+                                                        Empleado = $"{u.Empleado.Nombre} {u.Empleado.Apellido}",
+                                                        Bloqueado = u.bloqueado,
+                                                        Idioma = u.Idioma.idioma
+                                                    }).ToList();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se puede listar a los usuarios, puede que los datos esten corruptos.", "Error");
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

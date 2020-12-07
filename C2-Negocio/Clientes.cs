@@ -45,6 +45,15 @@ namespace C2_Negocio
             }
         }
 
+        public bool ValidarMail(Cliente cliente)
+        {
+            if (!cliente.Mail.Contains("@") || !cliente.Mail.Contains(".com"))
+            {
+                return false;
+            }
+            return true;
+        }
+
         public List<Modelo.Cliente> ListarClientes()
         {
             try

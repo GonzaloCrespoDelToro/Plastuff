@@ -15,7 +15,7 @@ namespace Plustuff_TC.LogIn
     {
         public Usuarios _Usuario = new Usuarios();
         public string Error_DVV = null;
-        public List<string>Error_DVH = null;
+        public List<string> Error_DVH = new List<string>();
         public bool Admin = false;
         Modelo.Bitacora bitacora = new Modelo.Bitacora();
         Bitacora _Bitacora = new C2_Negocio.Bitacora();

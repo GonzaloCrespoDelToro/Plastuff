@@ -200,6 +200,7 @@
             this.Text = "Mostrar Clientes";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Mostrar_Clientes_FormClosing);
             this.Load += new System.EventHandler(this.Mostrar_Clientes_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Mostrar_Clientes_HelpRequested);
             this.gbfiltro.ResumeLayout(false);
             this.gbfiltro.PerformLayout();
             this.gbclientes.ResumeLayout(false);

@@ -114,6 +114,10 @@ namespace Plustuff_TC.Seguridad
                     this.Close();
                 }
             }
+            else
+            {
+                MessageBox.Show("Complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

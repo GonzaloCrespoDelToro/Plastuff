@@ -315,7 +315,7 @@ namespace Acceso_Datos
         {
             try
             {
-                _accesoSQL.Ejecutar_Query("ExecuteNonQuery", "UPDATE Usuarios SET Contador = 0, Bloqueado = 1, DVH = '" + usuario.DVH + "' WHERE Nombre ='" + usuario.Nombre + "'");
+                _accesoSQL.Ejecutar_Query("ExecuteNonQuery", $"UPDATE Usuarios SET Contador = 0, Bloqueado = '{usuario.bloqueado}', DVH = '" + usuario.DVH + "' WHERE Nombre ='" + usuario.Nombre + "'");
             }
             catch (Exception ex)
             {

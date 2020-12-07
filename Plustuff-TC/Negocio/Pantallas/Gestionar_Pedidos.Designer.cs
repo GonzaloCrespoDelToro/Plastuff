@@ -40,6 +40,7 @@
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.rbEstado = new System.Windows.Forms.RadioButton();
             this.rbDNI = new System.Windows.Forms.RadioButton();
+            this.btnexportar = new System.Windows.Forms.Button();
             this.gbPedidos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewPedidos)).BeginInit();
             this.gbFiltro.SuspendLayout();
@@ -180,12 +181,26 @@
             this.rbDNI.UseVisualStyleBackColor = true;
             this.rbDNI.CheckedChanged += new System.EventHandler(this.rbDNI_CheckedChanged);
             // 
+            // btnexportar
+            // 
+            this.btnexportar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnexportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnexportar.ForeColor = System.Drawing.Color.White;
+            this.btnexportar.Location = new System.Drawing.Point(178, 454);
+            this.btnexportar.Name = "btnexportar";
+            this.btnexportar.Size = new System.Drawing.Size(116, 31);
+            this.btnexportar.TabIndex = 6;
+            this.btnexportar.Text = "Exportar PDF";
+            this.btnexportar.UseVisualStyleBackColor = false;
+            this.btnexportar.Click += new System.EventHandler(this.btnexportar_Click);
+            // 
             // Gestionar_Pedidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(471, 495);
+            this.Controls.Add(this.btnexportar);
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.btnmodificar);
             this.Controls.Add(this.gbPedidos);
@@ -198,6 +213,7 @@
             this.Text = "Gestionar Pedidos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Gestionar_Pedidos_FormClosing);
             this.Load += new System.EventHandler(this.Gestionar_Pedidos_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Gestionar_Pedidos_HelpRequested);
             this.gbPedidos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridViewPedidos)).EndInit();
             this.gbFiltro.ResumeLayout(false);
@@ -219,5 +235,6 @@
         private System.Windows.Forms.RadioButton rbEstado;
         private System.Windows.Forms.RadioButton rbDNI;
         private System.Windows.Forms.ComboBox cbestados;
+        private System.Windows.Forms.Button btnexportar;
     }
 }

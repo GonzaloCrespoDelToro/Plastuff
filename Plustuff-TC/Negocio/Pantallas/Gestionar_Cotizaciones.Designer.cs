@@ -41,6 +41,7 @@
             this.btnaceptar = new System.Windows.Forms.Button();
             this.btncancelar = new System.Windows.Forms.Button();
             this.btnmodificar = new System.Windows.Forms.Button();
+            this.btnexportacion = new System.Windows.Forms.Button();
             this.Cotizaciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewCotizaciones)).BeginInit();
             this.Filtro.SuspendLayout();
@@ -163,7 +164,7 @@
             this.btnaceptar.ForeColor = System.Drawing.Color.White;
             this.btnaceptar.Location = new System.Drawing.Point(12, 454);
             this.btnaceptar.Name = "btnaceptar";
-            this.btnaceptar.Size = new System.Drawing.Size(186, 31);
+            this.btnaceptar.Size = new System.Drawing.Size(159, 31);
             this.btnaceptar.TabIndex = 1;
             this.btnaceptar.Text = "Aceptar Cotizacion";
             this.btnaceptar.UseVisualStyleBackColor = false;
@@ -187,13 +188,26 @@
             this.btnmodificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
             this.btnmodificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnmodificar.ForeColor = System.Drawing.Color.White;
-            this.btnmodificar.Location = new System.Drawing.Point(274, 454);
+            this.btnmodificar.Location = new System.Drawing.Point(301, 454);
             this.btnmodificar.Name = "btnmodificar";
-            this.btnmodificar.Size = new System.Drawing.Size(186, 31);
+            this.btnmodificar.Size = new System.Drawing.Size(159, 31);
             this.btnmodificar.TabIndex = 3;
             this.btnmodificar.Text = "Modificar";
             this.btnmodificar.UseVisualStyleBackColor = false;
             this.btnmodificar.Click += new System.EventHandler(this.btnmodificar_Click);
+            // 
+            // btnexportacion
+            // 
+            this.btnexportacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(169)))), ((int)(((byte)(250)))));
+            this.btnexportacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnexportacion.ForeColor = System.Drawing.Color.White;
+            this.btnexportacion.Location = new System.Drawing.Point(177, 454);
+            this.btnexportacion.Name = "btnexportacion";
+            this.btnexportacion.Size = new System.Drawing.Size(118, 31);
+            this.btnexportacion.TabIndex = 4;
+            this.btnexportacion.Text = "Exportar PDF";
+            this.btnexportacion.UseVisualStyleBackColor = false;
+            this.btnexportacion.Click += new System.EventHandler(this.btnexportacion_Click);
             // 
             // Gestionar_Cotizaciones
             // 
@@ -201,6 +215,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(471, 527);
+            this.Controls.Add(this.btnexportacion);
             this.Controls.Add(this.btnmodificar);
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.btnaceptar);
@@ -213,6 +228,7 @@
             this.Name = "Gestionar_Cotizaciones";
             this.Text = "Gestionar Cotizaciones";
             this.Load += new System.EventHandler(this.Gestionar_Cotizaciones_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Gestionar_Cotizaciones_HelpRequested);
             this.Cotizaciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridViewCotizaciones)).EndInit();
             this.Filtro.ResumeLayout(false);
@@ -235,5 +251,6 @@
         private System.Windows.Forms.DataGridView GridViewCotizaciones;
         private System.Windows.Forms.Button btnlimpiar;
         private System.Windows.Forms.Button btnmodificar;
+        private System.Windows.Forms.Button btnexportacion;
     }
 }

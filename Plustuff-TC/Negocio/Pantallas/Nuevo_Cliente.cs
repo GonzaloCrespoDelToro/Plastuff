@@ -2,6 +2,7 @@
 using Servicios;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -40,6 +41,12 @@ namespace Plustuff_TC.Negocio.Pantallas
             if (!_Clientes.Validacion(cliente))
             {
                 MessageBox.Show("Complete todos los campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!_Clientes.ValidarMail(cliente))
+            {
+                MessageBox.Show("Mail invalido, intente nuevamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -189,6 +196,28 @@ namespace Plustuff_TC.Negocio.Pantallas
         private void Nuevo_Cliente_FormClosing(object sender, FormClosingEventArgs e)
         {
             Servicios.ManagerIdioma.Desuscribir(this);
+        }
+
+        private void txtnombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsSeparator(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtapellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsSeparator(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Nuevo_Cliente_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            string Ruta = System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, "Resources") + @"\Plaware Help.chm";
+            Help.ShowHelp(this, Ruta, "AltaCliente.htm");
         }
     }
 }

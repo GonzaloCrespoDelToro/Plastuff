@@ -129,19 +129,27 @@ namespace Plustuff_TC.Negocio.Pantallas
 
         private void Listar()
         {
-            txtfilter.Clear();
-            var clientes = _Clientes.ListarClientes();
-            GridViewClientes.DataSource = (from c in clientes
-                                           select new
-                                           {
-                                               Nombre = $"{c.Nombre} {c.Apellido}",
-                                               Direccion = c.Direccion,
-                                               DNI = c.DNI,
-                                               FechaNacimiento = c.Fechanac.ToShortDateString(),
-                                               Email = c.Mail,
-                                               Contacto = c.Telefono,
-                                               Baja = c.Baja
-                                           }).ToList();
+            try
+            {
+                txtfilter.Clear();
+                var clientes = _Clientes.ListarClientes();
+                GridViewClientes.DataSource = (from c in clientes
+                                               select new
+                                               {
+                                                   Nombre = $"{c.Nombre} {c.Apellido}",
+                                                   Direccion = c.Direccion,
+                                                   DNI = c.DNI,
+                                                   FechaNacimiento = c.Fechanac.ToShortDateString(),
+                                                   Email = c.Mail,
+                                                   Contacto = c.Telefono,
+                                                   Baja = c.Baja
+                                               }).ToList();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se puede listar a los clientes, puede que los datos esten corruptos.", "Error");
+            }
+            
 
         }
 
@@ -221,6 +229,12 @@ namespace Plustuff_TC.Negocio.Pantallas
         private void gbclientes_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void Mostrar_Clientes_HelpRequested(object sender, HelpEventArgs hlpevent)
+        {
+            string Ruta = System.IO.Path.Combine(System.Windows.Forms.Application.StartupPath, "Resources") + @"\Plaware Help.chm";
+            Help.ShowHelp(this, Ruta, "EliminarCliente.htm");
         }
     }
 }

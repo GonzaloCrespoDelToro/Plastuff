@@ -185,6 +185,7 @@
             this.Name = "Modificar_Filamento";
             this.Text = "Modificar Filamento";
             this.Load += new System.EventHandler(this.Modificar_Filamento_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Modificar_Filamento_HelpRequested);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.Filamentos.ResumeLayout(false);

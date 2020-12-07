@@ -193,6 +193,7 @@
             this.txtgramos.Name = "txtgramos";
             this.txtgramos.Size = new System.Drawing.Size(119, 22);
             this.txtgramos.TabIndex = 6;
+            this.txtgramos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtgramos_KeyPress);
             // 
             // lblgramos
             // 
@@ -212,6 +213,7 @@
             this.txttiempo.Name = "txttiempo";
             this.txttiempo.Size = new System.Drawing.Size(100, 22);
             this.txttiempo.TabIndex = 4;
+            this.txttiempo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txttiempo_KeyPress);
             // 
             // lbltiempo
             // 
@@ -363,6 +365,7 @@
             this.Text = "Nueva Cotizacion";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Nueva_Cotizacion_FormClosing);
             this.Load += new System.EventHandler(this.Nueva_Cotizacion_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Nueva_Cotizacion_HelpRequested);
             this.gbgenerar.ResumeLayout(false);
             this.gbgenerar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbruta)).EndInit();

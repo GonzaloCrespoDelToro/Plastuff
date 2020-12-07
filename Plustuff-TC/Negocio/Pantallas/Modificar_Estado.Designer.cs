@@ -151,6 +151,7 @@
             this.Name = "Modificar_Estado";
             this.Text = "Modificar Estado";
             this.Load += new System.EventHandler(this.Modificar_Estado_Load);
+            this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.Modificar_Estado_HelpRequested);
             this.gbPedidoSelec.ResumeLayout(false);
             this.gbPedidoSelec.PerformLayout();
             this.gbModificar.ResumeLayout(false);
