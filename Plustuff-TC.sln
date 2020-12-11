@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "C2-Negocio", "C2-Negocio\C2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo", "Modelo\Modelo.csproj", "{F758926A-DD22-43B6-B977-4741C5CEFDC2}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Plaware", "Plaware\Plaware.vdproj", "{2A038D8B-7111-4031-98FF-E1B757788E40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,8 @@ Global
 		{F758926A-DD22-43B6-B977-4741C5CEFDC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F758926A-DD22-43B6-B977-4741C5CEFDC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F758926A-DD22-43B6-B977-4741C5CEFDC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A038D8B-7111-4031-98FF-E1B757788E40}.Debug|Any CPU.ActiveCfg = Debug
+		{2A038D8B-7111-4031-98FF-E1B757788E40}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
